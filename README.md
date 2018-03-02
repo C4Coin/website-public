@@ -21,7 +21,7 @@ The main C4Coin Public facing website, providing sales, marketing, and public re
 5. Drive social media followers (to be clarified with PR team)
 6. Content Management System (CMS) integration
 
-  Q:  Will the CMS control only the blog, or being able to reorganize the entire site?
+  Q:  Will the CMS control only the blog, or being able to reorganise the entire site?
 
 7. The C4Coin team
 8. Contact information
@@ -37,6 +37,7 @@ The site will be built using `react-create-app` as a base and will conform to th
 
 * [NodeJS](htps://nodejs.org), version 9.7.1 or better (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
 * [Docker](https://www.docker.com) (Use [Docker for Mac](https://docs.docker.com/docker-for-mac/), not the homebrew version)
+* [Access to the C4Coin Jira](https://c4coin.atlassian.net)
 * [requirements google doc](https://docs.google.com/document/d/1s8kTfWc2VzSOXft3Zky7qowFLgNo9YIWEHuVV09LWXs)
 
 ### Initialisation
