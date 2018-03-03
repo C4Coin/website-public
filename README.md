@@ -31,7 +31,8 @@ Comments: This site is relatively simple because there are no public user accoun
 
 ## Development
 
-The site will be built using `react-create-app` as a base and will conform to the general coding standards common to all of the C4Coin sites.
+* The site will be built using `react-create-app` as a base and will conform to the general coding standards common to all of the C4Coin sites.
+* The ['fractal'](https://hackernoon.com/fractal-a-react-app-structure-for-infinite-scale-4dab943092af) React app structure will be followed.
 
 ### Development Prerequisites
 
