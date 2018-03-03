@@ -56,7 +56,7 @@ It's basically the same process but use the word `hotfix` or `support` instead o
 4. Now go back to GitHub and raise a Pull Request to merge the upstream master from your fork's `master` branch. When that goes through you are done.
 5. In your command-line go back and clean up any outstanding branches and `git pull upstream` your local `master` and `develop` branches to ensure everything on your local machine is up to date with everyone's changes.
 
-Note you will **never** push changes directly to the upstream project, *only to your own fork*. 
+Note you will **never** push changes directly to the upstream project, *only to your own fork*.
 
 **Changes may only be introduced into the upstream project via a properly reviewed pull request.**
 
@@ -90,3 +90,9 @@ Pull requests must be named as follows `[issue type, issue number] high level de
 If your change does not fit any of these categories, use `Feature`. Likewise if your change is not tied to an issue number you may use `n/a` instead.
 
 So to use the above example your Pull Request would be named `[Feature, ABC-1] added anteater to aardvark`
+
+### You built it, you merge it
+
+A developer must be responsible for their own work, from accepting a task through to merging to production.  With that in mind if you review another developer's PR, please don't then merge it yourself.  As a general rule you must let the developer merge her own PRs.
+
+Likewise, don't expect someone else to merge your PR.  Unless you do not have write permission on a project, you will always aim to take personal responsibility for the quality of the code that gets merged in.
