@@ -1,0 +1,21 @@
+/*
+ * App Style
+ *
+ * The base style for the application.
+ *
+ */
+@charset "utf-8/index";
+
+@import './variables.scss';
+@import './base.scss';
+@import './typeography.scss';
+@import './input.scss';
+
+.app {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}

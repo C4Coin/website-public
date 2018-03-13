@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>
+      <%= htmlWebpackPlugin.options.title || 'Web App'%>
+    </title>
+    <meta
+      name="description"
+      content=""
+    />
+    <link rel="icon" type="image/png" href="./static/favicon.png">
+    <!-- Facebook -->
+    <meta
+      property="og:title"
+      content="<%= htmlWebpackPlugin.options.title || 'Web App'%>"
+    />
+    <meta property="og:url" content=""/>
+    <meta
+      property="og:description"
+      content=""
+    />
+    <meta
+      property="og:image"
+      content=""
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="mobile-web-app-capable" content="yes">
+  </head>
+  <body>
+  	<div
+      id="<%= htmlWebpackPlugin.options.containerId %>"
+      class="app-container"
+    >
+  	</div>
+  </body>
+</html>
