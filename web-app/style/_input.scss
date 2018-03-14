@@ -1,0 +1,24 @@
+/**
+ * Input
+ */
+
+form {
+  outline: none;
+}
+
+:global(.button),
+button {
+  outline: none;
+
+}
+
+:global(.button:hover),
+:global(.button:focus),
+button:hover,
+button:focus {
+
+}
+
+input[type=text] {
+  outline: none;
+}

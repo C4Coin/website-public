@@ -1,6 +1,6 @@
 {
-  "extends": ["standard", "prettier", "prettier/standard"],
-  "plugins": ["prettier", "standard", "mocha"],
+  "extends": ["standard", "prettier", "prettier/standard", "plugin:react/recommended"],
+  "plugins": ["prettier", "standard", "mocha", "react"],
   "parserOptions": {
     "sourceType": "module"
   },
