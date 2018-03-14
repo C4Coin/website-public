@@ -1,5 +1,7 @@
 # website-public
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/C4Coin/website-public.svg)](https://greenkeeper.io/)
+
 The main C4Coin Public facing website, providing sales, marketing, and public relations information.
 
 * `develop` — [insert CircleCI badge]
