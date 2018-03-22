@@ -10,7 +10,7 @@
     "start:build": "http-server ./dist",
     "build": "webpack --mode production",
     "build:dev": "webpack --config webpack.dev.config.js",
-    "lint": "eslint **/*.{js,jsx}",
+    "lint": "eslint .",
     "clean": "rm -rf dist",
     "test": "echo 'Tests have not yet been written'",
     "test:coverage": "echo 'Coverage tests have not yet been written'"
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/C4Coin/website-public#readme",
   "lint-staged": {
-    "**/*.{js,jsx}": [
+    "*.{js,jsx}": [
       "prettier --single-quote --no-semi --write",
       "git add"
     ]
