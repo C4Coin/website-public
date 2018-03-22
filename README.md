@@ -2,8 +2,8 @@
 
 The main C4Coin Public facing website, providing sales, marketing, and public relations information.
 
-* `develop` — [insert CircleCI badge]
-* `master` — [insert CircleCI badge]
+* `develop` — [![CircleCI](https://circleci.com/gh/C4Coin/website-public/tree/develop.svg?style=svg)](https://circleci.com/gh/C4Coin/website-public/tree/develop) [insert codecov badge]
+* `master` — [![CircleCI](https://circleci.com/gh/C4Coin/website-public/tree/master.svg?style=svg)](https://circleci.com/gh/C4Coin/website-public/tree/master) [insert codecov badge]
 
 ## Functional Requirements
 

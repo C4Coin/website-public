@@ -1,8 +1,8 @@
 module.exports = ({ file, options, env }) => {
-  return({
+  return {
     plugins: {
-      'autoprefixer': options.mode == 'production' ? {} : false,
-      'cssnano': options.mode == 'production' ? {} : false,
+      autoprefixer: options.mode === 'production' ? {} : false,
+      cssnano: options.mode === 'production' ? {} : false
     }
-  })
+  }
 }
