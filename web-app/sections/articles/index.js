@@ -1,6 +1,6 @@
 import React from 'react'
-import { Route, Switch, match } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import { Route, Switch } from 'react-router-dom'
+import ReactRouterPropTypes from 'react-router-prop-types'
 
 import s from './index.scss'
 
@@ -11,7 +11,7 @@ import Post from './sections/post'
 import PostNotFound from './sections/post-not-found'
 
 Articles.propTypes = {
-  match: PropTypes.instanceOf(match)
+  match: ReactRouterPropTypes.match.isRequired
 }
 
 export default function Articles({ match, ...rest }) {
