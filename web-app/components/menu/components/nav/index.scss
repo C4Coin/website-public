@@ -1,0 +1,45 @@
+/**
+ *
+ * Nav Style
+ *
+**/
+
+@import '~style/_variables.scss';
+@import '../../_variables.scss';
+
+.container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.display {
+  align-self: center;
+}
+
+.item {
+  font-size: 32px;
+  font-weight: bold;
+  font-family: $korolev;
+  text-transform: uppercase;
+}
+
+.item + .item {
+  margin-top: .5em;
+}
+
+.icon-display {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.icon {
+  width: 30px;
+  height: auto;
+}
+
+.name {
+  vertical-align: middle;
+  letter-spacing: 0.01em;
+}

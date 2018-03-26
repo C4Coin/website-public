@@ -5,6 +5,8 @@
  *
  */
 
+@import 'variables.scss';
+
 
 * {
 	font-size: inherit;
@@ -14,7 +16,7 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "times new roman",garamond,serif;
+  font-family: $helvetica-neue;
 }
 
 a {

@@ -1,0 +1,25 @@
+/**
+ *
+ * Footer Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+.container {
+  background-color: $white;
+  font-size: 10px;
+  margin-top: 1.45em;
+  margin-bottom: 1.45em;
+  margin-left: 42px;
+  line-height: 1em;
+}
+
+.link {
+  text-transform: uppercase;
+  color: $dark-gray;
+}
+
+.link + .link {
+  margin-left: 1.2em;
+}

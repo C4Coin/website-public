@@ -1,0 +1,44 @@
+/**
+ *
+ * Mailing Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+$icon-width: 24px;
+
+.container {
+  background-color: $dirty-white;
+  display: flex;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.title-display {
+  flex-basis: 80px;
+  text-align: center;
+  height: $icon-width + 2;
+}
+
+.title {
+  display: inline;
+  width: $icon-width;
+  height: auto;
+  transform: rotate(-90deg);
+  fill: $dark-gray;
+  opacity: .5;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+.method {
+  cursor: pointer;
+  color: $black-tint;
+  font-size: 16px;
+}
+
+.method + .method {
+  margin-left: 1em;
+}

@@ -1,0 +1,54 @@
+/**
+ *
+ * Social Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+.container {
+  background-color: $white-shade;
+  display: flex;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.title-display {
+  writing-mode: tb;
+  flex-basis: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 16px;
+  transform: rotate(180deg);
+  color: $dark-gray;
+  opacity: .5;
+  font-weight: normal;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.social-icons {
+  display: flex;
+  width: 96px;
+  height: 96px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.icon-background {
+  background-color: $silver;
+  margin-bottom: 12px;
+}
+
+.icon {
+  display: block;
+  width: 42px;
+  height: 42px;
+  fill: $white-shade;
+}
