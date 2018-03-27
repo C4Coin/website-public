@@ -52,3 +52,44 @@
   height: 42px;
   fill: $white-shade;
 }
+
+.telegram-display {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  margin-left: 24px;
+}
+
+.telegraph-graphic {
+  width: 100%;
+  height: 100%;
+  animation-duration: 2.6s;
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.7,.3,.3,.7);
+}
+
+.telegram-title-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1em;
+  font-size: 14px;
+  color: $blue;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(12deg);
+  }
+
+  to {
+    transform: rotate(372deg);
+  }
+}

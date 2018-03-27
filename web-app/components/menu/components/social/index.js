@@ -5,6 +5,7 @@ import Facebook from 'assets/icons/facebook.svg'
 import Instagram from 'assets/icons/instagram.svg'
 import Reddit from 'assets/icons/reddit.svg'
 import Twitter from 'assets/icons/twitter.svg'
+import telegraphGraphic from '!file-loader!!assets/graphics/telegram.svg'
 
 import appConfig from 'app.config'
 
@@ -34,25 +35,31 @@ export default function Social({ active, ...rest }) {
       <div className={s['title-display']}>
         <h3 className={s['title']}>Connect With Us</h3>
       </div>
-      {active && (
-        <div className={s['content-display']}>
-          <div className={s['social-icons']}>
-            <SocialIcon url={facebookUrl} key="facebook">
-              <Facebook className={s['icon']} />
-            </SocialIcon>
-            <SocialIcon url={instagramUrl} key="instagram">
-              <Instagram className={s['icon']} />
-            </SocialIcon>
-            <SocialIcon url={twitterUrl} key="twitter">
-              <Twitter className={s['icon']} />
-            </SocialIcon>
-            <SocialIcon url={redditUrl} key="reddit">
-              <Reddit className={s['icon']} />
-            </SocialIcon>
-          </div>
-          <div className={s['telegram-display']} />
+      <div className={s['content-display']}>
+        <div className={s['social-icons']}>
+          <SocialIcon url={facebookUrl} key="facebook">
+            <Facebook className={s['icon']} />
+          </SocialIcon>
+          <SocialIcon url={instagramUrl} key="instagram">
+            <Instagram className={s['icon']} />
+          </SocialIcon>
+          <SocialIcon url={twitterUrl} key="twitter">
+            <Twitter className={s['icon']} />
+          </SocialIcon>
+          <SocialIcon url={redditUrl} key="reddit">
+            <Reddit className={s['icon']} />
+          </SocialIcon>
         </div>
-      )}
+      </div>
+      <div className={s['telegram-display']}>
+        <img src={telegraphGraphic} className={s['telegraph-graphic']} />
+        <a href={telegramUrl} target="_blank">
+          <div className={s['telegram-title-container']}>
+            <div>Join us on</div>
+            <strong>Telegram</strong>
+          </div>
+        </a>
+      </div>
     </div>
   )
 }

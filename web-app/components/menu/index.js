@@ -64,7 +64,7 @@ class Menu extends React.Component {
           <Link to={coverUrl}>
             <Logo className={s['logo']} />
           </Link>
-          <Nav links={navLinks} active={active} />
+          <Nav links={navLinks} currentPageIdx={3} active={active} />
           <Social active={active} />
           <Mailing />
           <Footer links={footerLinks} />
