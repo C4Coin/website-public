@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 process.traceDeprecation = true
 
-module.exports = (env, argv) => {
+module.exports = (env, argv = { mode: 'development' }) => {
   const { mode } = argv
   return {
     context: path.resolve('./web-app'),
@@ -109,6 +109,10 @@ module.exports = (env, argv) => {
           ]
         }
       ]
+    },
+    node: {
+      fs: 'empty',
+      module: 'empty'
     }
   }
 }
