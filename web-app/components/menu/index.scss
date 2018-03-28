@@ -23,12 +23,19 @@
   flex-direction: column;
   border-right: 2px solid transparent;
   z-index: 2;
+  background: blue;
 }
 
 .logo {
-  width: 100px;
-  height: auto;
-  fill: $gold;
-  margin-left: 80px;
+  width: 40px;
   margin-top: 48px;
+  margin-left: 20px;
+  fill: $gold;
+  height: auto;
+  transition: width .6s, margin .6s;
+}
+
+.logo.active {
+  width: 100px;
+  margin-left: 80px;
 }

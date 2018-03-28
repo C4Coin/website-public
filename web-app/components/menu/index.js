@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter, matchPath } from 'react-router-dom'
+import { Motion } from 'react-motion'
 import PropTypes from 'prop-types'
 
 import websitePropTypes from 'utils/website-prop-types'
@@ -39,19 +40,27 @@ class Menu extends React.Component {
     this.setState({
       active: x <= 120,
       mouseX: x,
-      ouseY: y
+      mouseY: y
     })
   }
 
   render() {
-    const { coverUrl, navLinks, footerLinks } = this.props
-    const active = true
-    const { mouseX, mouseY } = this.state
+    const {
+      coverUrl,
+      navLinks,
+      footerLinks,
+      location: { pathname }
+    } = this.props
+
+    const { active, mouseX, mouseY } = this.state
     const { latentMenuWidth, activeMenuWidth } = sVariables
     const borderWidth =
       pixelsToNumber(activeMenuWidth) - pixelsToNumber(latentMenuWidth)
 
-    const width = active ? activeMenuWidth : latentMenuWidth
+    const currentLinkIdx = navLinks.findIndex(
+      ({ url }) => matchPath(pathname, { path: url }) != null
+    )
+
     return (
       <div
         className={s['container']}
@@ -60,15 +69,27 @@ class Menu extends React.Component {
       >
         <div className={s['shader']} />
         <Border width={borderWidth} active={active} />
-        <div className={s['display']} style={{ width: width }}>
-          <Link to={coverUrl}>
-            <Logo className={s['logo']} />
-          </Link>
-          <Nav links={navLinks} currentPageIdx={3} active={active} />
-          <Social active={active} />
-          <Mailing />
-          <Footer links={footerLinks} />
-        </div>
+        <Motion defaultStyle={{ d: 0 }} style={{ d: 1 * active }}>
+          {({ d }) => {
+            const widthDifference = activeMenuWidth - latentMenuWidth
+            const width = latentMenuWidth + d * widthDifference
+            return (
+              <div className={s['display']} style={{ width: width }}>
+                <Link to={coverUrl}>
+                  <Logo className={`${s['logo']} ${active && s['active']}`} />
+                </Link>
+                <Nav
+                  links={navLinks}
+                  currentPageIdx={currentLinkIdx}
+                  active={active}
+                />
+                <Social active={active} />
+                <Mailing />
+                <Footer links={footerLinks} active={active} />
+              </div>
+            )
+          }}
+        </Motion>
       </div>
     )
   }
@@ -80,4 +101,4 @@ Menu.propTypes = {
   footerLinks: PropTypes.arrayOf(websitePropTypes.link)
 }
 
-export default Menu
+export default withRouter(Menu)

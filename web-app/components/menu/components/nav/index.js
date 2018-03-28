@@ -36,8 +36,6 @@ export default function Nav({
           const linkPosition =
             positions[(idx > currentPageIdx) + (idx >= currentPageIdx)]
 
-          console.log(linkPosition)
-
           return (
             <div className={s['item']} key={idx}>
               <Link to={linkVal.url}>

@@ -15,6 +15,17 @@
   line-height: 1em;
 }
 
+.display {
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: .4s;
+}
+
+.active .display {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
 .link {
   text-transform: uppercase;
   color: $dark-gray;
