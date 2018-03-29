@@ -13,7 +13,7 @@
     "lint": "eslint .",
     "clean": "rm -rf dist",
     "test": "npm run test:unit",
-    "test:unit": "mocha-webpack --mode development  --require ./test/unit/test_helper.js 'test/**/*_spec.js'",
+    "test:unit": "mocha-webpack --mode development  --require ./test/unit/test_helper.js 'test/**/*_spec.js' --webpack-config webpack.config.test.js",
     "test:unit:cov": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs nyc mocha --require ./test/unit/test_helper.js"
   },
   "nyc": {
@@ -74,6 +74,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-rewire": "^1.1.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -106,7 +107,6 @@
     "nyc": "^11.6.0",
     "postcss-loader": "^2.1.3",
     "prettier": "^1.11.1",
-    "proxyquire": "^2.0.1",
     "react-svg-loader": "^2.1.0",
     "sass-loader": "^6.0.7",
     "sinon": "^4.4.8",

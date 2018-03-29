@@ -44,7 +44,7 @@ module.exports = (env, argv = { mode: 'development' }) => {
               loader: 'babel-loader',
               options: {
                 presets: ['env', 'react', 'stage-0'],
-                plugins: ['transform-object-assign']
+                plugins: ['transform-object-assign', 'rewire']
               }
             }
           ]

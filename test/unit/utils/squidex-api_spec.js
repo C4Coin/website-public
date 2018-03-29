@@ -1,8 +1,6 @@
 import { expect } from 'chai'
 import sinon from 'sinon'
-import proxyquire from 'proxyquire'
-
-proxyquire.noCallThru()
+import squidexApi from 'utils/squidex-api'
 
 describe('squidex-api', () => {
   const fakeAxios = {
@@ -10,23 +8,20 @@ describe('squidex-api', () => {
     post: sinon.spy()
   }
 
-  const squidexApi = proxyquire('utils/squidex-api', {
-    axios: fakeAxios
-  })
-
   describe('authenticate', () => {
     before(async () => {
+      squidexApi.__Rewire__('axios', fakeAxios)
       await squidexApi.authenticate()
     })
 
     after(() => {
       fakeAxios.post.resetHistory()
+      // squidexApi.__ResetDependency__('axios')
     })
 
     it('called post with the correct arguments', () => {
       expect(fakeAxios.post).to.have.been.called
+      // expect(true).to.be.true
     })
   })
 })
-
-// context()
