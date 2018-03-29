@@ -15,7 +15,12 @@ $icon-width: 30px;
 }
 
 .display {
+  overflow: hidden;
   align-self: center;
+}
+
+.wrapper {
+  width: $active-menu-width;
 }
 
 .item {
@@ -55,6 +60,7 @@ $icon-width: 30px;
 }
 
 .name {
+  display: inline-block;
   vertical-align: middle;
   letter-spacing: 0.01em;
   -webkit-text-fill-color: transparent;

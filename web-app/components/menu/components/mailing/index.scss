@@ -5,21 +5,33 @@
 **/
 
 @import '~style/_variables.scss';
+@import '../../_variables.scss';
 
 $icon-width: 24px;
 
 .container {
   background-color: $dirty-white;
-  display: flex;
-  align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
 }
 
+.display {
+  overflow-x: hidden;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: $active-menu-width;
+}
+
 .title-display {
+  position: relative;
+  z-index: 2;
   flex-basis: 80px;
   text-align: center;
   height: $icon-width + 2;
+  background-color: $dirty-white;
 }
 
 .title {

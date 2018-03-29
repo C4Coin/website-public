@@ -1,9 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Motion, spring } from 'react-motion'
 
-export default function Logo(props) {
+import sVariables from '!sass-variable-loader!!../../_variables.scss'
+
+const {
+  activeLogoWidth,
+  latentLogoWidth,
+  activeLogoMarginLeft,
+  latentLogoMarginLeft
+} = sVariables
+
+const activeWidth = parseInt(activeLogoWidth),
+  latentWidth = parseInt(latentLogoWidth),
+  activeMarginLeft = parseInt(activeLogoMarginLeft),
+  latentMarginLeft = parseInt(latentLogoMarginLeft)
+
+export default function Logo({ open, style, ...rest }) {
+  const logoStyle = {
+    ...style,
+    width: open * (activeWidth - latentWidth) + latentWidth,
+    marginLeft: open * (activeMarginLeft - latentMarginLeft) + latentMarginLeft
+  }
+
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74.15 100" {...props}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 74.15 100"
+      style={logoStyle}
+      {...rest}
+    >
       <rect
         x="-5.24"
         y="52.13"

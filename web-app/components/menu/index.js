@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, withRouter, matchPath } from 'react-router-dom'
-import { Motion } from 'react-motion'
+import { Motion, spring } from 'react-motion'
 import PropTypes from 'prop-types'
 
 import websitePropTypes from 'utils/website-prop-types'
@@ -53,9 +53,12 @@ class Menu extends React.Component {
     } = this.props
 
     const { active, mouseX, mouseY } = this.state
+    console.log(mouseX)
     const { latentMenuWidth, activeMenuWidth } = sVariables
-    const borderWidth =
-      pixelsToNumber(activeMenuWidth) - pixelsToNumber(latentMenuWidth)
+    const latentWidth = pixelsToNumber(latentMenuWidth),
+      activeWidth = pixelsToNumber(activeMenuWidth)
+    const borderWidth = activeWidth - latentWidth
+    const widthDifference = activeWidth - latentWidth
 
     const currentLinkIdx = navLinks.findIndex(
       ({ url }) => matchPath(pathname, { path: url }) != null
@@ -68,24 +71,31 @@ class Menu extends React.Component {
         onMouseMove={this.setMouseCoordinates.bind(this)}
       >
         <div className={s['shader']} />
-        <Border width={borderWidth} active={active} />
-        <Motion defaultStyle={{ d: 0 }} style={{ d: 1 * active }}>
-          {({ d }) => {
-            const widthDifference = activeMenuWidth - latentMenuWidth
-            const width = latentMenuWidth + d * widthDifference
+        {/* <Border width={borderWidth} active={active} /> */}
+        <Motion defaultStyle={{ open: 0 }} style={{ open: spring(1 * active) }}>
+          {({ open }) => {
+            const width = latentWidth + open * widthDifference
             return (
-              <div className={s['display']} style={{ width: width }}>
-                <Link to={coverUrl}>
-                  <Logo className={`${s['logo']} ${active && s['active']}`} />
-                </Link>
+              <div
+                className={s['display']}
+                style={{
+                  width: width,
+                  boxShadow: `0 0 ${mouseX / 2}px 0 rgba(0,0,0,.8)`
+                }}
+              >
+                <div className={s['logo-container']}>
+                  <Link to={coverUrl}>
+                    <Logo className={s['logo']} open={open} />
+                  </Link>
+                </div>
                 <Nav
                   links={navLinks}
                   currentPageIdx={currentLinkIdx}
-                  active={active}
+                  open={open}
                 />
-                <Social active={active} />
-                <Mailing />
-                <Footer links={footerLinks} active={active} />
+                <Social open={open} />
+                <Mailing open={open} />
+                <Footer links={footerLinks} open={open} />
               </div>
             )
           }}

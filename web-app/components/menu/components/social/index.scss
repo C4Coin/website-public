@@ -5,20 +5,32 @@
 **/
 
 @import '~style/_variables.scss';
+@import '../../_variables.scss';
 
 .container {
   background-color: $white-shade;
-  display: flex;
-  align-items: center;
   padding-top: 24px;
   padding-bottom: 24px;
 }
 
+.display {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: $active-menu-width;
+  display: flex;
+  align-items: center;
+}
+
 .title-display {
+  position: relative;
+  z-index: 2;
   writing-mode: tb;
   flex-basis: 80px;
   display: flex;
   align-items: center;
+  background-color: $white-shade;
 }
 
 .title {

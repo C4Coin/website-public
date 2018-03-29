@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom'
 
 import ProgressIcon from '../progress-icon'
 import WebsitePropTypes from 'utils/website-prop-types'
+import SectionDisplay from '../section-display'
 
 import s from './index.scss'
 
@@ -13,51 +14,59 @@ Nav.propTypes = {
   links: PropTypes.arrayOf(WebsitePropTypes.link),
   active: PropTypes.bool
 }
-console.log(after)
-export default function Nav({
-  links,
-  currentPageIdx = -1,
-  active = false,
-  ...rest
-}) {
+
+export default function Nav({ links, open, currentPageIdx = -1, ...rest }) {
+  const linkAnimationRate = 3
   return (
     <nav className={s['container']}>
-      <div className={s['display']}>
-        {links.map((linkVal, idx) => {
-          const textStyle = {
-            backgroundSize: `auto ${links.length * 1.6}em`,
-            backgroundPosition: `left -${idx * 1.55}em`
-          }
-          const iconStyle = {
-            backgroundSize: `auto ${links.length * 1.6}em`,
-            backgroundPosition: `right -${idx * 1.55}em`
-          }
-          const positions = [before, current, after]
-          const linkPosition =
-            positions[(idx > currentPageIdx) + (idx >= currentPageIdx)]
+      <SectionDisplay open={open} className={s['display']}>
+        <div className={s['wrapper']}>
+          {links.map((linkVal, idx) => {
+            const iconStyle = {
+              backgroundSize: `auto ${links.length * 1.6}em`,
+              backgroundPosition: `right -${idx * 1.55}em`
+            }
+            const positions = [before, current, after]
+            const linkPosition =
+              positions[(idx > currentPageIdx) + (idx >= currentPageIdx)]
 
-          return (
-            <div className={s['item']} key={idx}>
-              <Link to={linkVal.url}>
-                <span className={s['icon-display']}>
-                  <ProgressIcon
-                    position={idx}
-                    relativePosition={linkPosition}
-                    last={idx === links.length - 1}
-                    className={s['icon']}
-                    style={iconStyle}
-                  />
-                </span>
-                {active && (
+            const start = 1 / linkAnimationRate / links.length * idx
+
+            const position = Math.min(
+              Math.max(open - start, 0) * linkAnimationRate,
+              1
+            )
+            console.log('position', position)
+            // links.length
+
+            const textStyle = {
+              opacity: open,
+              transform: `translateX(${30 - 30 * position}px)`,
+              backgroundSize: `auto ${links.length * 1.6}em`,
+              backgroundPosition: `left -${idx * 1.55}em`
+            }
+
+            return (
+              <div className={s['item']} key={idx}>
+                <Link to={linkVal.url}>
+                  <span className={s['icon-display']}>
+                    <ProgressIcon
+                      positionIndex={idx}
+                      relativePosition={linkPosition}
+                      last={idx === links.length - 1}
+                      className={s['icon']}
+                      style={iconStyle}
+                    />
+                  </span>
                   <span className={s['name']} style={textStyle}>
                     {linkVal.anchor}
                   </span>
-                )}
-              </Link>
-            </div>
-          )
-        })}
-      </div>
+                </Link>
+              </div>
+            )
+          })}
+        </div>
+      </SectionDisplay>
     </nav>
   )
 }

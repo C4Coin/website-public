@@ -5,25 +5,23 @@
 **/
 
 @import '~style/_variables.scss';
+@import '../../_variables.scss';
 
 .container {
   background-color: $white;
   font-size: 10px;
-  margin-top: 1.45em;
-  margin-bottom: 1.45em;
-  margin-left: 42px;
+  padding-top: 1.45em;
+  padding-bottom: 1.45em;
   line-height: 1em;
 }
 
 .display {
-  transform: translateX(-20px);
-  opacity: 0;
-  transition: .4s;
+  overflow-x: hidden;
+  padding-left: 42px;
 }
 
-.active .display {
-  transform: translateX(0px);
-  opacity: 1;
+.dolly {
+  width: $active-menu-width;
 }
 
 .link {
