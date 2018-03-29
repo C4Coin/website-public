@@ -6,8 +6,6 @@ import SectionDisplay from '../section-display'
 import s from './index.scss'
 
 export default function Mailing({ open, ...rest }) {
-  console.log({ opacity: open })
-
   const dollyStyle = {
     opacity: open,
     transform: `translateX(${(1 - open) * 30}px)`

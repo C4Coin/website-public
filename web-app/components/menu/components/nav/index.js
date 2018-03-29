@@ -36,11 +36,8 @@ export default function Nav({ links, open, currentPageIdx = -1, ...rest }) {
               Math.max(open - start, 0) * linkAnimationRate,
               1
             )
-            console.log('position', position)
-            // links.length
 
             const textStyle = {
-              opacity: open,
               transform: `translateX(${30 - 30 * position}px)`,
               backgroundSize: `auto ${links.length * 1.6}em`,
               backgroundPosition: `left -${idx * 1.55}em`

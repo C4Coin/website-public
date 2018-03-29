@@ -15,7 +15,7 @@ export default function SectionDisplay({
 }) {
   const displayStyle = {
     ...style,
-    width: open * (activeWidth - latentWidth) + latentWidth
+    width: open * (activeWidth - latentWidth) + latentWidth - 2
   }
 
   return (

@@ -5,12 +5,22 @@ import appStyleVariables from '!!sass-variable-loader!style/_variables.scss'
 
 const { silver, gold } = appStyleVariables
 
+function Path({ height, width, open, rippleWidth, rippleY, ...rest }) {
+  // Position of the origin point
+  const closedOriginX = 0
+  const openOriginX = width - 2
+  const originX = open * (openOriginX - closedOriginX)
+  const origin = `M${originX} 0`
+
+  return <path d={`${origin} h2 v${height} h-2 Z`} {...rest} />
+}
+
 export default function Border({
   width,
   height,
-  rippleWidth = 0,
-  rippleY = 0,
-  active = false,
+  rippleWidth,
+  rippleY,
+  open,
   className = '',
   ...rest
 }) {
@@ -27,14 +37,14 @@ export default function Border({
       style={style}
       {...rest}
     >
-      {active ? (
-        <path
-          d={`M${width} 0 H${width - 2} V${svgHeight} H${width} Z`}
-          style={{ fill: gold }}
-        />
-      ) : (
-        <path d={`M0 0 H2 V${svgHeight} H0 Z`} style={{ fill: silver }} />
-      )}
+      <Path
+        height={svgHeight}
+        width={width}
+        open={open}
+        rippleWidth={rippleWidth}
+        rippleY={rippleY}
+        style={{ fill: silver }}
+      />
     </svg>
   )
 }
