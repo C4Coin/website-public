@@ -24,13 +24,20 @@ export default function ProgressIcon({
   style = {},
   ...rest
 }) {
-  const defaultPoints = {
-    top: getTopY(relativePosition)
+  const scale = relativePosition === positions.current ? 1 : 0.85
+  const transform = scale => `scale(${scale})`
+
+  let defaultPoints = {
+    top: getTopY(relativePosition),
+    scale: scale
   }
 
-  const points = {
-    top: spring(getTopY(relativePosition))
+  let points = {
+    top: spring(getTopY(relativePosition)),
+    scale: spring(scale, { stiffness: 300, dampning: 24 })
   }
+
+  console.log(positionIndex, points)
 
   if (!last) {
     defaultPoints.bottom = getBottomY(relativePosition)
@@ -45,8 +52,8 @@ export default function ProgressIcon({
 
   return (
     <Motion defaultStyle={defaultPoints} style={points}>
-      {({ top, bottom }) => (
-        <span style={iconStyle} {...rest}>
+      {({ top, bottom, scale }) => (
+        <span style={{ ...iconStyle, transform: transform(scale) }} {...rest}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 34.6">
             <defs>
               <clipPath id={clipId}>
