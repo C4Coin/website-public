@@ -22,7 +22,7 @@ const { latentMenuWidth, activeMenuWidth } = sVariables
 const latentWidth = pixelsToNumber(latentMenuWidth),
   activeWidth = pixelsToNumber(activeMenuWidth)
 
-const activationPoint = 120
+const activationPoint = 70
 
 class Menu extends React.Component {
   constructor() {
@@ -44,7 +44,7 @@ class Menu extends React.Component {
   setMouseCoordinates({ nativeEvent }) {
     if (this.state.active) return
 
-    const { offsetX: x, offsettY: y } = nativeEvent
+    const { offsetX: x, offsetY: y } = nativeEvent
 
     const isActive = x <= activationPoint
 
@@ -87,12 +87,26 @@ class Menu extends React.Component {
     const borderWidth = widthDifference + 2
 
     let rippleWidth = 0
+    let rippleY = 0
+    const startRipple = { rippleWidth, rippleY }
+
     if (mouseX) {
-      const interactiveZoneWidth = borderWidth - activationPoint
-      const distanceIn = borderWidth - mouseX
+      const interactiveZoneWidth = activationPoint * 2
+      const distanceIn = Math.max(interactiveZoneWidth - mouseX, 0)
       const completion =
-        1 - (interactiveZoneWidth - distanceIn) / interactiveZoneWidth
+        1 -
+        (interactiveZoneWidth - activationPoint - distanceIn) /
+          (interactiveZoneWidth - activationPoint)
       rippleWidth = completion * activationPoint
+    }
+    if (mouseY) {
+      rippleY = mouseY
+    }
+
+    console.log(ripple)
+    const ripple = {
+      rippleWidth: spring(rippleWidth),
+      rippleY: spring(rippleY)
     }
 
     const currentLinkIdx = navLinks.findIndex(
@@ -111,13 +125,16 @@ class Menu extends React.Component {
               ref={this.setupMeasuring}
             >
               <div className={s['shader']} />
-              <Border
-                width={borderWidth}
-                height={height}
-                open={open}
-                rippleY={mouseY}
-                rippleWidth={rippleWidth}
-              />
+              <Motion defaultStyle={startRipple} style={ripple}>
+                {rippleInterpolation => (
+                  <Border
+                    width={borderWidth}
+                    height={height}
+                    open={open}
+                    {...rippleInterpolation}
+                  />
+                )}
+              </Motion>
               <div
                 className={s['display']}
                 style={{
