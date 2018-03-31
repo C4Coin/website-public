@@ -19,10 +19,12 @@ import appStyleVariables from '!!sass-variable-loader!style/_variables.scss'
 const { pixelsToNumber } = mergeStyleVariables
 
 const { latentMenuWidth, activeMenuWidth } = sVariables
+const { bpTabletSmall } = appStyleVariables
 const latentWidth = pixelsToNumber(latentMenuWidth),
   activeWidth = pixelsToNumber(activeMenuWidth)
 
 const activationPoint = 70
+const defaultRipple = { rippleWidth: 0, rippleY: 0 }
 
 class Menu extends React.Component {
   constructor() {
@@ -30,29 +32,45 @@ class Menu extends React.Component {
 
     this.state = {
       active: false,
-      mouseX: undefined,
-      mouseY: undefined,
-      height: undefined
+      height: undefined,
+      width: undefined,
+      ...defaultRipple
     }
 
     this.setupMeasuring = this.setupMeasuring.bind(this)
+    this.menuPullActivity = this.menuPullActivity.bind(this)
+    this.exitMenu = this.exitMenu.bind(this)
   }
-  exit() {
+
+  exitMenu() {
     this.setState({ active: false })
   }
 
-  setMouseCoordinates({ nativeEvent }) {
+  menuPullActivity({ nativeEvent }) {
     if (this.state.active) return
-
     const { offsetX: x, offsetY: y } = nativeEvent
 
-    const isActive = x <= activationPoint
+    if (x <= activationPoint) {
+      this.setState({
+        active: true,
+        rippleWidth: 0,
+        rippleY: y
+      })
+    } else {
+      // The interactiveZoneWidth can be set to any arbitrary number
+      // Greater than the activationPoint and less than width of the svg
+      // (active-menu-width - latent-Menu-Width + 2)
+      const interactiveZoneWidth = activationPoint * 2
+      const distanceIn = Math.max(interactiveZoneWidth - x, 0)
+      const pullZoneWidth = interactiveZoneWidth - activationPoint
+      const completion = 1 - (pullZoneWidth - distanceIn) / pullZoneWidth
+      const rippleWidth = completion * activationPoint
 
-    this.setState({
-      active: isActive,
-      mouseX: !isActive ? x : undefined,
-      mouseY: y
-    })
+      this.setState({
+        rippleWidth,
+        rippleY: y
+      })
+    }
   }
 
   setupMeasuring(container) {
@@ -65,12 +83,17 @@ class Menu extends React.Component {
 
   measureContainer(container) {
     this.setState({
-      height: container.offsetHeight
+      height: window.innerHeight,
+      width: window.innerWidth
     })
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.measureNewSize)
+  }
+
+  isMobile() {
+    return this.state.width < bpTabletSmall
   }
 
   render() {
@@ -81,34 +104,18 @@ class Menu extends React.Component {
       location: { pathname }
     } = this.props
 
-    const { active, mouseX, mouseY, height } = this.state
+    const { active, rippleWidth, rippleY, height, width } = this.state
 
+    // Calculate the size of the menu and interactive border zone
     const widthDifference = activeWidth - latentWidth
-    const borderWidth = widthDifference + 2
+    const interactiveBorderWidth = widthDifference + 2
 
-    let rippleWidth = 0
-    let rippleY = 0
-    const startRipple = { rippleWidth, rippleY }
-
-    if (mouseX) {
-      const interactiveZoneWidth = activationPoint * 2
-      const distanceIn = Math.max(interactiveZoneWidth - mouseX, 0)
-      const completion =
-        1 -
-        (interactiveZoneWidth - activationPoint - distanceIn) /
-          (interactiveZoneWidth - activationPoint)
-      rippleWidth = completion * activationPoint
-    }
-    if (mouseY) {
-      rippleY = mouseY
-    }
-
-    console.log(ripple)
     const ripple = {
       rippleWidth: spring(rippleWidth),
       rippleY: spring(rippleY)
     }
 
+    // Get the Index of the currently active link
     const currentLinkIdx = navLinks.findIndex(
       ({ url }) => matchPath(pathname, { path: url }) != null
     )
@@ -120,15 +127,15 @@ class Menu extends React.Component {
           return (
             <div
               className={s['container']}
-              onMouseLeave={this.exit.bind(this)}
-              onMouseMove={this.setMouseCoordinates.bind(this)}
+              onMouseLeave={this.exitMenu}
+              onMouseMove={this.menuPullActivity}
               ref={this.setupMeasuring}
             >
               <div className={s['shader']} />
-              <Motion defaultStyle={startRipple} style={ripple}>
+              <Motion defaultStyle={defaultRipple} style={ripple}>
                 {rippleInterpolation => (
                   <Border
-                    width={borderWidth}
+                    width={interactiveBorderWidth}
                     height={height}
                     open={open}
                     {...rippleInterpolation}

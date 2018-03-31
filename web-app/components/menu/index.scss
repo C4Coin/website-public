@@ -34,3 +34,17 @@
   fill: $gold;
   height: auto;
 }
+
+@media screen
+and (min-width: $bp-tablet-small) {
+  .logo {
+    color: blue;
+  }
+}
+
+@media screen
+and (max-width: $bp-tablet-small) {
+  .logo {
+    border:blue;
+  }
+}
