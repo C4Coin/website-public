@@ -123,7 +123,7 @@ class Menu extends React.Component {
     return (
       <Motion defaultStyle={{ open: 0 }} style={{ open: spring(1 * active) }}>
         {({ open }) => {
-          const width = latentWidth + open * widthDifference
+          const width = latentWidth + open * widthDifference - 2
           return (
             <div
               className={s['container']}
@@ -142,25 +142,22 @@ class Menu extends React.Component {
                   />
                 )}
               </Motion>
-              <div
-                className={s['display']}
-                style={{
-                  width: width
-                }}
-              >
-                <div className={s['logo-container']}>
-                  <Link to={coverUrl}>
-                    <Logo className={s['logo']} open={open} />
-                  </Link>
+              <div className={s['window']} style={{ width: width }}>
+                <div className={s['display']}>
+                  <div className={s['logo-container']}>
+                    <Link to={coverUrl}>
+                      <Logo className={s['logo']} open={open} />
+                    </Link>
+                  </div>
+                  <Nav
+                    links={navLinks}
+                    currentPageIdx={currentLinkIdx}
+                    open={open}
+                  />
+                  <Social open={open} />
+                  <Mailing open={open} />
+                  <Footer links={footerLinks} open={open} />
                 </div>
-                <Nav
-                  links={navLinks}
-                  currentPageIdx={currentLinkIdx}
-                  open={open}
-                />
-                <Social open={open} />
-                <Mailing open={open} />
-                <Footer links={footerLinks} open={open} />
               </div>
             </div>
           )

@@ -13,16 +13,9 @@ $icon-width: 24px;
   background-color: $dirty-white;
   padding-top: 12px;
   padding-bottom: 12px;
-}
-
-.display {
-  overflow-x: hidden;
-}
-
-.wrapper {
+  width: 100%;
   display: flex;
   align-items: center;
-  width: $active-menu-width;
 }
 
 .title-display {

@@ -11,14 +11,7 @@
   background-color: $white-shade;
   padding-top: 24px;
   padding-bottom: 24px;
-}
-
-.display {
-  overflow: hidden;
-}
-
-.wrapper {
-  width: $active-menu-width;
+  width: 100%;
   display: flex;
   align-items: center;
 }
