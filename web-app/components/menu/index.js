@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import websitePropTypes from 'utils/website-prop-types'
 import mergeStyleVariables from 'utils/merge-style-variables'
+import Icon from './components/icon'
 import Logo from './components/logo'
 import Nav from './components/nav'
 import Social from './components/social'
@@ -21,7 +22,8 @@ const { pixelsToNumber } = mergeStyleVariables
 const { latentMenuWidth, activeMenuWidth } = sVariables
 const { bpTabletSmall } = appStyleVariables
 const latentWidth = pixelsToNumber(latentMenuWidth),
-  activeWidth = pixelsToNumber(activeMenuWidth)
+  activeWidth = pixelsToNumber(activeMenuWidth),
+  mobileBreakpoint = pixelsToNumber(bpTabletSmall)
 
 const activationPoint = 70
 const defaultRipple = { rippleWidth: 0, rippleY: 0 }
@@ -93,7 +95,7 @@ class Menu extends React.Component {
   }
 
   isMobile() {
-    return this.state.width < bpTabletSmall
+    return this.state.width < mobileBreakpoint
   }
 
   render() {
@@ -123,7 +125,9 @@ class Menu extends React.Component {
     return (
       <Motion defaultStyle={{ open: 0 }} style={{ open: spring(1 * active) }}>
         {({ open }) => {
-          const width = latentWidth + open * widthDifference - 2
+          const width = this.isMobile()
+            ? `${open * 100}%`
+            : latentWidth + open * widthDifference - 2
           return (
             <div
               className={s['container']}
@@ -131,16 +135,21 @@ class Menu extends React.Component {
               onMouseMove={this.menuPullActivity}
               ref={this.setupMeasuring}
             >
+              <div className={s['menu-icon-container']}>
+                <Icon className={s['menu-icon']} />
+              </div>
               <div className={s['shader']} />
               <Motion defaultStyle={defaultRipple} style={ripple}>
-                {rippleInterpolation => (
-                  <Border
-                    width={interactiveBorderWidth}
-                    height={height}
-                    open={open}
-                    {...rippleInterpolation}
-                  />
-                )}
+                {rippleInterpolation =>
+                  !this.isMobile() && (
+                    <Border
+                      width={interactiveBorderWidth}
+                      height={height}
+                      open={open}
+                      {...rippleInterpolation}
+                    />
+                  )
+                }
               </Motion>
               <div className={s['window']} style={{ width: width }}>
                 <div className={s['display']}>

@@ -18,7 +18,7 @@ export default function Nav({ links, open, currentPageIdx = -1, ...rest }) {
   const linkAnimationRate = 3
   return (
     <nav className={s['container']}>
-      <div>
+      <div className={s['display']}>
         {links.map((linkVal, idx) => {
           const iconStyle = {
             backgroundSize: `auto ${links.length * 1.6}em`,

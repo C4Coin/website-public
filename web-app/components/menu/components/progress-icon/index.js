@@ -37,8 +37,6 @@ export default function ProgressIcon({
     scale: spring(scale, { stiffness: 300, dampning: 24 })
   }
 
-  console.log(positionIndex, points)
-
   if (!last) {
     defaultPoints.bottom = getBottomY(relativePosition)
     points.bottom = spring(getBottomY(relativePosition))

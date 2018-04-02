@@ -12,9 +12,24 @@
   top: 0;
   bottom: 0;
   left: 0;
-  width: $active-menu-width;
+  right: 0;
   z-index: 100;
 }
+
+.menu-icon-container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 48px;
+  height: 48px;
+}
+
+.menu-icon {
+  width: 100%;
+  height: 100%;
+}
+
+
 
 .window {
   overflow: hidden;
@@ -28,7 +43,7 @@
   flex-direction: column;
   z-index: 2;
   background-color: white;
-  width: 100%;
+  width: 100vw;
 }
 
 .logo-container {
@@ -43,6 +58,14 @@
 
 @media screen
 and (min-width: $bp-tablet-small) {
+  .container {
+    width: $active-menu-width;
+    right: auto;
+  }
+
+  .window {
+  }
+
   .display {
     width: $active-menu-width - $border-width
   }

@@ -12,10 +12,11 @@ $icon-width: 30px;
 .container {
   display: flex;
   flex-grow: 1;
+  width: 100%;
 }
 
 .display {
-  width: 100%;
+  align-self: center;
 }
 
 .item {
