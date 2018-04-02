@@ -34,6 +34,7 @@ class Menu extends React.Component {
 
     this.state = {
       active: false,
+      refreshed: true,
       height: undefined,
       width: undefined,
       ...defaultRipple
@@ -42,19 +43,36 @@ class Menu extends React.Component {
     this.setupMeasuring = this.setupMeasuring.bind(this)
     this.menuPullActivity = this.menuPullActivity.bind(this)
     this.exitMenu = this.exitMenu.bind(this)
+    this.closeMenu = this.closeMenu.bind(this)
+    this.openMenu = this.openMenu.bind(this)
   }
 
   exitMenu() {
-    this.setState({ active: false })
+    this.setState({
+      active: false,
+      refreshed: true
+    })
+  }
+
+  closeMenu() {
+    this.setState({
+      active: false
+    })
+  }
+
+  openMenu() {
+    this.setState({ active: true })
   }
 
   menuPullActivity({ nativeEvent }) {
-    if (this.state.active) return
+    const { active, refreshed } = this.state
+    if (active || !refreshed) return
     const { offsetX: x, offsetY: y } = nativeEvent
 
     if (x <= activationPoint) {
       this.setState({
         active: true,
+        refreshed: false,
         rippleWidth: 0,
         rippleY: y
       })
@@ -132,12 +150,13 @@ class Menu extends React.Component {
             <div
               className={s['container']}
               onMouseLeave={this.exitMenu}
-              onMouseMove={this.menuPullActivity}
               ref={this.setupMeasuring}
             >
-              <div className={s['menu-icon-container']}>
-                <Icon className={s['menu-icon']} />
-              </div>
+              {this.isMobile && (
+                <div className={s['menu-icon-container']}>
+                  <Icon className={s['menu-icon']} onClick={this.openMenu} />
+                </div>
+              )}
               <div className={s['shader']} />
               <Motion defaultStyle={defaultRipple} style={ripple}>
                 {rippleInterpolation =>
@@ -146,15 +165,20 @@ class Menu extends React.Component {
                       width={interactiveBorderWidth}
                       height={height}
                       open={open}
+                      onMouseMove={this.menuPullActivity}
                       {...rippleInterpolation}
                     />
                   )
                 }
               </Motion>
-              <div className={s['window']} style={{ width: width }}>
+              <div
+                className={s['window']}
+                style={{ width: width }}
+                onMouseOver={this.openMenu}
+              >
                 <div className={s['display']}>
                   <div className={s['logo-container']}>
-                    <Link to={coverUrl}>
+                    <Link to={coverUrl} onClick={this.closeMenu}>
                       <Logo className={s['logo']} open={open} />
                     </Link>
                   </div>
@@ -162,10 +186,15 @@ class Menu extends React.Component {
                     links={navLinks}
                     currentPageIdx={currentLinkIdx}
                     open={open}
+                    linkOnClick={this.closeMenu}
                   />
                   <Social open={open} />
                   <Mailing open={open} />
-                  <Footer links={footerLinks} open={open} />
+                  <Footer
+                    links={footerLinks}
+                    linkOnClick={this.closeMenu}
+                    open={open}
+                  />
                 </div>
               </div>
             </div>

@@ -1,18 +1,18 @@
 import React from 'react'
 import { Motion, spring } from 'react-motion'
 
-const rowDx = -6.93
-const rowDy = 12
+const rowDx = -5.196
+const rowDy = 9
 
-const colDx = 45.588
-const colDy = 3
+const colDx = 41.84
+const colDy = 2.5
 
 const Shape = ({ dx, dy, ...rest }) => {
   const topLeft = `${-3.8 + dx} ${dy}`
   console.log(topLeft)
-  const topRight = `${47.32 + dx} ${dy}`
-  const bottomRight = `${43.86 + dx} ${6 + dy}`
-  const bottomLeft = `${-7.27 + dx} ${6 + dy}`
+  const topRight = `${43.284 + dx} ${dy}`
+  const bottomRight = `${40.397 + dx} ${5 + dy}`
+  const bottomLeft = `${-6.691 + dx} ${5 + dy}`
   const points = `${topLeft} ${topRight} ${bottomRight} ${bottomLeft}`
   return <polygon points={points} {...rest} />
 }
@@ -33,7 +33,7 @@ export default function Icon(props) {
         return (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 30 30"
+            viewBox="0 0 30 23"
             {...props}
           >
             {translations.map(({ x, y }, idx) => (

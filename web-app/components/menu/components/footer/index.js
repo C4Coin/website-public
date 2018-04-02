@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom'
 
 import s from './index.scss'
 
-export default function Footer({ links, open, ...rest }) {
+export default function Footer({
+  links,
+  linkOnClick = () => {},
+  open,
+  ...rest
+}) {
   const dollyStyle = {
     opacity: open,
     transform: `translateX(${(open - 1) * 80}px)`
@@ -13,7 +18,7 @@ export default function Footer({ links, open, ...rest }) {
     <div className={s['container']}>
       <div style={dollyStyle}>
         {links.map(({ anchor, url }, idx) => (
-          <Link to={url} className={s['link']} key={idx}>
+          <Link to={url} className={s['link']} key={idx} onClick={linkOnClick}>
             {anchor}
           </Link>
         ))}

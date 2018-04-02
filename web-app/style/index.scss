@@ -20,5 +20,11 @@
 	bottom: 0;
 	left: 0;
 	overflow: hidden;
-  padding-left: $active-menu-width;
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .app {
+    padding-left: $latent-menu-width;
+  }
 }

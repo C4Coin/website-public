@@ -14,7 +14,13 @@ Nav.propTypes = {
   active: PropTypes.bool
 }
 
-export default function Nav({ links, open, currentPageIdx = -1, ...rest }) {
+export default function Nav({
+  links,
+  open,
+  currentPageIdx = -1,
+  linkOnClick = () => {},
+  ...rest
+}) {
   const linkAnimationRate = 3
   return (
     <nav className={s['container']}>
@@ -43,7 +49,7 @@ export default function Nav({ links, open, currentPageIdx = -1, ...rest }) {
 
           return (
             <div className={s['item']} key={idx}>
-              <Link to={linkVal.url}>
+              <Link to={linkVal.url} onClick={linkOnClick}>
                 <span className={s['icon-display']}>
                   <ProgressIcon
                     positionIndex={idx}
