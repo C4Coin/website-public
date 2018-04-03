@@ -1,19 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import camelcase from 'camelcase-keys'
 
 import sVariables from 'components/menu/style/style.variables.scss'
 
 const {
-  activeLogoWidth,
-  latentLogoWidth,
-  activeLogoMarginLeft,
-  latentLogoMarginLeft
-} = sVariables
+  $activeLogoWidth,
+  $latentLogoWidth,
+  $activeLogoMarginLeft,
+  $latentLogoMarginLeft
+} = camelcase(sVariables.global)
 
-const activeWidth = parseInt(activeLogoWidth)
-const latentWidth = parseInt(latentLogoWidth)
-const activeMarginLeft = parseInt(activeLogoMarginLeft)
-const latentMarginLeft = parseInt(latentLogoMarginLeft)
+const activeWidth = parseInt($activeLogoWidth)
+const latentWidth = parseInt($latentLogoWidth)
+const activeMarginLeft = parseInt($activeLogoMarginLeft)
+const latentMarginLeft = parseInt($latentLogoMarginLeft)
 
 Logo.propTypes = {
   open: PropTypes.number,

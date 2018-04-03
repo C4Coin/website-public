@@ -50,24 +50,25 @@ module.exports = (env, argv) => {
           ]
         },
         {
-          test: /\.svg$/,
-          use: [
-            {
-              loader: 'babel-loader'
-            },
-            {
-              loader: 'react-svg-loader'
-            }
-          ]
-        },
-        {
-          test: /\.(png|jpg)$/,
+          test: /\.(png|jpg|complex\.svg)$/,
           use: [
             {
               loader: 'file-loader',
               options: {
                 name: 'images/[name].[ext]'
               }
+            }
+          ]
+        },
+        {
+          test: /\.svg$/,
+          exclude: /\.complex\.svg/,
+          use: [
+            {
+              loader: 'babel-loader'
+            },
+            {
+              loader: 'react-svg-loader'
             }
           ]
         },
@@ -84,10 +85,18 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.variables\.scss$/,
-          use: 'sass-variable-loader'
+          use: [
+            {
+              loader: 'sass-extract-loader',
+              options: {
+                plugins: ['minimal']
+              }
+            }
+          ]
         },
         {
           test: /\.scss$/,
+          exclude: /\.variables\.scss$/,
           use: [
             'style-loader',
             {

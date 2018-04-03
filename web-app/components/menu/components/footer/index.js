@@ -6,7 +6,7 @@ import WebsitePropTypes from 'utils/website-prop-types'
 import s from './index.scss'
 
 Footer.propTypes = {
-  links: PropTypes.arrayOf(WebsitePropTypes.link).required,
+  links: PropTypes.arrayOf(WebsitePropTypes.link).isRequired,
   linkOnClick: PropTypes.func,
   open: PropTypes.number
 }

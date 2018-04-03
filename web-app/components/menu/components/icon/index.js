@@ -9,13 +9,12 @@ const colDx = 41.84
 const colDy = 2.5
 
 Shape.propTypes = {
-  dx: PropTypes.number.required,
-  dy: PropTypes.number.required
+  dx: PropTypes.number.isRequired,
+  dy: PropTypes.number.isRequired
 }
 
 function Shape({ dx, dy, ...rest }) {
   const topLeft = `${-3.8 + dx} ${dy}`
-  console.log(topLeft)
   const topRight = `${43.284 + dx} ${dy}`
   const bottomRight = `${40.397 + dx} ${5 + dy}`
   const bottomLeft = `${-6.691 + dx} ${5 + dy}`

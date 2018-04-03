@@ -21,7 +21,7 @@ function getBottomY(position) {
 ProgressIcon.positions = positions
 
 ProgressIcon.propTypes = {
-  positionIndex: PropTypes.number.required,
+  positionIndex: PropTypes.number.isRequired,
   relativePosition: PropTypes.oneOf(positionsList),
   last: PropTypes.bool,
   style: PropTypes.object

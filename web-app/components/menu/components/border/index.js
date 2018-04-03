@@ -1,17 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import camelcase from 'camelcase-keys'
 
 import s from './index.scss'
 import appStyleVariables from 'style/style.variables.scss'
 
-const { silver } = appStyleVariables
+const { $silver } = camelcase(appStyleVariables.global)
+const silver = $silver
 
 Path.propTypes = {
-  height: PropTypes.number.required,
-  width: PropTypes.number.required,
-  open: PropTypes.number.required,
-  rippleWidth: PropTypes.number.required,
-  rippleY: PropTypes.number.required
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
+  open: PropTypes.number.isRequired,
+  rippleWidth: PropTypes.number.isRequired,
+  rippleY: PropTypes.number.isRequired
 }
 
 function Path({ height, width, open, rippleWidth, rippleY, ...rest }) {
@@ -62,7 +64,7 @@ function Path({ height, width, open, rippleWidth, rippleY, ...rest }) {
 }
 
 Border.propTypes = {
-  width: PropTypes.number.required,
+  width: PropTypes.number.isRequired,
   height: PropTypes.number,
   rippleWidth: PropTypes.number,
   rippleY: PropTypes.number,

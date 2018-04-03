@@ -3,6 +3,7 @@ import { Link, withRouter, matchPath } from 'react-router-dom'
 import { Motion, spring } from 'react-motion'
 import PropTypes from 'prop-types'
 import ReactRouterPropTypes from 'react-router-prop-types'
+import camelcase from 'camelcase-keys'
 
 import websitePropTypes from 'utils/website-prop-types'
 import Icon from './components/icon'
@@ -17,19 +18,19 @@ import s from './style/index.scss'
 import sVariables from './style/style.variables.scss'
 import appStyleVariables from 'style/style.variables.scss'
 
-const { latentMenuWidth, activeMenuWidth } = sVariables
-const { bpTabletSmall } = appStyleVariables
-const latentWidth = parseInt(latentMenuWidth)
-const activeWidth = parseInt(activeMenuWidth)
-const mobileBreakpoint = parseInt(bpTabletSmall)
+const { $latentMenuWidth, $activeMenuWidth } = camelcase(sVariables.global)
+const { $bpTabletSmall } = camelcase(appStyleVariables)
+const latentWidth = parseInt($latentMenuWidth)
+const activeWidth = parseInt($activeMenuWidth)
+const mobileBreakpoint = parseInt($bpTabletSmall)
 
 const activationPoint = 70
 const defaultRipple = { rippleWidth: 0, rippleY: 0 }
 
 const menuPropTypes = {
   coverUrl: PropTypes.string,
-  navLinks: PropTypes.arrayOf(websitePropTypes.link),
-  footerLinks: PropTypes.arrayOf(websitePropTypes.link),
+  navLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
+  footerLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
   location: ReactRouterPropTypes.location
 }
 

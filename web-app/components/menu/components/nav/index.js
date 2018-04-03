@@ -10,7 +10,7 @@ import s from './index.scss'
 const { after, before, current } = ProgressIcon.positions
 
 Nav.propTypes = {
-  links: PropTypes.arrayOf(WebsitePropTypes.link).required,
+  links: PropTypes.arrayOf(WebsitePropTypes.link).isRequired,
   open: PropTypes.number,
   currentPageIdx: PropTypes.number,
   linkOnClick: PropTypes.func

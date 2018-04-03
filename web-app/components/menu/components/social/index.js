@@ -5,7 +5,7 @@ import Facebook from 'assets/icons/facebook.svg'
 import Instagram from 'assets/icons/instagram.svg'
 import Reddit from 'assets/icons/reddit.svg'
 import Twitter from 'assets/icons/twitter.svg'
-import telegraphGraphic from '!file-loader!!assets/graphics/telegram.svg'
+import telegraphGraphic from 'assets/graphics/telegram.complex.svg'
 
 import appConfig from 'app.config'
 
@@ -20,8 +20,8 @@ const {
 } = appConfig.social
 
 SocialIcon.propTypes = {
-  url: PropTypes.string.required,
-  children: PropTypes.node.required,
+  url: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string
 }
 
