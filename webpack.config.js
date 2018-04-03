@@ -83,6 +83,10 @@ module.exports = (env, argv) => {
           ]
         },
         {
+          test: /\.variables\.scss$/,
+          use: 'sass-variable-loader'
+        },
+        {
           test: /\.scss$/,
           use: [
             'style-loader',

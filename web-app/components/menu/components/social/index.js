@@ -19,7 +19,13 @@ const {
   telegram: telegramUrl
 } = appConfig.social
 
-function SocialIcon({ url, children, className, ...rest }) {
+SocialIcon.propTypes = {
+  url: PropTypes.string.required,
+  children: PropTypes.node.required,
+  className: PropTypes.string
+}
+
+function SocialIcon({ url, children, className = '', ...rest }) {
   return (
     <div className={`${s['icon-background']} className`}>
       <a href={url} target="_blank">
@@ -29,7 +35,11 @@ function SocialIcon({ url, children, className, ...rest }) {
   )
 }
 
-export default function Social({ open, ...rest }) {
+Social.propTypes = {
+  open: PropTypes.number
+}
+
+export default function Social({ open = 0, ...rest }) {
   const contentStyle = {
     opacity: open,
     transform: `translateX(${(open - 1) * 30}px)`

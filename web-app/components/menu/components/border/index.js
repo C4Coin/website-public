@@ -1,9 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import s from './index.scss'
-import appStyleVariables from '!!sass-variable-loader!style/_variables.scss'
+import appStyleVariables from 'style/style.variables.scss'
 
-const { silver, gold } = appStyleVariables
+const { silver } = appStyleVariables
+
+Path.propTypes = {
+  height: PropTypes.number.required,
+  width: PropTypes.number.required,
+  open: PropTypes.number.required,
+  rippleWidth: PropTypes.number.required,
+  rippleY: PropTypes.number.required
+}
 
 function Path({ height, width, open, rippleWidth, rippleY, ...rest }) {
   const curveLength = rippleWidth * rippleWidth / 10 + 200
@@ -52,30 +61,38 @@ function Path({ height, width, open, rippleWidth, rippleY, ...rest }) {
   return <path d={`${origin} ${top} ${outerCurve} ${bottom} Z`} {...rest} />
 }
 
+Border.propTypes = {
+  width: PropTypes.number.required,
+  height: PropTypes.number,
+  rippleWidth: PropTypes.number,
+  rippleY: PropTypes.number,
+  open: PropTypes.number,
+  className: PropTypes.string
+}
+
 export default function Border({
   width,
-  height,
-  rippleWidth,
-  rippleY,
-  open,
+  height = 1,
+  rippleWidth = 0,
+  rippleY = 0,
+  open = 0,
   className = '',
   ...rest
 }) {
   const preserveAspectRatio = height === undefined ? 'none' : 'xMidYMid'
-  const svgHeight = height || 1
 
   const style = { width: `${width}px` }
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox={`0 0 ${width} ${svgHeight}`}
+      viewBox={`0 0 ${width} ${height}`}
       preserveAspectRatio={preserveAspectRatio}
       className={`${className} ${s['container']}`}
       style={style}
       {...rest}
     >
       <Path
-        height={svgHeight}
+        height={height}
         width={width}
         open={open}
         rippleWidth={rippleWidth}

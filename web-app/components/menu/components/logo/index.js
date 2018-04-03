@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Motion, spring } from 'react-motion'
+import PropTypes from 'prop-types'
 
-import sVariables from '!sass-variable-loader!!../../_variables.scss'
+import sVariables from 'components/menu/style/style.variables.scss'
 
 const {
   activeLogoWidth,
@@ -11,12 +10,17 @@ const {
   latentLogoMarginLeft
 } = sVariables
 
-const activeWidth = parseInt(activeLogoWidth),
-  latentWidth = parseInt(latentLogoWidth),
-  activeMarginLeft = parseInt(activeLogoMarginLeft),
-  latentMarginLeft = parseInt(latentLogoMarginLeft)
+const activeWidth = parseInt(activeLogoWidth)
+const latentWidth = parseInt(latentLogoWidth)
+const activeMarginLeft = parseInt(activeLogoMarginLeft)
+const latentMarginLeft = parseInt(latentLogoMarginLeft)
 
-export default function Logo({ open, style, ...rest }) {
+Logo.propTypes = {
+  open: PropTypes.number,
+  style: PropTypes.object
+}
+
+export default function Logo({ open = 0, style = {}, ...rest }) {
   const logoStyle = {
     ...style,
     width: open * (activeWidth - latentWidth) + latentWidth,

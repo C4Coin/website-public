@@ -1,12 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
+import WebsitePropTypes from 'utils/website-prop-types'
 import s from './index.scss'
+
+Footer.propTypes = {
+  links: PropTypes.arrayOf(WebsitePropTypes.link).required,
+  linkOnClick: PropTypes.func,
+  open: PropTypes.number
+}
 
 export default function Footer({
   links,
   linkOnClick = () => {},
-  open,
+  open = 0,
   ...rest
 }) {
   const dollyStyle = {

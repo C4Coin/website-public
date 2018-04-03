@@ -1,5 +1,6 @@
 import React from 'react'
 import { Motion, spring } from 'react-motion'
+import PropTypes from 'prop-types'
 
 const rowDx = -5.196
 const rowDy = 9
@@ -7,7 +8,12 @@ const rowDy = 9
 const colDx = 41.84
 const colDy = 2.5
 
-const Shape = ({ dx, dy, ...rest }) => {
+Shape.propTypes = {
+  dx: PropTypes.number.required,
+  dy: PropTypes.number.required
+}
+
+function Shape({ dx, dy, ...rest }) {
   const topLeft = `${-3.8 + dx} ${dy}`
   console.log(topLeft)
   const topRight = `${43.284 + dx} ${dy}`

@@ -1,11 +1,14 @@
 import React from 'react'
 import { Motion, spring } from 'react-motion'
+import PropTypes from 'prop-types'
 
 const positions = {
   before: 'before',
   current: 'current',
   after: 'after'
 }
+
+const positionsList = [positions.before, positions.current, positions.after]
 
 function getTopY(position) {
   return position === positions.after ? 17.3 : 0
@@ -16,6 +19,13 @@ function getBottomY(position) {
 }
 
 ProgressIcon.positions = positions
+
+ProgressIcon.propTypes = {
+  positionIndex: PropTypes.number.required,
+  relativePosition: PropTypes.oneOf(positionsList),
+  last: PropTypes.bool,
+  style: PropTypes.object
+}
 
 export default function ProgressIcon({
   positionIndex,

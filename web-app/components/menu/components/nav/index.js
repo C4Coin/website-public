@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import ProgressIcon from '../progress-icon'
 import WebsitePropTypes from 'utils/website-prop-types'
@@ -10,13 +10,15 @@ import s from './index.scss'
 const { after, before, current } = ProgressIcon.positions
 
 Nav.propTypes = {
-  links: PropTypes.arrayOf(WebsitePropTypes.link),
-  active: PropTypes.bool
+  links: PropTypes.arrayOf(WebsitePropTypes.link).required,
+  open: PropTypes.number,
+  currentPageIdx: PropTypes.number,
+  linkOnClick: PropTypes.func
 }
 
 export default function Nav({
   links,
-  open,
+  open = 0,
   currentPageIdx = -1,
   linkOnClick = () => {},
   ...rest

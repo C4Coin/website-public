@@ -2,9 +2,9 @@ import React from 'react'
 import { Link, withRouter, matchPath } from 'react-router-dom'
 import { Motion, spring } from 'react-motion'
 import PropTypes from 'prop-types'
+import ReactRouterPropTypes from 'react-router-prop-types'
 
 import websitePropTypes from 'utils/website-prop-types'
-import mergeStyleVariables from 'utils/merge-style-variables'
 import Icon from './components/icon'
 import Logo from './components/logo'
 import Nav from './components/nav'
@@ -13,20 +13,25 @@ import Mailing from './components/mailing'
 import Footer from './components/footer'
 import Border from './components/border'
 
-import s from './index.scss'
-import sVariables from '!!sass-variable-loader!./_variables.scss'
-import appStyleVariables from '!!sass-variable-loader!style/_variables.scss'
-
-const { pixelsToNumber } = mergeStyleVariables
+import s from './style/index.scss'
+import sVariables from './style/style.variables.scss'
+import appStyleVariables from 'style/style.variables.scss'
 
 const { latentMenuWidth, activeMenuWidth } = sVariables
 const { bpTabletSmall } = appStyleVariables
-const latentWidth = pixelsToNumber(latentMenuWidth),
-  activeWidth = pixelsToNumber(activeMenuWidth),
-  mobileBreakpoint = pixelsToNumber(bpTabletSmall)
+const latentWidth = parseInt(latentMenuWidth)
+const activeWidth = parseInt(activeMenuWidth)
+const mobileBreakpoint = parseInt(bpTabletSmall)
 
 const activationPoint = 70
 const defaultRipple = { rippleWidth: 0, rippleY: 0 }
+
+const menuPropTypes = {
+  coverUrl: PropTypes.string,
+  navLinks: PropTypes.arrayOf(websitePropTypes.link),
+  footerLinks: PropTypes.arrayOf(websitePropTypes.link),
+  location: ReactRouterPropTypes.location
+}
 
 class Menu extends React.Component {
   constructor() {
@@ -124,7 +129,7 @@ class Menu extends React.Component {
       location: { pathname }
     } = this.props
 
-    const { active, rippleWidth, rippleY, height, width } = this.state
+    const { active, rippleWidth, rippleY, height } = this.state
 
     // Calculate the size of the menu and interactive border zone
     const widthDifference = activeWidth - latentWidth
@@ -205,10 +210,6 @@ class Menu extends React.Component {
   }
 }
 
-Menu.propTypes = {
-  coverUrl: PropTypes.string,
-  navLinks: PropTypes.arrayOf(websitePropTypes.link),
-  footerLinks: PropTypes.arrayOf(websitePropTypes.link)
-}
+Menu.propTypes = menuPropTypes
 
 export default withRouter(Menu)
