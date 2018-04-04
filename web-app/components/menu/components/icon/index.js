@@ -34,22 +34,16 @@ export default function Icon(props) {
       defaultStyle={{ dx: 0, dy: 0 }}
       style={{ dx: spring(colDx), dy: spring(colDy) }}
     >
-      {({ dx, dy }) => {
-        return (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 30 23"
-            {...props}
-          >
-            {translations.map(({ x, y }, idx) => (
-              <React.Fragment key={idx}>
-                <Shape dx={x + dx} dy={y + dy} />
-                <Shape dx={x - colDx + dx} dy={y - colDy + dy} />
-              </React.Fragment>
-            ))}
-          </svg>
-        )
-      }}
+      {({ dx, dy }) => (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 23" {...props}>
+          {translations.map(({ x, y }, idx) => (
+            <React.Fragment key={idx}>
+              <Shape dx={x + dx} dy={y + dy} />
+              <Shape dx={x - colDx + dx} dy={y - colDy + dy} />
+            </React.Fragment>
+          ))}
+        </svg>
+      )}
     </Motion>
   )
 }

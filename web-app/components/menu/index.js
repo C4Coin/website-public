@@ -143,7 +143,7 @@ class Menu extends React.Component {
 
     // Get the Index of the currently active link
     const currentLinkIdx = navLinks.findIndex(
-      ({ url }) => matchPath(pathname, { path: url }) != null
+      ({ url }) => matchPath(pathname, { path: url }) !== null
     )
 
     return (
