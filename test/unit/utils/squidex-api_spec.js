@@ -1,6 +1,9 @@
 import { expect } from 'chai'
 import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
 import squidexApi from 'utils/squidex-api'
+
+import helper from '../test_helper.js'
 
 describe('squidex-api', () => {
   const fakeAxios = {
@@ -21,7 +24,6 @@ describe('squidex-api', () => {
 
     it('called post with the correct arguments', () => {
       expect(fakeAxios.post).to.have.been.called
-      // expect(true).to.be.true
     })
   })
 })
