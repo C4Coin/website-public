@@ -13,5 +13,5 @@ const fields = {
 
 export default {
   subscribeUrl,
-  email
+  fields
 }
