@@ -1,0 +1,31 @@
+/**
+ *
+ * Footer Style
+ *
+**/
+
+@import '~style/_variables.scss';
+@import '~components/menu/style/_variables.scss';
+
+.container {
+  background-color: $white;
+  width: 100%;
+  font-size: 10px;
+  padding-top: 1.45em;
+  padding-bottom: 1.45em;
+  line-height: 1em;
+  padding-left: 42px;
+}
+
+.dolly {
+  width: $active-menu-width;
+}
+
+.link {
+  text-transform: uppercase;
+  color: $dark-gray;
+}
+
+.link + .link {
+  margin-left: 1.2em;
+}

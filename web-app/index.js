@@ -2,8 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
+import s from 'style/index.scss'
+
 import baseConfig from 'base.config'
 import GetArticleList from 'modules/get-article-list.js'
+import Menu from 'components/menu'
 
 import About from 'sections/about'
 import Articles from 'sections/articles'
@@ -19,7 +22,20 @@ const App = () => (
     {({ articles }) => {
       return (
         <Router>
-          <React.Fragment>
+          <div className={s['app']}>
+            <Menu
+              coverUrl="/"
+              navLinks={[
+                { anchor: 'about', url: '/about' },
+                { anchor: 'articles', url: '/articles' },
+                { anchor: 'technology', url: '/technology' },
+                { anchor: 'team', url: '/team' }
+              ]}
+              footerLinks={[
+                { anchor: 'press package', url: '/press-package' },
+                { anchor: 'terms of service', url: '/terms-of-service' }
+              ]}
+            />
             <Switch>
               <Route path="/" exact render={Cover} />
               <Route path="/about" render={About} />
@@ -35,7 +51,7 @@ const App = () => (
               <Route path="/terms-of-service" render={TermsOfServervice} />
               <Route render={NotFound} />
             </Switch>
-          </React.Fragment>
+          </div>
         </Router>
       )
     }}
