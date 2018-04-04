@@ -20,18 +20,20 @@ class MailchimpFormManager extends React.Component {
   constructor(props) {
     super(props)
 
-    const { fields } = props
-
     this.state = {
-      ...fields
+      ...props.fields
     }
 
     this.updateField = this.updateField.bind(this)
+    this.submit = this.submit.bind(this)
+  }
+
+  submit(subscribe, event) {
+    subscribe(this.state)
+    event.preventDefault()
   }
 
   updateField(name, value) {
-    console.log('name', name)
-    console.log('value', value)
     this.setState({
       [name]: value
     })
@@ -52,7 +54,7 @@ class MailchimpFormManager extends React.Component {
       <MailchimpSubscribe
         url={subscribeUrl}
         render={({ subscribe, status, message }) => {
-          const managedSubscribe = subscribe.bind(this, this.state)
+          const managedSubscribe = this.submit.bind(this, subscribe)
           return children({ managedFields, managedSubscribe, status, message })
         }}
       />

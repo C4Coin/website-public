@@ -11,7 +11,6 @@ export default function IntegratedMailingSignup(props) {
     <MailchimpFormManager fields={{ [fields.email]: '' }}>
       {({ managedFields, managedSubscribe, status }) => {
         const { [fields.email]: email } = managedFields
-        // console.log(status)
 
         return (
           <form onSubmit={managedSubscribe}>
