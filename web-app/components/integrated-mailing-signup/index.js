@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import MailchimpFormManager from 'modules/mailchimp-form-manager'
 import mailchimp from 'utils/mailchimp'

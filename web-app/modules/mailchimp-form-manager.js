@@ -2,7 +2,6 @@ import React from 'react'
 import MailchimpSubscribe from 'react-mailchimp-subscribe'
 import PropTypes from 'prop-types'
 
-import appConfig from 'app.config.js'
 import mailchimp from 'utils/mailchimp'
 
 const { subscribeUrl, fields } = mailchimp

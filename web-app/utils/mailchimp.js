@@ -1,4 +1,3 @@
-import axios from 'axios'
 import appConfig from 'app.config.js'
 import qs from 'qs'
 

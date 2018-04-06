@@ -14,8 +14,6 @@ import Technology from 'sections/technology'
 import PressPackage from 'sections/press-package'
 import TermsOfServervice from 'sections/terms-of-service'
 
-import mailchimp from 'utils/mailchimp'
-
 const App = () => (
   <GetArticleList>
     {({ articles }) => {
