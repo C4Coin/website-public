@@ -25,7 +25,6 @@ module.exports = (env, argv = { mode: 'development' }) => {
       ]
     },
     target: 'node',
-    externals: [nodeExternals()],
-    devtool: 'inline-cheap-module-source-map'
+    externals: [nodeExternals()]
   }
 }

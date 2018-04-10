@@ -1,11 +1,10 @@
 import { expect } from 'chai'
 import sinon from 'sinon'
-import sinonChai from 'sinon-chai'
 import squidexApi from 'utils/squidex-api'
 import appConfig from 'app.config.js'
 import qs from 'qs'
 
-import helper from '../test_helper.js'
+require('../test_helper.js')
 const { squidex: { appName, clientId, clientSecret, scope } } = appConfig
 
 describe('squidex-api', () => {
