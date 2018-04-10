@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import s from './index.scss'
 
 Page.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node.isRequired
 }
 

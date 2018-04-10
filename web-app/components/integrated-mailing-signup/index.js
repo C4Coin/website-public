@@ -38,7 +38,7 @@ export default function IntegratedMailingSignup({
             <div className={s['background-container']}>
               <div className={s['background']} style={{ backgroundImage }} />
             </div>
-            {status === STATUS.SUCCESS || true ? (
+            {status === STATUS.SUCCESS ? (
               successComponent
             ) : (
               <div className={`${s['display']}`}>

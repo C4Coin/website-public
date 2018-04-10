@@ -73,7 +73,8 @@ class MailchimpFormManager extends React.Component {
           message: serverMessage
         }) => {
           const managedSubscribe = this.submit.bind(this, subscribe)
-          const status = subscribeStatus ? subscribeStatus : STATUS.READY
+          const status =
+            subscribeStatus != null ? subscribeStatus : STATUS.READY
           const message = this.localizeMessage(serverMessage)
           return children({ managedFields, managedSubscribe, status, message })
         }}
