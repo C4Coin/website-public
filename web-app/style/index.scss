@@ -6,10 +6,12 @@
  */
 @charset "utf-8/index";
 
-@import './variables.scss';
-@import './base.scss';
-@import './typeography.scss';
-@import './input.scss';
+@import '_variables.scss';
+@import '_base.scss';
+@import '_typeography.scss';
+@import '_input.scss';
+
+@import '~components/menu/style/_variables.scss';
 
 .app {
 	position: fixed;
@@ -18,4 +20,11 @@
 	bottom: 0;
 	left: 0;
 	overflow: hidden;
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .app {
+    padding-left: $latent-menu-width;
+  }
 }

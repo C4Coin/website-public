@@ -1,0 +1,72 @@
+/**
+ *
+ * Nav Style
+ *
+**/
+
+@import '~style/_variables.scss';
+@import '~components/menu/style/_variables.scss';
+
+$icon-width: 30px;
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.display {
+  align-self: center;
+}
+
+.item {
+  font-size: 32px;
+  font-weight: bold;
+  font-family: $korolev;
+  text-transform: uppercase;
+}
+
+.item + .item {
+  margin-top: .5em;
+}
+
+.icon-display {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.icon {
+  display: inline-block;
+  width: $icon-width;
+  background-image: url('assets/textures/nav-texture-left.png');
+  line-height: 0px;
+  opacity: 1;
+  transition: .3s;
+}
+
+.item:hover .icon {
+  opacity: .5;
+}
+
+.icon svg {
+  width: $icon-width;
+  height: auto;
+  vertical-align: text-top;
+}
+
+.name {
+  display: inline-block;
+  vertical-align: middle;
+  letter-spacing: 0.01em;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: url('assets/textures/nav-texture-right.png');
+  opacity: 1;
+  transition: .3s;
+}
+
+.item:hover .name {
+  opacity: .5;
+}

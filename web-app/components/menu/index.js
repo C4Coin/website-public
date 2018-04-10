@@ -1,0 +1,216 @@
+import React from 'react'
+import { Link, withRouter, matchPath } from 'react-router-dom'
+import { Motion, spring } from 'react-motion'
+import PropTypes from 'prop-types'
+import ReactRouterPropTypes from 'react-router-prop-types'
+import camelcase from 'camelcase-keys'
+
+import websitePropTypes from 'utils/website-prop-types'
+import Icon from './components/icon'
+import Logo from './components/logo'
+import Nav from './components/nav'
+import Social from './components/social'
+import Mailing from './components/mailing'
+import Footer from './components/footer'
+import Border from './components/border'
+
+import s from './style/index.scss'
+import sVariables from './style/style.variables.scss'
+import appStyleVariables from 'style/style.variables.scss'
+
+const { $latentMenuWidth, $activeMenuWidth } = camelcase(sVariables.global)
+const { $bpTabletSmall } = camelcase(appStyleVariables)
+const latentWidth = parseInt($latentMenuWidth)
+const activeWidth = parseInt($activeMenuWidth)
+const mobileBreakpoint = parseInt($bpTabletSmall)
+
+const activationPoint = 70
+const defaultRipple = { rippleWidth: 0, rippleY: 0 }
+
+const menuPropTypes = {
+  coverUrl: PropTypes.string,
+  navLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
+  footerLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
+  location: ReactRouterPropTypes.location
+}
+
+class Menu extends React.Component {
+  constructor() {
+    super()
+
+    this.state = {
+      active: false,
+      refreshed: true,
+      height: undefined,
+      width: undefined,
+      ...defaultRipple
+    }
+
+    this.setupMeasuring = this.setupMeasuring.bind(this)
+    this.menuPullActivity = this.menuPullActivity.bind(this)
+    this.exitMenu = this.exitMenu.bind(this)
+    this.closeMenu = this.closeMenu.bind(this)
+    this.openMenu = this.openMenu.bind(this)
+  }
+
+  exitMenu() {
+    this.setState({
+      active: false,
+      refreshed: true
+    })
+  }
+
+  closeMenu() {
+    this.setState({
+      active: false
+    })
+  }
+
+  openMenu() {
+    this.setState({ active: true })
+  }
+
+  menuPullActivity({ nativeEvent }) {
+    const { active, refreshed } = this.state
+    if (active || !refreshed) return
+    const { offsetX: x, offsetY: y } = nativeEvent
+
+    if (x <= activationPoint) {
+      this.setState({
+        active: true,
+        refreshed: false,
+        rippleWidth: 0,
+        rippleY: y
+      })
+    } else {
+      // The interactiveZoneWidth can be set to any arbitrary number
+      // Greater than the activationPoint and less than width of the svg
+      // (active-menu-width - latent-Menu-Width + 2)
+      const interactiveZoneWidth = activationPoint * 2
+      const distanceIn = Math.max(interactiveZoneWidth - x, 0)
+      const pullZoneWidth = interactiveZoneWidth - activationPoint
+      const completion = 1 - (pullZoneWidth - distanceIn) / pullZoneWidth
+      const rippleWidth = completion * activationPoint
+
+      this.setState({
+        rippleWidth,
+        rippleY: y
+      })
+    }
+  }
+
+  setupMeasuring(container) {
+    if (container === null) return
+
+    this.measureNewSize = this.measureContainer.bind(this, container)
+    this.measureNewSize()
+    window.addEventListener('resize', this.measureNewSize)
+  }
+
+  measureContainer(container) {
+    this.setState({
+      height: window.innerHeight,
+      width: window.innerWidth
+    })
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.measureNewSize)
+  }
+
+  isMobile() {
+    return this.state.width < mobileBreakpoint
+  }
+
+  render() {
+    const {
+      coverUrl,
+      navLinks,
+      footerLinks,
+      location: { pathname }
+    } = this.props
+
+    const { active, rippleWidth, rippleY, height } = this.state
+
+    // Calculate the size of the menu and interactive border zone
+    const widthDifference = activeWidth - latentWidth
+    const interactiveBorderWidth = widthDifference + 2
+
+    const ripple = {
+      rippleWidth: spring(rippleWidth),
+      rippleY: spring(rippleY)
+    }
+
+    // Get the Index of the currently active link
+    const currentLinkIdx = navLinks.findIndex(
+      ({ url }) => matchPath(pathname, { path: url }) !== null
+    )
+
+    return (
+      <Motion defaultStyle={{ open: 0 }} style={{ open: spring(1 * active) }}>
+        {({ open }) => {
+          const width = this.isMobile()
+            ? `${open * 100}%`
+            : latentWidth + open * widthDifference - 2
+          return (
+            <div
+              className={s['container']}
+              onMouseLeave={this.exitMenu}
+              ref={this.setupMeasuring}
+            >
+              {this.isMobile && (
+                <div className={s['menu-icon-container']}>
+                  <Icon className={s['menu-icon']} onClick={this.openMenu} />
+                </div>
+              )}
+              <div className={s['shader']} />
+              <Motion defaultStyle={defaultRipple} style={ripple}>
+                {rippleInterpolation =>
+                  !this.isMobile() && (
+                    <Border
+                      width={interactiveBorderWidth}
+                      height={height}
+                      open={open}
+                      onMouseMove={this.menuPullActivity}
+                      {...rippleInterpolation}
+                    />
+                  )
+                }
+              </Motion>
+              <div
+                className={s['window']}
+                style={{ width: width }}
+                onMouseOver={this.openMenu}
+              >
+                <div className={s['display']}>
+                  <div className={s['logo-container']}>
+                    <Link to={coverUrl} onClick={this.closeMenu}>
+                      <Logo className={s['logo']} open={open} />
+                    </Link>
+                  </div>
+                  <Nav
+                    links={navLinks}
+                    currentPageIdx={currentLinkIdx}
+                    open={open}
+                    linkOnClick={this.closeMenu}
+                  />
+                  <Social open={open} />
+                  <Mailing open={open} />
+                  <Footer
+                    links={footerLinks}
+                    linkOnClick={this.closeMenu}
+                    open={open}
+                  />
+                </div>
+              </div>
+            </div>
+          )
+        }}
+      </Motion>
+    )
+  }
+}
+
+Menu.propTypes = menuPropTypes
+
+export default withRouter(Menu)

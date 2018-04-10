@@ -5,29 +5,38 @@
  *
  */
 
- $myriad: myriad, "myriad pro", arial, sans-serif;
+@import url("https://use.typekit.net/ffd5qqs.css");
+
+$helvetica-neue: "helvetica-neue", helvetica, arial, sans-serif;
+$korolev: korolev, helvetica, arial, sans-serif;
 
 /* ============================================================ *\
 |* Colors
 \* ============================================================ */
 
 $white:             #FFF;
-$white-shade:       #F4F4F4;
+$white-shade:       #FAFAF4;
+$dirty-white:       #F4F4EF;
 $light-gray:        #CCC;
 $gray:              #A1A1A1;
-$dark-gray:         #767676;
-$black-tint:        #4A4A4A;
-$black:             #343434;
+$dark-gray:         #666B75  ;
+$black-tint:        #373744;
+$black:             #1D1B26;
 
 // Transparency
 $shadow:            rgba(0,0,0,.65);
 
-// Insert brand color values
-$orange:           #f76114;
-$orange-shade:     #e0550B;
-$orange-tint:      #FF8131;
-$blue:             #335288;
-$blue-tint:        #4362C7;
+// Brand color values
+$gold:              #F4CB47;
+$gold-shade:        #CE9229;
+$gold-tint:         #F4DE78;
+$blue:              #65ACE5;
+$silver:            #C4CFE8;
+$silver-tint:       #DCE4F4;
+$copper-green:      #DCE4F4;
+$brass-yellow:      #C4C17C;
+
+
 
 /* ============================================================ *\
 |* Breakpoints
@@ -35,7 +44,7 @@ $blue-tint:        #4362C7;
 
 $bp-mobile:            450px;
 $bp-mobile-large:      640px;
-$bp-tablet-small:      722px;
+$bp-tablet-small:      720px;
 $bp-tablet:            1000px;
 $bp-monitor-small:     1200px;
 $bp-monitor-medium:    1400px;
