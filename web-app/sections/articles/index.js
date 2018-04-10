@@ -16,19 +16,13 @@ Articles.propTypes = {
 
 export default function Articles({ match, ...rest }) {
   return (
-    <section className={s['container']}>
-      <Switch>
-        <Route path={match.path} exact render={ArticleList} />
-        <Route path={`${match.path}/:name`}>
-          {({ match: { params } }) => (
-            <FindPost
-              name={params.name}
-              success={Post}
-              failure={PostNotFound}
-            />
-          )}
-        </Route>
-      </Switch>
-    </section>
+    <Switch>
+      <Route path={match.path} exact render={ArticleList} />
+      <Route path={`${match.path}/:name`}>
+        {({ match: { params } }) => (
+          <FindPost name={params.name} success={Post} failure={PostNotFound} />
+        )}
+      </Route>
+    </Switch>
   )
 }

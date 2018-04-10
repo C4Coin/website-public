@@ -11,6 +11,7 @@
 * {
 	font-size: inherit;
 	font-weight: inherit;
+  color: inherit;
 }
 
 html {
@@ -69,12 +70,17 @@ h6, :global(.h6)    {line-height: 1.3em}
 p, :global(.p)      {line-height: 1.3em}
 body                {line-height: 1.3em}
 
-p, body {
+body {
   color: $black-tint;
 }
 
-h1, h2, h3, h4, h5 ,h6 {
-  color: $black;
+h1, :global(.h1),
+h2, :global(.h2),
+h3, :global(.h3),
+h4, :global(.h4),
+h5, :global(.h5),
+h6, :global(.h6) {
+  font-family: $korolev;
 }
 
 @media screen
