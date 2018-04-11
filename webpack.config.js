@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 process.traceDeprecation = true
 
-module.exports = (env, argv) => {
+module.exports = (env, argv = { mode: 'development' }) => {
   const { mode } = argv
   return {
     context: path.resolve('./web-app'),
@@ -44,7 +44,7 @@ module.exports = (env, argv) => {
               loader: 'babel-loader',
               options: {
                 presets: ['env', 'react', 'stage-0'],
-                plugins: ['transform-object-assign']
+                plugins: ['transform-object-assign', 'rewire']
               }
             }
           ]
@@ -122,6 +122,10 @@ module.exports = (env, argv) => {
           ]
         }
       ]
+    },
+    node: {
+      fs: 'empty',
+      module: 'empty'
     }
   }
 }
