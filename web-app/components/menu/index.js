@@ -19,7 +19,7 @@ import sVariables from './style/style.variables.scss'
 import appStyleVariables from 'style/style.variables.scss'
 
 const { $latentMenuWidth, $activeMenuWidth } = camelcase(sVariables.global)
-const { $bpTabletSmall } = camelcase(appStyleVariables)
+const { $bpTabletSmall } = camelcase(appStyleVariables.global)
 const latentWidth = parseInt($latentMenuWidth)
 const activeWidth = parseInt($activeMenuWidth)
 const mobileBreakpoint = parseInt($bpTabletSmall)
