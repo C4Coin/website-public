@@ -1,0 +1,127 @@
+/**
+ *
+ * Integrated Mailing Signup Styling
+ *
+**/
+
+@import "~style/_variables.scss";
+@import "~components/menu/style/_variables.scss";
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  max-width: 1300px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  overflow: hidden;
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-container {
+  position: absolute;
+  display: inline-block;
+  top: 100px;
+  right: 0px;
+  bottom: 100px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.display {
+  position: relative;
+  padding: 5em 0px;
+  width: 420px;
+  max-width: 100%;
+  text-align: center;
+  color: $light-gray;
+}
+
+.title {
+  opacity: .65;
+  margin-bottom: .4em;
+  letter-spacing: .01em;
+  background-image: linear-gradient(0deg, $gold-tint -29%, $silver 46%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.description {
+  padding: 0px 1.7em;
+  margin-bottom: 12vh;
+  text-shadow: 0 0 1px $shadow;
+}
+
+.form {
+  display: flex;
+
+}
+
+.email-wrapper {
+  position: relative;
+  flex-grow: 1;
+  margin-right: .5em;
+}
+
+input.email-input {
+  width: 100%;
+  border-bottom: 3px solid $light-gray;
+  background-color: transparent;
+  font-family: $korolev;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: $white;
+  padding: .5em 0px .5em .75em;
+}
+
+input.email-input::placeholder {
+  color: $light-gray;
+  text-shadow: 0 0 1px $shadow;
+}
+
+.email-error {
+  font-size: smaller;
+  font-family: $korolev;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: -1.6em;
+  right: 0;
+  color: $light-gray;
+}
+
+.submit {
+  border: 0px;
+  background-color: transparent;
+}
+
+.submit-arrow {
+  fill: $light-gray;
+  height: 18px;
+  width: auto;
+  vertical-align: baseline;
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .background-container {
+    right: 100px;
+    left: 100px;
+  }
+}
