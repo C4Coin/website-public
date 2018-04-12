@@ -59,4 +59,6 @@ class PointerTracker extends React.Component {
   }
 }
 
+PointerTracker.propTypes = propTypes
+
 export default PointerTracker

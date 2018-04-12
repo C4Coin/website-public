@@ -69,8 +69,10 @@ class PointerZone extends React.Component {
 
 PointerZone.propTypes = propTypes
 
-export default props => (
-  <PointerContext.Consumer>
-    {({ subscribe }) => <PointerZone {...props} subscribe={subscribe} />}
-  </PointerContext.Consumer>
-)
+export default function PointerZoneWrapper(props) {
+  return (
+    <PointerContext.Consumer>
+      {({ subscribe }) => <PointerZone {...props} subscribe={subscribe} />}
+    </PointerContext.Consumer>
+  )
+}
