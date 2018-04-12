@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import camelcase from 'camelcase-keys'
 
+import PointerTracker from 'modules/pointer-tracker'
 import s from './index.scss'
 import appStyleVariables from 'style/style.variables.scss'
 
@@ -69,7 +70,8 @@ Border.propTypes = {
   rippleWidth: PropTypes.number,
   rippleY: PropTypes.number,
   open: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
+  onPointerMove: PropTypes.func
 }
 
 export default function Border({
@@ -79,28 +81,34 @@ export default function Border({
   rippleY = 0,
   open = 0,
   className = '',
+  onPointerMove = () => {},
   ...rest
 }) {
   const preserveAspectRatio = height === undefined ? 'none' : 'xMidYMid'
 
   const style = { width: `${width}px` }
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox={`0 0 ${width} ${height}`}
-      preserveAspectRatio={preserveAspectRatio}
-      className={`${className} ${s['container']}`}
-      style={style}
-      {...rest}
-    >
-      <Path
-        height={height}
-        width={width}
-        open={open}
-        rippleWidth={rippleWidth}
-        rippleY={rippleY}
-        style={{ fill: silver }}
-      />
-    </svg>
+    <PointerTracker.PointerZone onPointerMove={onPointerMove}>
+      {({ setZone }) => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox={`0 0 ${width} ${height}`}
+          preserveAspectRatio={preserveAspectRatio}
+          className={`${className} ${s['container']}`}
+          style={style}
+          ref={setZone}
+          {...rest}
+        >
+          <Path
+            height={height}
+            width={width}
+            open={open}
+            rippleWidth={rippleWidth}
+            rippleY={rippleY}
+            style={{ fill: silver }}
+          />
+        </svg>
+      )}
+    </PointerTracker.PointerZone>
   )
 }

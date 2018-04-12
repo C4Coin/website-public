@@ -1,0 +1,76 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import PointerContext from './pointer-context'
+
+const propTypes = {
+  subscribe: PropTypes.func.isRequired,
+  onPointerMove: PropTypes.func.isRequired,
+  children: PropTypes.func.isRequired
+}
+
+class PointerZone extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {}
+
+    // subscribe returns a function for unsubscribing
+    this.getRect = () => undefined
+    this.watchPointer = this.watchPointer.bind(this)
+    this.unsubscribe = props.subscribe(this.watchPointer)
+    this.setZone = this.setZone.bind(this)
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
+  }
+
+  static shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.subscribe !== this.props.subscribe) {
+      this.unsubscribe = nextProps.subscribe(this.watchPointer)
+    }
+
+    return true
+  }
+
+  watchPointer({ clientX, clientY }) {
+    const clientRect = this.getRect()
+    if (!clientRect) return
+
+    const {
+      x: rectX,
+      y: rectY,
+      height: rectHeight,
+      width: rectWidth
+    } = this.getRect()
+
+    // Make sure the pointer is within the horizontal boundaries of the element
+    if (clientX < rectX || clientX > rectX + rectWidth) return
+    // Make sure the pointer is within the vertical boundaries of the element
+    if (clientY < rectY || clientY > rectY + rectHeight) return
+
+    const offsetX = clientX - rectX
+    const offsetY = clientY - rectY
+
+    this.props.onPointerMove({ offsetX, offsetY })
+  }
+
+  setZone(element) {
+    if (!element) return
+
+    this.getRect = () => element.getBoundingClientRect()
+  }
+
+  render() {
+    const { children } = this.props
+    return children({ setZone: this.setZone })
+  }
+}
+
+PointerZone.propTypes = propTypes
+
+export default props => (
+  <PointerContext.Consumer>
+    {({ subscribe }) => <PointerZone {...props} subscribe={subscribe} />}
+  </PointerContext.Consumer>
+)
