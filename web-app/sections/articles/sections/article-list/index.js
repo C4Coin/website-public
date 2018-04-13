@@ -16,8 +16,6 @@ export default function ArticleList({ ...rest }) {
     />
   )
 
-  console.log(onSuccess)
-
   return (
     <Page className={s['container']}>
       ArticleList

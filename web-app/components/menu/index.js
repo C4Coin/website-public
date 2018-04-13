@@ -19,7 +19,7 @@ import sVariables from './style/style.variables.scss'
 import appStyleVariables from 'style/style.variables.scss'
 
 const { $latentMenuWidth, $activeMenuWidth } = camelcase(sVariables.global)
-const { $bpTabletSmall } = camelcase(appStyleVariables)
+const { $bpTabletSmall } = camelcase(appStyleVariables.global)
 const latentWidth = parseInt($latentMenuWidth)
 const activeWidth = parseInt($activeMenuWidth)
 const mobileBreakpoint = parseInt($bpTabletSmall)
@@ -70,10 +70,9 @@ class Menu extends React.Component {
     this.setState({ active: true })
   }
 
-  menuPullActivity({ nativeEvent }) {
+  menuPullActivity({ offsetX: x, offsetY: y }) {
     const { active, refreshed } = this.state
     if (active || !refreshed) return
-    const { offsetX: x, offsetY: y } = nativeEvent
 
     if (x <= activationPoint) {
       this.setState({
@@ -171,7 +170,7 @@ class Menu extends React.Component {
                       width={interactiveBorderWidth}
                       height={height}
                       open={open}
-                      onMouseMove={this.menuPullActivity}
+                      onPointerMove={this.menuPullActivity}
                       {...rippleInterpolation}
                     />
                   )

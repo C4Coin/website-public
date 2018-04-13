@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import s from 'style/index.scss'
 
+import PointerTracker from 'modules/pointer-tracker'
 import baseConfig from 'base.config'
 import GetArticleList from 'modules/get-article-list.js'
 import Menu from 'components/menu'
@@ -22,36 +23,40 @@ const App = () => (
     {({ articles }) => {
       return (
         <Router>
-          <div className={s['app']}>
-            <Menu
-              coverUrl="/"
-              navLinks={[
-                { anchor: 'about', url: '/about' },
-                { anchor: 'articles', url: '/articles' },
-                { anchor: 'technology', url: '/technology' },
-                { anchor: 'team', url: '/team' }
-              ]}
-              footerLinks={[
-                { anchor: 'press package', url: '/press-package' },
-                { anchor: 'terms of service', url: '/terms-of-service' }
-              ]}
-            />
-            <Switch>
-              <Route path="/" exact render={Cover} />
-              <Route path="/about" render={About} />
-              <Route
-                path="/articles"
-                render={({ match }) => (
-                  <Articles articles={articles} match={match} />
-                )}
-              />
-              <Route path="/technology" render={Technology} />
-              <Route path="/team" render={Team} />
-              <Route path="/press-package" render={PressPackage} />
-              <Route path="/terms-of-service" render={TermsOfServervice} />
-              <Route render={NotFound} />
-            </Switch>
-          </div>
+          <PointerTracker>
+            {({ trackMovement }) => (
+              <div className={s['app']} onMouseMove={trackMovement}>
+                <Menu
+                  coverUrl="/"
+                  navLinks={[
+                    { anchor: 'about', url: '/about' },
+                    { anchor: 'articles', url: '/articles' },
+                    { anchor: 'technology', url: '/technology' },
+                    { anchor: 'team', url: '/team' }
+                  ]}
+                  footerLinks={[
+                    { anchor: 'press package', url: '/press-package' },
+                    { anchor: 'terms of service', url: '/terms-of-service' }
+                  ]}
+                />
+                <Switch>
+                  <Route path="/" exact render={Cover} />
+                  <Route path="/about" render={About} />
+                  <Route
+                    path="/articles"
+                    render={({ match }) => (
+                      <Articles articles={articles} match={match} />
+                    )}
+                  />
+                  <Route path="/technology" render={Technology} />
+                  <Route path="/team" render={Team} />
+                  <Route path="/press-package" render={PressPackage} />
+                  <Route path="/terms-of-service" render={TermsOfServervice} />
+                  <Route render={NotFound} />
+                </Switch>
+              </div>
+            )}
+          </PointerTracker>
         </Router>
       )
     }}
