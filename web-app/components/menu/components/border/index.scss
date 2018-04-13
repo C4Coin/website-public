@@ -9,9 +9,10 @@
 
 .container {
   position: absolute;
-  right: 0;
+  left: $latent-menu-width - 2px;
   top: 0;
   bottom: 0;
   height: 100%;
   z-index: 1;
+  pointer-events: none;
 }

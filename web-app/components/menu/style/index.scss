@@ -27,7 +27,6 @@
   height: auto;
 }
 
-
 .window {
   overflow: hidden;
   height: 100%;
@@ -57,11 +56,8 @@
 @media screen
 and (min-width: $bp-tablet-small) {
   .container {
-    width: $active-menu-width;
+    width: auto;
     right: auto;
-  }
-
-  .window {
   }
 
   .display {
