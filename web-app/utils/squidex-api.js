@@ -4,7 +4,9 @@ import qs from 'qs'
 // App config file with API secrets
 import appConfig from 'app.config'
 
-const { squidex: { appName, clientId, clientSecret, scope } } = appConfig
+const {
+  squidex: { appName, clientId, clientSecret, scope }
+} = appConfig
 
 const authenticate = function() {
   return axios.post(
