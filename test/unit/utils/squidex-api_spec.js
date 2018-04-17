@@ -5,7 +5,9 @@ import appConfig from 'app.config.js'
 import qs from 'qs'
 
 require('../test_helper.js')
-const { squidex: { appName, clientId, clientSecret, scope } } = appConfig
+const {
+  squidex: { appName, clientId, clientSecret, scope }
+} = appConfig
 
 describe('squidex-api', () => {
   const fakeAxios = {
