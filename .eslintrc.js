@@ -7,27 +7,10 @@ module.exports = {
     'prettier/standard'
   ],
   plugins: ['react', 'mocha', 'prettier', 'standard'],
-  parserOptions: {
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
-    }
-  },
-  env: {
-    es6: true,
-    node: true
-  },
-  globals: {
-    fetch: true,
-    Headers: true
-  },
+  parserOptions: { sourceType: 'module', ecmaFeatures: { jsx: true } },
+  env: { es6: true, node: true },
+  globals: { fetch: true, Headers: true },
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        semi: false
-      }
-    ]
+    'prettier/prettier': ['error', { singleQuote: true, semi: false }]
   }
 }
