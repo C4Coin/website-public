@@ -149,7 +149,7 @@ class Menu extends React.Component {
       <Motion defaultStyle={{ open: 0 }} style={{ open: spring(1 * active) }}>
         {({ open }) => {
           const width = this.isMobile()
-            ? `${open * 100}%`
+            ? `${open * 100}vw`
             : latentWidth + open * widthDifference - 2
           return (
             <div

@@ -30,10 +30,10 @@ const queryData = function(endpoint, options, accessToken) {
   })
 }
 
-const getPosts = queryData.bind(null, 'post', { top: 10 })
+const getArticles = queryData.bind(null, 'article', { top: 10 })
 
 export default {
   authenticate,
   queryData,
-  getPosts
+  getArticles
 }

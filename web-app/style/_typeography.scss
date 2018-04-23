@@ -12,12 +12,18 @@
 	font-size: inherit;
 	font-weight: inherit;
   color: inherit;
+  vertical-align: inherit;
 }
 
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $helvetica-neue;
+}
+
+svg {
+  height: 1em;
+  width: auto;
 }
 
 a {

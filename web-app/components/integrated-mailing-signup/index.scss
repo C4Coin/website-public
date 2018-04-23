@@ -5,7 +5,8 @@
 **/
 
 @import "~style/_variables.scss";
-@import "~components/menu/style/_variables.scss";
+@import "~style/grid/_variables.scss";
+
 
 .container {
   position: relative;
@@ -18,7 +19,6 @@
   margin-right: auto;
   display: flex;
   overflow: hidden;
-  margin-top: 100px;
   justify-content: center;
   align-items: center;
 }
@@ -66,7 +66,6 @@
 
 .form {
   display: flex;
-
 }
 
 .email-wrapper {
@@ -116,12 +115,25 @@ input.email-input::placeholder {
 @media screen and
 (min-width: $bp-tablet) {
   .container {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: $tablet-gutter-width;
+    padding-right: $tablet-gutter-width;
   }
 
   .background-container {
-    right: 100px;
-    left: 100px;
+    right: $tablet-gutter-width;
+    left: $tablet-gutter-width;
+  }
+}
+
+@media screen and
+(min-width: $bp-monitor-small) {
+  .container {
+    padding-left: $monitor-gutter-width;
+    padding-right: $monitor-gutter-width;
+  }
+
+  .background-container {
+    right: $monitor-gutter-width;
+    left: $monitor-gutter-width;
   }
 }
