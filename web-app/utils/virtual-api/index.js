@@ -1,4 +1,3 @@
-import qs from 'qs'
 import data from './data'
 
 const authenticate = function() {

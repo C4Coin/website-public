@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import formatArticle from '../../utils/format-article'
 import Calendar from 'assets/icons/calendar.svg'
 import Timer from 'assets/icons/timer.svg'
-import Link from 'assets/icons/link.svg'
 import s from './index.scss'
 
 ListArticle.propTypes = {

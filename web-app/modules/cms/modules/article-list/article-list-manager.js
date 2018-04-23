@@ -35,7 +35,7 @@ class ArticleListManager extends React.Component {
       squidexApi
         .getArticles(token)
         .then(({ data }) => {
-          const { items, total } = data
+          const { items } = data
           this.setState({
             articles: items,
             fetchStatus: STATUS.SUCCESS

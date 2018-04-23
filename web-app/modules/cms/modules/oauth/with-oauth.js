@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import STATUS from './status'
 
 import OauthContext from './oauth-context'
