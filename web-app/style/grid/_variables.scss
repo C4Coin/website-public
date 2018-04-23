@@ -1,0 +1,18 @@
+/**
+ *
+ * Articles Varibales
+ *
+**/
+
+$monitor-gutter-width: 100px;
+$tablet-gutter-width: 7%;
+$mobile-gutter-width: 4%;
+$max-content-width: 1100px;
+
+$spacer-width: 6%;
+
+@function grid-width($expanse, $divisions){
+  $division-width: (100% - (($divisions - 1) * $spacer-width)) / $divisions;
+  $width: ($expanse * $division-width) + ($spacer-width * ($expanse - 1));
+  @return $width;
+}

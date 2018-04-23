@@ -13,6 +13,7 @@
   bottom: 0;
   left: 0;
   z-index: 100;
+  width: 0px;
 }
 
 .menu-icon-container {
@@ -61,6 +62,6 @@ and (min-width: $bp-tablet-small) {
   }
 
   .display {
-    width: $active-menu-width - $border-width
+    width: $active-menu-width - $border-width;
   }
 }
