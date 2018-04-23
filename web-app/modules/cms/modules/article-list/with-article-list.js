@@ -9,7 +9,7 @@ export default function withArticleList(Component) {
         {({ articles, fetchStatus }) => {
           if (fetchStatus === STATUS.UNAVAILABLE) {
             const err =
-              'Components expectiving article lists must be the child of an ArticleListManager or another ArticleListContext.Proivder'
+              'Components expecting article lists must be the child of an ArticleListManager or another ArticleListContext.Proivder'
             console.error(err)
           }
           return (
