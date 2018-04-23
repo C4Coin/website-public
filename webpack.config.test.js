@@ -20,7 +20,7 @@ module.exports = (env, argv = { mode: 'development' }) => {
               include: path.resolve('web-app'),
               loader: 'istanbul-instrumenter-loader'
             }
-          : [],
+          : {},
         ...baseConfig.module.rules
       ]
     },

@@ -1,4 +1,3 @@
 dist/**/*.js
 node_modules/**/*.js
-test
 coverage
