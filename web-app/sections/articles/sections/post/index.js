@@ -8,7 +8,8 @@ import Timer from 'assets/icons/timer.svg'
 import s from './index.scss'
 
 Post.propTypes = {
-  content: PropTypes.string
+  content: PropTypes.string.isRequired,
+  article: PropTypes.object.isRequired
 }
 
 export default function Post({ content, article, ...rest }) {

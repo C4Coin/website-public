@@ -12,7 +12,7 @@ const queryData = function(endpoint, options, accessToken) {
   if (!accessToken) {
     const err =
       '401: Access Fake denied.  Must be authenticated with fake access token to make calls'
-    return Promise.reject(err)
+    return Promise.reject(new Error(err))
   }
   console.warn('queryData options do nothing for the time being')
   const keys = endpoint.split('/')
@@ -26,7 +26,8 @@ const queryData = function(endpoint, options, accessToken) {
 
   // If it does not exist, console.error
   if (item === undefined) {
-    return Promise.reject(`Item ${keys[1]} not found in ${keys[0]}`)
+    const err = `Item ${keys[1]} not found in ${keys[0]}`
+    return Promise.reject(new Error(err))
   }
   return Promise.resolve({ data: item })
 }
