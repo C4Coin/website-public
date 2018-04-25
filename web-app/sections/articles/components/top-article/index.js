@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import DynamicLink from 'components/dynamic-link'
 import formatArticle from '../../utils/format-article'
 import Calendar from 'assets/icons/calendar.svg'
 import Timer from 'assets/icons/timer.svg'
@@ -29,7 +30,7 @@ export default function TopArticle({
   const readTimeDescription = formatArticle.formatReadTime(readTime)
 
   return (
-    <div className={s['container']}>
+    <DynamicLink className={s['container']} to={url}>
       <div className={s['display']}>
         <div className={s['image-section']}>
           <div
@@ -64,6 +65,6 @@ export default function TopArticle({
           </div>
         </div>
       </div>
-    </div>
+    </DynamicLink>
   )
 }

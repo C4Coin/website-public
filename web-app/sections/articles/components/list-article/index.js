@@ -4,6 +4,7 @@ import formatArticle from '../../utils/format-article'
 import Calendar from 'assets/icons/calendar.svg'
 import Timer from 'assets/icons/timer.svg'
 import s from './index.scss'
+import DynamicLink from 'components/dynamic-link'
 
 ListArticle.propTypes = {
   title: PropTypes.string.isRequired,
@@ -27,10 +28,8 @@ export default function ListArticle({
   const dateDescription = formatArticle.formatDate(publicationDate)
   const readTimeDescription = formatArticle.formatReadTime(readTime)
 
-  console.log('ok')
-
   return (
-    <div className={`${s['container']} ${className}`}>
+    <DynamicLink className={`${s['container']} ${className}`} to={url}>
       <div className={s['image-section']}>
         <div
           className={s['banner']}
@@ -64,6 +63,6 @@ export default function ListArticle({
           </div>
         </div>
       </div>
-    </div>
+    </DynamicLink>
   )
 }

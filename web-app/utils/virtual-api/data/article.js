@@ -27,7 +27,7 @@ const article = {
         readTime: 2,
         icon: require('../assets/icons/c4coin.complex.svg'),
         banner: require('../assets/graphics/Blockchain_Black.jpg'),
-        url: '/comparing-blockchain-consensus-mechanisms'
+        url: '/articles/comparing-blockchain-consensus-mechanisms'
       },
       {
         title: 'Dave Sag Joins C4Coin Team',
@@ -35,7 +35,7 @@ const article = {
         readTime: 2,
         icon: require('../assets/icons/c4coin.complex.svg'),
         banner: require('../assets/graphics/c4Coints.jpg'),
-        url: '/dave-sag-joins-c4coin-team'
+        url: '/articles/dave-sag-joins-c4coin-team'
       },
       {
         title: 'Episode 1 - Project Breakdown',
@@ -43,7 +43,7 @@ const article = {
         readTime: 13,
         icon: require('../assets/icons/c4coin.complex.svg'),
         banner: require('../assets/graphics/Blockchain_Black.jpg'),
-        url: '/episode-1-project-breakdown'
+        url: '/articles/episode-1-project-breakdown'
       }
     ]
   }

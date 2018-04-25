@@ -42,6 +42,9 @@ class ArticleListManager extends React.Component {
           })
         })
         .catch(error => {
+          this.setState({
+            fetchStatus: STATUS.FAILED
+          })
           console.error(error)
         })
     }

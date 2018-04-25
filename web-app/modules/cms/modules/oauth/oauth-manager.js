@@ -29,7 +29,6 @@ class OauthManager extends React.Component {
         })
       })
       .catch(err => {
-        console.log(err.stack)
         this.setState({
           validationStatus: STATUS.FAILED
         })

@@ -1,7 +1,9 @@
 import article from './article'
+import post from './post'
 
 const data = {
-  article
+  article,
+  post
 }
 
 export default data

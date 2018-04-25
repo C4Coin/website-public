@@ -15,13 +15,30 @@ const queryData = function(endpoint, options, accessToken) {
     return Promise.reject(err)
   }
   console.warn('queryData options do nothing for the time being')
-  return Promise.resolve(data[endpoint])
+  const keys = endpoint.split('/')
+  const dataSet = data[keys[0]]
+  // If running a general data query
+  if (keys.length === 1) return Promise.resolve(dataSet)
+
+  // Get a specific instance
+  const itemsList = dataSet['data']['items']
+  const item = itemsList.find(element => element.id === keys[1])
+
+  // If it does not exist, console.error
+  if (item === undefined) {
+    return Promise.reject(`Item ${keys[1]} not found in ${keys[0]}`)
+  }
+  return Promise.resolve({ data: item })
 }
 
 const getArticles = queryData.bind(null, 'article', { top: 10 })
+const getPosts = queryData.bind(null, 'post', { top: 10 })
+const getPost = (id, token) => queryData(`post/${id}`, {}, token)
 
 export default {
   authenticate,
   queryData,
-  getArticles
+  getArticles,
+  getPosts,
+  getPost
 }
