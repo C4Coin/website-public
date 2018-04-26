@@ -1,7 +1,19 @@
 import React from 'react'
+import TeamData from 'modules/team-data'
+import Page from 'components/page'
+import TopFoundersDisplay from './sections/top-founders-display'
 
 import s from './index.scss'
 
-export default function Team({ ...rest }) {
-  return <section className={s['container']}>Team</section>
+function Team({ founders, team, ...rest }) {
+  return (
+    <Page>
+      <div className={s['container']}>
+        <h2>Founders</h2>
+        <TopFoundersDisplay founderOne={founders[0]} founderTwo={founders[1]} />
+      </div>
+    </Page>
+  )
 }
+
+export default TeamData.inject(Team)

@@ -1,0 +1,173 @@
+/**
+ *
+ * Top Founder Display Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+.container {
+  display: flex;
+  margin: auto;
+  max-width: 720px;
+}
+
+@mixin display() {
+  width: 50%;
+}
+
+.first-display {
+  @include display();
+}
+
+.second-display {
+  text-align: right;
+  @include display();
+}
+
+@mixin image-wrapper() {
+  width: 100%;
+}
+
+.first-image-wrapper {
+  @include image-wrapper();
+  padding-right: 4px;
+}
+
+.second-image-wrapper {
+  @include image-wrapper();
+  padding-left: 4px;
+}
+
+.first-image,
+.second-image {
+  width: 100%;
+  display: block;
+}
+
+@mixin info() {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  margin-top: .5em;
+}
+
+.first-info {
+  @include info();
+}
+
+.second-info {
+  @include info();
+  flex-direction: row-reverse;
+}
+
+$title-size-mobile: 11.8vw;
+
+@mixin title() {
+  position: relative;
+  line-height: 1em;
+  color: $gold;
+  writing-mode: vertical-lr;
+  font-size: $title-size-mobile;
+  margin-top: -0.56em;
+  background-color: $white;
+  padding-left: .03em;
+  padding-right: .05em;
+  align-self: flex-start;
+}
+
+.first-title {
+  left: -1px;
+  transform: rotate(180deg);
+  padding-bottom: .11em;
+  @include title();
+}
+
+.second-title {
+  right: -1px;
+  padding-top: .11em;
+  @include title();
+}
+
+
+@mixin name() {
+  font-size: $h4-mobile;
+  line-height: 1em;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+}
+
+.first-name {
+  @include name();
+}
+
+.second-name {
+  @include name();
+  text-align: right;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .first-info,
+  .second-info {
+    font-size: $h4-mobile;
+    margin-top: -0.97em;
+    background-color: white;
+  }
+
+  .first-title,
+  .second-title {
+    margin-top: 0px;
+    background: transparent;
+    padding-left: 0px;
+  }
+
+  @mixin name() {
+    padding-top: .14em;
+  }
+
+  .first-name {
+    @include name();
+    padding-right: .22em;
+  }
+
+  .second-name {
+    @include name();
+    padding-left: .22em;
+  }
+}
+
+@media screen and
+(min-width: $bp-mobile-large) {
+  .first-info,
+  .second-info {
+    font-size: $h4-mobile / 100vw * $bp-mobile-large;
+  }
+
+  .first-name,
+  .second-name {
+    font-size: inherit;
+  }
+
+  .first-title,
+  .second-title {
+    font-size: $title-size-mobile / 100vw * $bp-mobile-large;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  @mixin title() {
+    padding-right: 0px;
+  }
+
+  .first-title {
+    margin-left: -0.12em;
+    @include title();
+  }
+
+  .second-title {
+    margin-right: -0.12em;
+    @include title();
+  }
+}
