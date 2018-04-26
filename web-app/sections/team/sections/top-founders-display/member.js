@@ -1,6 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import formatMember from '../../utils/format-member'
 import s from './index.scss'
+
+Member.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  classPrefix: PropTypes.string.isRequired
+}
 
 export default function Member({ name, image, title, classPrefix }) {
   return (
