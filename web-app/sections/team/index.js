@@ -16,11 +16,13 @@ function Team({ founders, team, ...rest }) {
       <div className={s['container']}>
         <h2 className={s['founders-title']}>Founders</h2>
         <TopFoundersDisplay founderOne={founders[0]} founderTwo={founders[1]} />
-        <img
-          src={environmentQuote}
-          alt={quote}
-          className={s['environment-quote']}
-        />
+        <div className={s['quote-container']}>
+          <img
+            src={environmentQuote}
+            alt={quote}
+            className={s['environment-quote']}
+          />
+        </div>
         <GeneralFoundersDisplay founders={founders.slice(2)} />
         <h2 className={s['team-title']}>Team</h2>
         <TeamMemberDisplay members={team} />
