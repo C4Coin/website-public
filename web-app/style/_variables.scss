@@ -19,7 +19,7 @@ $white-shade:       #FAFAF4;
 $dirty-white:       #F4F4EF;
 $light-gray:        #CCC;
 $gray:              #A1A1A1;
-$dark-gray:         #565B65  ;
+$dark-gray:         #59595B  ;
 $black-tint:        #373744;
 $black:             #1D1B26;
 
@@ -56,8 +56,7 @@ $bp-monitor-medium:    1400px;
 // Insert App-wide coordinated length values
 $content-width:       722px;
 
-
-
+$hs-mobile:           20vw;
 $h1-mobile:           16vw;
 $h2-mobile:           12.4vw;
 $h3-mobile:           8.1vw;
@@ -66,6 +65,7 @@ $h5-mobile:           6vw;
 $h6-mobile:           5vw;
 $p-mobile:            4vw;
 
+$hs:                  15vw;
 $h1:                  70px;
 $h2:                  54px;
 $h3:                  34px;
@@ -73,3 +73,9 @@ $h4:                  30px;
 $h5:                  25px;
 $h6:                  21px;
 $p:                   18px;
+
+$hs-max:              160px;
+
+@function natural-bp($vw, $maxw) {
+  @return $maxw * 100 / ($vw / 1vw);
+}

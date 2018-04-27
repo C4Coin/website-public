@@ -4,6 +4,45 @@
  *
 **/
 
+@import "~style/_variables.scss";
+
 .container {
 
+}
+
+.team-title,
+.founders-title {
+  font-size: $hs-mobile;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.team-title {
+  margin-top: 1em;
+  color: $gold;
+  line-height: 1em;
+  margin-bottom: -0.5em;
+}
+
+.founders-title {
+  color: $silver;
+  line-height: .65em;
+  overflow: hidden;
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .team-title,
+  .founders-title {
+    font-size: $hs;
+  }
+}
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .team-title,
+  .founders-title {
+    font-size: $hs-max;
+  }
 }

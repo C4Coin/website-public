@@ -48,7 +48,6 @@
 @mixin info() {
   position: relative;
   z-index: 2;
-  display: inline-flex;
   margin-top: .5em;
 }
 
@@ -58,7 +57,7 @@
 
 .second-info {
   @include info();
-  flex-direction: row-reverse;
+  direction: rtl;
 }
 
 $title-size-mobile: 11.8vw;
@@ -74,6 +73,7 @@ $title-size-mobile: 11.8vw;
   padding-left: .03em;
   padding-right: .05em;
   align-self: flex-start;
+  display: inline-block;
 }
 
 .first-title {
@@ -95,6 +95,7 @@ $title-size-mobile: 11.8vw;
   line-height: 1em;
   text-transform: uppercase;
   letter-spacing: .01em;
+  display: inline-block;
 }
 
 .first-name {
@@ -110,6 +111,7 @@ $title-size-mobile: 11.8vw;
 (min-width: $bp-mobile) {
   .first-info,
   .second-info {
+    display: inline-block;
     font-size: $h4-mobile;
     margin-top: -0.97em;
     background-color: white;
@@ -124,6 +126,7 @@ $title-size-mobile: 11.8vw;
 
   @mixin name() {
     padding-top: .14em;
+    vertical-align: top;
   }
 
   .first-name {
