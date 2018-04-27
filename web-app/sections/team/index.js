@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import WebsitePropTypes from 'utils/website-prop-types'
 import TeamData from 'modules/team-data'
 import Page from 'components/page'
 import TopFoundersDisplay from './sections/top-founders-display'
@@ -9,6 +11,11 @@ import environmentQuote from 'assets/graphics/environment-quote.complex.svg'
 import s from './index.scss'
 
 const quote = `we're trying to reward people for protecting the environemnt`
+
+Team.propTypes = {
+  founders: PropTypes.arrayOf(WebsitePropTypes.member).isRequired,
+  team: PropTypes.arrayOf(WebsitePropTypes.member).isRequired
+}
 
 function Team({ founders, team, ...rest }) {
   return (
