@@ -31,11 +31,25 @@
   overflow: hidden;
 }
 
+.environment-quote {
+  display: block;
+  margin: 2vw auto;
+  max-width: 800px
+}
+
 @media screen and
 (min-width: $bp-tablet-small) {
   .team-title,
   .founders-title {
     font-size: $hs;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .environment-quote {
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
