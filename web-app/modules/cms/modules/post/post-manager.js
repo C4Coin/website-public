@@ -49,8 +49,6 @@ class PostManager extends React.Component {
     const { children } = this.props
     const { content, article, fetchStatus } = this.state
 
-    console.log(fetchStatus)
-
     if (fetchStatus !== STATUS.RETRIEVED) {
       return children({ fetchStatus })
     }

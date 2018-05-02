@@ -17,7 +17,7 @@
   color: $silver;
   text-transform: uppercase;
   text-align: center;
-  font-size: 20vw;
+  font-size: $hs-mobile;
   letter-spacing: .03em;
   margin-top: -.17em;
   line-height: 1em;
@@ -41,7 +41,7 @@
 @media screen and
 (min-width: $bp-tablet-small) {
   .title {
-    font-size: 15vw;
+    font-size: $hs;
   }
 
   .list-article-container {

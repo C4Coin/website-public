@@ -5,6 +5,13 @@ const link = PropTypes.shape({
   url: PropTypes.string
 })
 
+const member = PropTypes.shape({
+  name: PropTypes.string,
+  role: PropTypes.string,
+  linkedin: PropTypes.string
+})
+
 export default {
-  link
+  link,
+  member
 }

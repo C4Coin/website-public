@@ -4,6 +4,63 @@
  *
 **/
 
+@import "~style/_variables.scss";
+
 .container {
 
+}
+
+.team-title,
+.founders-title {
+  font-size: $hs-mobile;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.team-title {
+  margin-top: 1em;
+  color: $gold;
+  line-height: 1em;
+  margin-bottom: -0.5em;
+}
+
+.founders-title {
+  color: $silver;
+  line-height: .65em;
+  overflow: hidden;
+}
+
+.quote-container {
+  padding: 0px 4vw;
+}
+
+.environment-quote {
+  display: block;
+  margin: -4vw auto -1vw;
+  max-width: 700px
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .team-title,
+  .founders-title {
+    font-size: $hs;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .environment-quote {
+    margin-top: -70px;
+    margin-bottom: -30px;
+  }
+}
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .team-title,
+  .founders-title {
+    font-size: $hs-max;
+  }
 }
