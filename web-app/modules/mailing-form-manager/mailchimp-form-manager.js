@@ -1,50 +1,17 @@
 import React from 'react'
 import MailchimpSubscribe from 'react-mailchimp-subscribe'
 import PropTypes from 'prop-types'
-
+import STATUS from './status'
+import BaseFormManager from './base-form-manager'
 import mailchimp from 'utils/mailchimp'
 
 const { subscribeUrl, fields } = mailchimp
-
-const propTypes = {
-  children: PropTypes.func.isRequired,
-  fields: PropTypes.objectOf(PropTypes.string)
-}
 
 const defaultProps = {
   fields: { [fields.email]: '' }
 }
 
-const STATUS = {
-  READY: 'ready',
-  SENDING: 'sending',
-  SUCCESS: 'success',
-  ERROR: 'error'
-}
-
-class MailchimpFormManager extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      ...props.fields
-    }
-
-    this.updateField = this.updateField.bind(this)
-    this.submit = this.submit.bind(this)
-  }
-
-  submit(subscribe, event) {
-    subscribe(this.state)
-    event.preventDefault()
-  }
-
-  updateField(name, value) {
-    this.setState({
-      [name]: value
-    })
-  }
-
+class MailchimpFormManager extends BaseFormManager {
   localizeMessage(message) {
     if (!message) return ''
     if (message.indexOf('already subscribed') > -1) {
@@ -55,15 +22,7 @@ class MailchimpFormManager extends React.Component {
 
   render() {
     const { children } = this.props
-    const managedFields = Object.keys(this.state).reduce((fields, key) => {
-      return {
-        ...fields,
-        [key]: {
-          value: this.state[key],
-          onChange: this.updateField.bind(this, key)
-        }
-      }
-    }, {})
+    const managedFields = this.getFields()
     return (
       <MailchimpSubscribe
         url={subscribeUrl}
@@ -83,8 +42,6 @@ class MailchimpFormManager extends React.Component {
   }
 }
 
-MailchimpFormManager.propTypes = propTypes
 MailchimpFormManager.defaultProps = defaultProps
-MailchimpFormManager.STATUS = STATUS
 
 export default MailchimpFormManager

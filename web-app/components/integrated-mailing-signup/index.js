@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MailchimpFormManager from 'modules/mailchimp-form-manager'
+import MailingFormManager from 'modules/mailing-form-manager'
 import mailchimp from 'utils/mailchimp'
 import moon from 'assets/graphics/moon_1.0.png'
 import Arrow from 'assets/icons/arrow.svg'
 import SuccessMessage from './components/success-message'
 import s from './index.scss'
 const { fields } = mailchimp
-const { STATUS } = MailchimpFormManager
+const { STATUS } = MailingFormManager
 
 IntegratedMailingSignup.propTypes = {
   className: PropTypes.string,
@@ -28,7 +28,7 @@ export default function IntegratedMailingSignup({
   ...rest
 }) {
   return (
-    <MailchimpFormManager fields={{ [fields.email]: '' }}>
+    <MailingFormManager fields={{ [fields.email]: '' }}>
       {({ managedFields, managedSubscribe, status, message }) => {
         const { [fields.email]: email } = managedFields
 
@@ -70,6 +70,6 @@ export default function IntegratedMailingSignup({
           </section>
         )
       }}
-    </MailchimpFormManager>
+    </MailingFormManager>
   )
 }
