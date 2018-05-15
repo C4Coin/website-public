@@ -1,43 +1,71 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import BaseFormManager from './base-form-manager'
-import appConfig from 'app.config.js'
 import campaignMonitorUtils from 'utils/campaign-monitor'
+import FormManagerModule from 'modules/form-manager-module'
+import STATUS from './status'
 
-const { requestToken } = campaignMonitorUtils
-const { campaignMonitor: campaignMonitorConfig } = appConfig
+const { subscribe: campaignMonitorSubsribe } = campaignMonitorUtils
 
-class CampaignMonitorFormManager extends BaseFormManager {
+const propTypes = {
+  id: PropTypes.string.isRequired
+}
+
+class CampaignMonitorFormManager extends React.Component {
   constructor(props) {
     super(props)
 
-    this.submit = this.submit.bind(this, campaignMonitorConfig.id)
+    this.state = {
+      status: STATUS.READY
+    }
+
+    this.subscribe = this.subscribe.bind(this)
   }
+
   localizeMessage(message) {
-    return 'either localizeMessage(message) not overloaded, or abstract class Base Form Manager'
+    return "This message is a default because I don't know yet how the server will respond"
+  }
+
+  subscribe(fields, event) {
+    const { id } = this.props
+    const { email, ...extraFields } = fields
+    if (!email) {
+      throw new Error(`Campaign Monitor Managed forms require an 'email' field`)
+    }
+    this.setState({
+      status: STATUS.SENDING
+    })
+    console.log(event)
+    campaignMonitorSubsribe(id, email, extraFields)
+      .then(response => {
+        console.log('success')
+        console.log(response)
+
+        this.setState({
+          status: STATUS.SUCCESS
+        })
+      })
+      .catch(err => {
+        console.log('error')
+        console.error(err.message)
+        this.setState({
+          status: STATUS.ERROR
+        })
+      })
   }
 
   render() {
+    const { id, ...otherProps } = this.props
+    const { status } = this.state
     return (
-      <form
-        action="https://www.createsend.com/t/subscribeerror?description="
-        method="post"
-      >
-        <label for="fieldEmail">Email</label>
-        <br />
-        <input
-          id="fieldEmail"
-          class="js-cm-email-input"
-          name="cm-skjjhl-skjjhl"
-          type="email"
-          required
-        />
-        <button class="js-cm-submit-button" type="submit">
-          Subscribe
-        </button>
-      </form>
+      <FormManagerModule
+        submit={this.subscribe}
+        status={status}
+        {...otherProps}
+      />
     )
   }
 }
+
+CampaignMonitorFormManager.propTypes = propTypes
 
 export default CampaignMonitorFormManager

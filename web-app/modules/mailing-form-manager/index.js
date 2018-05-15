@@ -1,6 +1,6 @@
-import MailchimpFormManager from './mailchimp-form-manager'
+import CampaignMonitorFormManager from './campaign-monitor-form-manager'
 import STATUS from './status'
 
-MailchimpFormManager.STATUS = STATUS
+CampaignMonitorFormManager.STATUS = STATUS
 
-export default MailchimpFormManager
+export default CampaignMonitorFormManager

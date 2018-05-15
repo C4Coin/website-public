@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import STATUS from './status'
 
 const propTypes = {
   children: PropTypes.func.isRequired,
   fields: PropTypes.objectOf(PropTypes.string)
 }
 
-class BaseFormManager extends React.Component {
+class FieldManager extends React.Component {
   constructor(props) {
     super(props)
 
@@ -16,13 +15,7 @@ class BaseFormManager extends React.Component {
     }
 
     this.updateField = this.updateField.bind(this)
-    this.submit = this.submit.bind(this)
     this.getFields = this.getFields.bind(this)
-  }
-
-  submit(subscribe, event) {
-    subscribe(this.state)
-    event.preventDefault()
   }
 
   updateField(name, value) {
@@ -43,22 +36,13 @@ class BaseFormManager extends React.Component {
     }, {})
   }
 
-  localizeMessage(message) {
-    return 'either localizeMessage(message) not overloaded, or abstract class Base Form Manager'
-  }
-
   render() {
     const { children } = this.props
     const managedFields = this.getFields()
-    const managedSubscribe = this.submit.bind(this, () => {
-      console.error('Base Form Manager render needs to be subclassed to submit')
-    })
-    const status = STATUS.ERROR
-    const message = this.localizeMessage(serverMessage)
-    return children({ managedFields, managedSubscribe, status, message })
+    return children({ managedFields })
   }
 }
 
-BaseFormManager.propTypes = propTypes
+FieldManager.propTypes = propTypes
 
-export default BaseFormManager
+export default FieldManager
