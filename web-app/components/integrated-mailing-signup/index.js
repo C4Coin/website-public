@@ -21,8 +21,18 @@ IntegratedMailingSignup.SuccessMessage = SuccessMessage
 console.log(appConfig.campaignMonitor.id)
 
 const fields = {
-  email: ''
+  email: {
+    id: 'cm-skjjhl-skjjhl',
+    value: ''
+  }
 }
+
+// A copy of fields with the {<id>: <value>, ...} key value pairs
+// for mailing manager's use
+const fieldPairs = Object.values(fields).reduce(
+  (pairs, { id, value }) => ({ ...pairs, [id]: value }),
+  {}
+)
 
 export default function IntegratedMailingSignup({
   className = '',
@@ -33,9 +43,13 @@ export default function IntegratedMailingSignup({
   ...rest
 }) {
   return (
-    <MailingFormManager fields={fields} id={appConfig.campaignMonitor.id}>
+    <MailingFormManager
+      fields={fieldPairs}
+      id={appConfig.campaignMonitor.id}
+      emailId={fields.email.id}
+    >
       {({ managedFields, managedSubmit, status, message }) => {
-        const { email } = managedFields
+        const { [fields.email.id]: email } = managedFields
 
         let emailErrorMessage = status === STATUS.ERROR ? message : ''
         return (
@@ -53,11 +67,11 @@ export default function IntegratedMailingSignup({
                   <div className={s['email-wrapper']}>
                     <input
                       type="text"
-                      id="email"
-                      name="email"
+                      id={fields.email.id}
+                      name={fields.email.id}
                       value={email.value}
                       onChange={({ target }) => email.onChange(target.value)}
-                      className={s['email-input']}
+                      className={`${s['email-input']} ${fields.email.id}`}
                       placeholder="Your Favorite Email"
                     />
                     {emailErrorMessage.length > 0 && (

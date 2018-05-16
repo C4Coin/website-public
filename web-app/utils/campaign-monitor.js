@@ -6,7 +6,7 @@ const tokenEndpoint = 'https://createsend.com//t/getsecuresubscribelink'
 function requestToken(id, email) {
   const config = {
     headers: {
-      'content-type': 'application/x-www-form-urlencoded'
+      'Content-type': 'application/x-www-form-urlencoded'
     }
   }
   const data = qs.stringify({
@@ -18,26 +18,28 @@ function requestToken(id, email) {
 }
 
 function sendData(token, fields = {}) {
-  console.log(token)
-  console.log('sending data')
   const config = {
     headers: {
-      'content-type': 'application/x-www-form-urlencoded'
+      'Content-type': 'application/x-www-form-urlencoded'
     }
   }
   const data = qs.stringify(fields)
 
+  console.log('sending data:')
+  console.log(token)
+  console.log(data)
+  console.log(config)
   return axios.post(token, data, config)
 }
 
-function subscribe(id, email, fields) {
-  return requestToken(id, email).then(response => {
+function subscribe(id, emailId, fields) {
+  return requestToken(id, fields[emailId]).then(response => {
     if (response.status !== 200) {
       return Promise.reject(
         new Error(`Response ${response.status}: Token endpoint request failed`)
       )
     }
-    return sendData(response.data, { ...fields, email })
+    return sendData(response.data, fields)
   })
 }
 

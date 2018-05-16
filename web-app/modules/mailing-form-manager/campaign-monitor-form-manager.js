@@ -7,7 +7,8 @@ import STATUS from './status'
 const { subscribe: campaignMonitorSubsribe } = campaignMonitorUtils
 
 const propTypes = {
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  emailId: PropTypes.string.isRequired
 }
 
 class CampaignMonitorFormManager extends React.Component {
@@ -15,7 +16,8 @@ class CampaignMonitorFormManager extends React.Component {
     super(props)
 
     this.state = {
-      status: STATUS.READY
+      status: STATUS.READY,
+      errorMessage: ''
     }
 
     this.subscribe = this.subscribe.bind(this)
@@ -26,16 +28,18 @@ class CampaignMonitorFormManager extends React.Component {
   }
 
   subscribe(fields, event) {
-    const { id } = this.props
-    const { email, ...extraFields } = fields
-    if (!email) {
-      throw new Error(`Campaign Monitor Managed forms require an 'email' field`)
+    console.log(fields)
+    const { id, emailId } = this.props
+    if (!fields[emailId]) {
+      throw new Error(
+        `Campaign Monitor Managed forms require an email field with the ID you've set:${emailId}`
+      )
     }
     this.setState({
       status: STATUS.SENDING
     })
     console.log(event)
-    campaignMonitorSubsribe(id, email, extraFields)
+    campaignMonitorSubsribe(id, emailId, fields)
       .then(response => {
         console.log('success')
         console.log(response)
@@ -46,20 +50,23 @@ class CampaignMonitorFormManager extends React.Component {
       })
       .catch(err => {
         console.log('error')
-        console.error(err.message)
+        console.log(err.stack)
+        console.log(err.message)
         this.setState({
-          status: STATUS.ERROR
+          status: STATUS.ERROR,
+          errorMessage: err.message
         })
       })
   }
 
   render() {
     const { id, ...otherProps } = this.props
-    const { status } = this.state
+    const { status, errorMessage } = this.state
     return (
       <FormManagerModule
         submit={this.subscribe}
         status={status}
+        message={errorMessage}
         {...otherProps}
       />
     )
