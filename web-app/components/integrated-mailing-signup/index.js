@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MailchimpFormManager from 'modules/mailchimp-form-manager'
-import mailchimp from 'utils/mailchimp'
+import MailingFormManager from 'modules/mailing-form-manager'
 import moon from 'assets/graphics/moon_1.0.png'
 import Arrow from 'assets/icons/arrow.svg'
 import SuccessMessage from './components/success-message'
 import s from './index.scss'
-const { fields } = mailchimp
-const { STATUS } = MailchimpFormManager
+import appConfig from 'app.config.js'
+const { STATUS } = MailingFormManager
 
 IntegratedMailingSignup.propTypes = {
   className: PropTypes.string,
@@ -19,6 +18,22 @@ IntegratedMailingSignup.propTypes = {
 
 IntegratedMailingSignup.SuccessMessage = SuccessMessage
 
+console.log(appConfig.campaignMonitor.id)
+
+const fields = {
+  email: {
+    id: 'cm-skjjhl-skjjhl',
+    value: ''
+  }
+}
+
+// A copy of fields with the {<id>: <value>, ...} key value pairs
+// for mailing manager's use
+const fieldPairs = Object.values(fields).reduce(
+  (pairs, { id, value }) => ({ ...pairs, [id]: value }),
+  {}
+)
+
 export default function IntegratedMailingSignup({
   className = '',
   backgroundImage = `url(${moon})`,
@@ -28,9 +43,13 @@ export default function IntegratedMailingSignup({
   ...rest
 }) {
   return (
-    <MailchimpFormManager fields={{ [fields.email]: '' }}>
-      {({ managedFields, managedSubscribe, status, message }) => {
-        const { [fields.email]: email } = managedFields
+    <MailingFormManager
+      fields={fieldPairs}
+      id={appConfig.campaignMonitor.id}
+      emailId={fields.email.id}
+    >
+      {({ managedFields, managedSubmit, status, message }) => {
+        const { [fields.email.id]: email } = managedFields
 
         let emailErrorMessage = status === STATUS.ERROR ? message : ''
         return (
@@ -44,15 +63,15 @@ export default function IntegratedMailingSignup({
               <div className={`${s['display']}`}>
                 <h3 className={`${s['title']} h1`}>{title}</h3>
                 <p className={s['description']}>{description}</p>
-                <form className={s['form']}>
+                <form className={s['form']} onSubmit={managedSubmit}>
                   <div className={s['email-wrapper']}>
                     <input
                       type="text"
-                      id={fields.email}
-                      name={fields.email}
+                      id={fields.email.id}
+                      name={fields.email.id}
                       value={email.value}
                       onChange={({ target }) => email.onChange(target.value)}
-                      className={s['email-input']}
+                      className={`${s['email-input']} ${fields.email.id}`}
                       placeholder="Your Favorite Email"
                     />
                     {emailErrorMessage.length > 0 && (
@@ -61,7 +80,7 @@ export default function IntegratedMailingSignup({
                       </span>
                     )}
                   </div>
-                  <button className={s['submit']} onClick={managedSubscribe}>
+                  <button className={s['submit']} type="submit">
                     <Arrow className={s['submit-arrow']} />
                   </button>
                 </form>
@@ -70,6 +89,6 @@ export default function IntegratedMailingSignup({
           </section>
         )
       }}
-    </MailchimpFormManager>
+    </MailingFormManager>
   )
 }
