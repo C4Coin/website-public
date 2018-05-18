@@ -1,8 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import ReactGA from 'react-ga'
 
 import s from 'style/index.scss'
+
+import appConfig from 'app.config.js'
+import envUtils from 'utils/env-utils'
 
 import PointerTracker from 'modules/pointer-tracker'
 import baseConfig from 'base.config'
@@ -17,6 +21,20 @@ import Team from 'sections/team'
 import Technology from 'sections/technology'
 import PressPackage from 'sections/press-package'
 import TermsOfServervice from 'sections/terms-of-service'
+
+// Make sure that the user has an ID before starting the app
+let userId = envUtils.getUserId()
+if (!userId) {
+  userId = envUtils.createUserId()
+  envUtils.setUserId(userId)
+}
+
+ReactGA.initialize(appConfig.trackingId, {
+  debug: envUtils.inDevelopment(),
+  gaOptions: {
+    userId
+  }
+})
 
 const App = () => (
   <Cms.CmsManager>

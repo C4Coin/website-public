@@ -1,5 +1,6 @@
 // const webpack = require('webpack')
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 process.traceDeprecation = true
@@ -24,7 +25,10 @@ module.exports = (env, argv = { mode: 'development' }) => {
           },
           require('./base/base.config.js')
         )
-      )
+      ),
+      new webpack.EnvironmentPlugin({
+        MODE: mode
+      })
     ],
     module: {
       rules: [
