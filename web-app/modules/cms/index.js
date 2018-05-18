@@ -3,7 +3,7 @@ import ArticleList from './modules/article-list'
 import Post from './modules/post'
 
 const Cms = {
-  CmsManager,
+  Manager: CmsManager,
   ArticleList,
   Post
 }
