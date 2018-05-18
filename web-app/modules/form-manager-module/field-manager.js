@@ -39,8 +39,6 @@ class FieldManager extends React.Component {
   render() {
     const { children } = this.props
     const managedFields = this.getFields()
-    console.log(children)
-    console.log(managedFields)
     return children({ managedFields })
   }
 }
