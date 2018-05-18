@@ -1,6 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactRouterPropTypes from 'react-router-prop-types'
 import { withRouter } from 'react-router-dom'
+
+const propTypes = {
+  staticContext: PropTypes.any,
+  match: ReactRouterPropTypes.match.isRequired
+}
 
 export default function withLocationCallback(callback, Component) {
   class AnalyticsConnectedComponent extends React.Component {
@@ -14,6 +20,8 @@ export default function withLocationCallback(callback, Component) {
       return <Component {...rest} />
     }
   }
+
+  AnalyticsConnectedComponent.propTypes = propTypes
 
   return withRouter(AnalyticsConnectedComponent)
 }

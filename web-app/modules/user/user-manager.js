@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import ReactGA from 'react-ga'
 
 import appConfig from 'app.config.js'

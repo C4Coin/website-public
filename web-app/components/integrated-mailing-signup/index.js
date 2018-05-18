@@ -7,10 +7,10 @@ import User from 'modules/user'
 import MailingFormManager from 'modules/mailing-form-manager'
 
 import SuccessMessage from './components/success-message'
-const { STATUS } = MailingFormManager
 import s from './index.scss'
 import Arrow from 'assets/icons/arrow.svg'
 import moon from 'assets/graphics/moon_1.0.png'
+const { STATUS } = MailingFormManager
 
 const { communityForm } = appConfig.campaignMonitor
 
