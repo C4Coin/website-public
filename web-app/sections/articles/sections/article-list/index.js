@@ -26,7 +26,6 @@ function ArticleList({ articles, fetchStatus, ...rest }) {
       description="We send emails weekly about Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
     />
   )
-
   return (
     <Page className={s['container']}>
       <h2 className={s['title']}>Articles</h2>

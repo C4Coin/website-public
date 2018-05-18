@@ -6,9 +6,7 @@ export default function withUser(Component) {
   return function UserComponent(props) {
     return (
       <UserContext.Consumer>
-        {user => {
-          return <Component user={user} {...props} />
-        }}
+        {user => <Component user={user} {...props} />}
       </UserContext.Consumer>
     )
   }
