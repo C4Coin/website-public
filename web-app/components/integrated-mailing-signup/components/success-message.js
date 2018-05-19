@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import s from '../../index.scss'
+import s from '../index.scss'
 
 SuccessMessage.propTypes = {
   title: PropTypes.string.isRequired,

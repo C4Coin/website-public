@@ -11,7 +11,12 @@ const member = PropTypes.shape({
   linkedin: PropTypes.string
 })
 
+const user = PropTypes.shape({
+  id: PropTypes.string
+})
+
 export default {
   link,
-  member
+  member,
+  user
 }

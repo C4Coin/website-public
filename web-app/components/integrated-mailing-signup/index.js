@@ -1,57 +1,53 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
+import appConfig from 'app.config.js'
+import WebsitePropTypes from 'utils/website-prop-types'
+import User from 'modules/user'
 import MailingFormManager from 'modules/mailing-form-manager'
-import moon from 'assets/graphics/moon_1.0.png'
-import Arrow from 'assets/icons/arrow.svg'
+
 import SuccessMessage from './components/success-message'
 import s from './index.scss'
-import appConfig from 'app.config.js'
+import Arrow from 'assets/icons/arrow.svg'
+import moon from 'assets/graphics/moon_1.0.png'
 const { STATUS } = MailingFormManager
 
+const { communityForm } = appConfig.campaignMonitor
+
 IntegratedMailingSignup.propTypes = {
-  className: PropTypes.string,
-  backgroundImage: PropTypes.string,
+  user: WebsitePropTypes.user.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  successComponent: PropTypes.node.isRequired
+  successComponent: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  backgroundImage: PropTypes.string
 }
 
-IntegratedMailingSignup.SuccessMessage = SuccessMessage
-
-console.log(appConfig.campaignMonitor.id)
-
-const fields = {
-  email: {
-    id: 'cm-skjjhl-skjjhl',
-    value: ''
-  }
-}
-
-// A copy of fields with the {<id>: <value>, ...} key value pairs
-// for mailing manager's use
-const fieldPairs = Object.values(fields).reduce(
-  (pairs, { id, value }) => ({ ...pairs, [id]: value }),
-  {}
-)
-
-export default function IntegratedMailingSignup({
-  className = '',
-  backgroundImage = `url(${moon})`,
+function IntegratedMailingSignup({
+  user,
   title,
   description,
   successComponent,
+  className = '',
+  backgroundImage = `url(${moon})`,
   ...rest
 }) {
+  const fields = {
+    [communityForm.email]: '',
+    [communityForm.userId]: user.id
+  }
+
   return (
     <MailingFormManager
-      fields={fieldPairs}
+      fields={fields}
       id={appConfig.campaignMonitor.id}
-      emailId={fields.email.id}
+      emailId={communityForm.email}
     >
       {({ managedFields, managedSubmit, status, message }) => {
-        const { [fields.email.id]: email } = managedFields
+        const { [communityForm.email]: email } = managedFields
 
         let emailErrorMessage = status === STATUS.ERROR ? message : ''
+
         return (
           <section className={`${s['container']} ${className}`}>
             <div className={s['background-container']}>
@@ -67,11 +63,11 @@ export default function IntegratedMailingSignup({
                   <div className={s['email-wrapper']}>
                     <input
                       type="text"
-                      id={fields.email.id}
-                      name={fields.email.id}
+                      id={communityForm.email}
+                      name={communityForm.email}
                       value={email.value}
                       onChange={({ target }) => email.onChange(target.value)}
-                      className={`${s['email-input']} ${fields.email.id}`}
+                      className={`${s['email-input']} ${communityForm.email}`}
                       placeholder="Your Favorite Email"
                     />
                     {emailErrorMessage.length > 0 && (
@@ -92,3 +88,8 @@ export default function IntegratedMailingSignup({
     </MailingFormManager>
   )
 }
+
+const IntegratedMailingSignupWithUser = User.withUser(IntegratedMailingSignup)
+IntegratedMailingSignupWithUser.SuccessMessage = SuccessMessage
+
+export default IntegratedMailingSignupWithUser
