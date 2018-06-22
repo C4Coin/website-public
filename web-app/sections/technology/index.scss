@@ -4,6 +4,20 @@
  *
 **/
 
-.container {
+@import "~style/_variables.scss";
 
+.technology-section {
+  background-image: url('assets/textures/mountains.png');
+  background-size: cover;
+  background-position: top center;
+  min-height: 90vh;
+  color: #D8DEEF;
+}
+
+.technology-title {
+  font-size: $hs-mobile;
+  letter-spacing: .02em;
+  padding-top: 52px;
+  text-transform: uppercase;
+  text-align: center;
 }

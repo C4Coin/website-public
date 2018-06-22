@@ -13,10 +13,10 @@ class PointerZone extends React.Component {
     super(props)
 
     this.state = {}
-
-    // subscribe returns a function for unsubscribing
+    // Set to getBoundingClientRect for the element that setZone is attached to
     this.getRect = () => undefined
     this.watchPointer = this.watchPointer.bind(this)
+    // subscribe returns a function for unsubscribing
     this.unsubscribe = props.subscribe(this.watchPointer)
     this.setZone = this.setZone.bind(this)
   }
@@ -52,7 +52,7 @@ class PointerZone extends React.Component {
     const offsetX = clientX - rectX
     const offsetY = clientY - rectY
 
-    this.props.onPointerMove({ offsetX, offsetY })
+    this.props.onPointerMove({ offsetX, offsetY, rectWidth, rectHeight })
   }
 
   setZone(element) {

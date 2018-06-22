@@ -1,0 +1,92 @@
+/**
+ *
+ * Technology Papers Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+.header {
+  position: relative;
+  overflow: hidden;
+  margin-top: -10vw;
+}
+
+.header-background {
+  width: 400vw;
+  left: -150vw;
+  top: 4.2vw;
+  position: absolute;
+  height: auto;
+  fill: $white-shade;
+}
+
+.papers-title {
+  position: relative;
+  font-size: $hs-mobile;
+  color: $gold;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: .75em;
+  z-index: 2;
+}
+
+.content {
+  background-color: $white-shade;
+  padding-bottom: 16vw;
+}
+
+.about {
+  padding: 0px 10vw 20vw;
+}
+
+.headline {
+  color: $gold;
+  margin-bottom: .75em;
+  text-align: center;
+}
+
+.description {
+  padding: 0px 5vw;
+  text-align: justify;
+}
+
+.papers-graphic {
+  display: flex;
+  justify-content: space-between;
+  font-size: $h5-mobile;
+  padding: 0px 4vw;
+}
+
+.divider {
+  width: 2px;
+  height: 4em;
+  background-color: $gold;
+}
+
+.white-paper,
+.lite-paper {
+  margin-top: .7em;
+  width: 46%;
+}
+
+.paper-button {
+  font-size: $h5-mobile;
+  padding: .4em .6em .45em;
+  font-family: $korolev;
+  font-weight: bold;
+  line-height: 1.1em;
+  background-color: $gold;
+  text-align: center;
+}
+
+.why {
+  font-weight: bold;
+  color: $gold;
+  text-align: right;
+  margin-top: .25em;
+}
+
+.lite-paper .why {
+  text-align: left;
+}

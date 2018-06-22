@@ -1,0 +1,27 @@
+/**
+ *
+ * Open Source Promise Style
+ *
+**/
+
+@import "~style/_variables.scss";
+
+.github-display {
+  text-align: center;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+}
+
+.github-icon {
+  fill: white;
+  height: 20vh;
+  max-height: 20vh;
+  max-width: 80%;
+  width: auto;
+}
+
+.open-source-promise {
+  color: $white;
+  text-shadow: 0px 0px 4px rgba($black, .2);
+  padding: 2vh 6vw 8vh;
+}

@@ -1,0 +1,118 @@
+/**
+ *
+ * Timeline Style
+ *
+**/
+
+@import "~style/_variables.scss";
+
+.container {
+  background-image: url('assets/textures/overhead.png');
+  padding-bottom: 24vw;
+}
+
+.title {
+  position: relative;
+  top: -0.375em;
+  font-size: $hs-mobile;
+  color: $gold;
+  text-transform: uppercase;
+  padding-bottom: .75em;
+  text-align: center;
+}
+
+.graphic {
+  padding: 0px 4vw;
+}
+
+.phase-title-area {
+  color: $gold;
+  text-transform: uppercase;
+}
+
+.phase-title-box {
+  display: inline-block;
+  position: relative;
+}
+
+.phase-title-box::before,
+.phase-title-box::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: $gold;
+}
+
+.phase-title-box::after {
+  left: 0;
+  bottom: 0;
+}
+
+.phase-title {
+  display: inline-block;
+  padding: .1em 0px;
+}
+
+.line-container {
+  line-height: 0px;
+  padding-left: 3vw;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.line {
+  display: inline-block;
+  height: 56px;
+  border-left: 4px dotted $gold;
+}
+
+.milestone {
+  position: relative;
+}
+
+.milestone-marker {
+  height: 6vw;
+  width: 6vw;
+  margin-left: 2px;
+  border: 2px solid $gold;
+  border-radius: 8vw;
+  display: flex;
+  padding: 1vw;
+}
+
+.milestone-complete {
+  width: 100%;
+  height: 100%;
+  background-color: gold;
+  border-radius: 100%;
+}
+
+.milestone-title {
+  display: inline-block;
+  position: absolute;
+  font-size: $h6-mobile;
+  color: $gold;
+  top: 0;
+  left: 8vw;
+  margin-left: 2px;
+}
+
+.milestone-date {
+  position: absolute;
+  padding: .5em .7em .49em;
+  border-radius: 3em;
+  border: 2px solid $gold;
+  color: $gold;
+  font-weight: bold;
+  left: 8vw;
+  margin-left: 6px;
+  margin-top: 8px;
+  line-height: 1em;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+
+}
