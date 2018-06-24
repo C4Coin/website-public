@@ -10,7 +10,7 @@ function Timeline({ phases, ...rest }) {
       <h2 className={s['title']}>Timeline</h2>
       <div className={s['graphic']}>
         {phases.map(({ name, milestones }, phaseIndex) => (
-          <div className={s['phase']}>
+          <div className={s['phase']} key={phaseIndex}>
             <h3 className={s['phase-title-area']}>
               <span className={s['phase-title-box']}>
                 <span className={s['phase-title']}>{name}</span>
@@ -23,7 +23,10 @@ function Timeline({ phases, ...rest }) {
             )}
             {milestones &&
               milestones.map(({ name, date }, milestoneIndex) => (
-                <div className={s['milestone']}>
+                <div
+                  className={s['milestone']}
+                  key={`${phaseIndex}-${milestoneIndex}`}
+                >
                   <div className={s['milestone-marker']}>
                     {date && <div className={s['milestone-complete']} />}
                   </div>
