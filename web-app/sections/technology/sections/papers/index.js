@@ -1,7 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import s from './index.scss'
 
-export default function papers({ whitePaperUrl, litePaperUrl, ...rest }) {
+Papers.propTypes = {
+  whitePaperUrl: PropTypes.string.isRequired,
+  litePaperUrl: PropTypes.string.isRequired
+}
+
+export default function Papers({ whitePaperUrl, litePaperUrl, ...rest }) {
   return (
     <section {...rest}>
       <div className={s['header']}>

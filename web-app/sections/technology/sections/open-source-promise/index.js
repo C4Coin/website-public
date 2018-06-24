@@ -5,6 +5,7 @@ import GithubIcon from './github-icon'
 import s from './index.scss'
 
 OpenSourcePromise.propTypes = {
+  className: PropTypes.string,
   github: PropTypes.string.isRequired
 }
 

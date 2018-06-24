@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import TimelineData from 'modules/timeline-data'
 import s from './index.scss'
 
+Timeline.propTypes = {
+  phases: PropTypes.array.isRequired
+}
+
 function Timeline({ phases, ...rest }) {
   // console.log(phases)
   return (
