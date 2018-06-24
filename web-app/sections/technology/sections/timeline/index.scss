@@ -112,7 +112,161 @@
   line-height: 1em;
 }
 
+.date-connection {
+  display: none;
+}
+
 @media screen and
 (min-width: $bp-mobile) {
+  $marker-radius: 20px;
 
+  .title {
+    padding-bottom: .3em;
+  }
+
+  .graphic {
+    padding-right: 0px;
+  }
+
+  .line-container {
+    padding-left: $marker-radius / 2;
+  }
+
+  .line {
+    height: 64px;
+  }
+
+  .milestone-marker {
+    width: $marker-radius;
+    height: $marker-radius;
+    padding: 4px;
+  }
+
+  .milestone-title {
+    font-size: $h5;
+    top: -0.2em;
+    left: 40px;
+  }
+
+  .milestone-date {
+    left: 40px;
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  .container {
+    padding-bottom: 160px;
+  }
+}
+
+@media screen and
+(min-width: $bp-mobile-large) {
+
+  .graphic {
+    padding-left: 0px;
+  }
+
+  .phase-title-area {
+    padding-left: 20%;
+  }
+
+  .line-container {
+    padding-left: 54px;
+    margin-left: 20%;
+  }
+
+  .milestone-marker {
+    margin-left: 20%;
+    position: relative;
+    left: 46px;
+  }
+
+  .milestone-title {
+    left: 20%;
+    margin-left: 86px;
+  }
+
+  .milestone-date {
+    position: relative;
+    display: inline-block;
+    margin-top: 0px;
+    left: auto;
+    margin-left: 0;
+  }
+
+  .date-connection {
+    font-size: $p;
+    display: inline-block;
+    position: absolute;
+    border-bottom: 2px solid $gold;
+    width: 28px;
+    right: -26px;
+    top: .8em;
+  }
+
+  .date-container {
+    font-size: $p;
+    width: 20%;
+    margin-left: 26px;
+    position: absolute;
+    top: -0.3em;
+    text-align: right;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .title {
+    font-size: $hs;
+  }
+
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .graphic {
+    text-align: center;
+    margin-right: 9%;
+  }
+
+  .phase-title-area {
+    padding-left: 0px;
+  }
+
+  .line-container {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  .milestone-marker {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: auto;
+  }
+
+  .milestone-title {
+    left: 50%;
+    margin-left: 40px;
+  }
+
+  .date-container {
+    right: 50%;
+  }
+
+  .milestone-date {
+    margin-right: 40px;
+  }
+
+  .date-connection {
+    width: 40px;
+    right: 0;
+  }
+}
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .title {
+    font-size: $hs-max;
+  }
 }

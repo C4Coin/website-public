@@ -28,7 +28,12 @@ function Timeline({ phases, ...rest }) {
                     {date && <div className={s['milestone-complete']} />}
                   </div>
                   <h4 className={s['milestone-title']}>{name}</h4>
-                  {date && <p className={s['milestone-date']}>{date}</p>}
+                  {date && (
+                    <div className={s['date-container']}>
+                      <p className={s['milestone-date']}>{date}</p>
+                      <span className={s['date-connection']} />
+                    </div>
+                  )}
                   <div className={s['line-container']}>
                     <span className={s['line']} />
                   </div>

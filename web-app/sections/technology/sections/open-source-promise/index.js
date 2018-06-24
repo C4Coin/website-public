@@ -3,10 +3,11 @@ import GithubIcon from './github-icon'
 
 import s from './index.scss'
 
-export default function OpenSourcePromise(props) {
+export default function OpenSourcePromise({ className = '', ...rest }) {
   return (
-    <section {...props}>
+    <section {...rest} className={`${s['container']} ${className}`}>
       <div className={s['github-display']}>
+        <a href="" />
         <GithubIcon className={s['github-icon']} />
       </div>
       <div className={s['promise-display']}>
