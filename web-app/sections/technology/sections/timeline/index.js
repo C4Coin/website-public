@@ -8,7 +8,6 @@ Timeline.propTypes = {
 }
 
 function Timeline({ phases, ...rest }) {
-  // console.log(phases)
   return (
     <section className={s['container']}>
       <h2 className={s['title']}>Timeline</h2>

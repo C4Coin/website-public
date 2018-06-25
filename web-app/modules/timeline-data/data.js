@@ -8,7 +8,7 @@ export default {
           date: 'Apr 26, 2018'
         },
         {
-          name: 'Convertible Debpt Raise of 450k',
+          name: 'Convertible Debt Raise of 450k',
           date: 'May 31, 2018'
         },
         {
