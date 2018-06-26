@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
+import inject from 'modules/inject'
 import data from './data'
-import inject from './inject'
 
 TeamData.propTypes = {
   children: PropTypes.func.isRequired
 }
 
-TeamData.inject = inject
+TeamData.inject = inject.bind(null, data)
 
 export default function TeamData({ children, ...rest }) {
   return children(data)

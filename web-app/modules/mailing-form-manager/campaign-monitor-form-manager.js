@@ -28,7 +28,6 @@ class CampaignMonitorFormManager extends React.Component {
   }
 
   subscribe(fields, event) {
-    console.log(fields)
     const { id, emailId } = this.props
     if (!fields[emailId]) {
       throw new Error(
@@ -38,7 +37,6 @@ class CampaignMonitorFormManager extends React.Component {
     this.setState({
       status: STATUS.SENDING
     })
-    console.log(event)
     campaignMonitorSubsribe(id, emailId, fields)
       .then(response => {
         console.log('success')

@@ -1,0 +1,146 @@
+/**
+ *
+ * Technology Papers Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+.header {
+  position: relative;
+  overflow: hidden;
+  margin-top: -12vw;
+}
+
+.header-background {
+  width: 400vw;
+  left: -150vw;
+  top: 4.2vw;
+  position: absolute;
+  height: auto;
+  fill: $white-shade;
+}
+
+.papers-title {
+  position: relative;
+  font-size: $hs-mobile;
+  color: $gold;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: .75em;
+  z-index: 2;
+}
+
+.content {
+  background-color: $white-shade;
+}
+
+.about {
+  padding: 0px 10vw;
+  margin-bottom: 10vh;
+}
+
+.headline {
+  color: $gold;
+  margin-bottom: .75em;
+  text-align: center;
+}
+
+.description {
+  padding: 0px 5vw;
+  text-align: justify;
+}
+
+.papers-graphic {
+  display: flex;
+  justify-content: space-between;
+  font-size: $h5-mobile;
+  padding: 0px 4vw 6em;
+}
+
+.divider {
+  width: 2px;
+  height: 4em;
+  background-color: $gold;
+}
+
+.white-paper,
+.lite-paper {
+  margin-top: .7em;
+  width: 46%;
+}
+
+.paper-button {
+  padding: .4em .6em .45em;
+  font-family: $korolev;
+  font-weight: bold;
+  line-height: 1.1em;
+  background-color: $gold;
+  text-align: center;
+}
+
+.why {
+  font-weight: bold;
+  color: $gold;
+  text-align: right;
+  margin-top: .25em;
+  text-transform: uppercase;
+  font-size: 3.4vw;
+}
+
+.lite-paper .why {
+  text-align: left;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .papers-title {
+    padding-bottom: 10vh;
+  }
+
+  .about {
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 80px;
+  }
+
+  .description {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
+  .papers-graphic {
+    width: 400px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: $h5;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .why {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .papers-title {
+    font-size: $hs;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+}
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .papers-title {
+    font-size: $hs-max;
+  }
+}

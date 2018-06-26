@@ -4,6 +4,44 @@
  *
 **/
 
-.container {
+@import "~style/_variables.scss";
 
+.technology-section {
+  background-image: url('assets/textures/mountains.png');
+  background-size: cover;
+  background-position: top center;
+  min-height: 90vh;
+  color: #D8DEEF;
+}
+
+.technology-title {
+  font-size: $hs-mobile;
+  letter-spacing: .02em;
+  padding-top: 52px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .technology-title {
+    padding-top: 0px;
+    line-height: .71em;
+    font-size: $hs;
+    margin-bottom: 6vw;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .technology-section {
+    padding-bottom: 10vw;
+  }
+}
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .technology-title {
+    font-size: $hs-max;
+  }
 }

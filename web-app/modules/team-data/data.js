@@ -27,7 +27,7 @@ const data = {
     {
       name: 'Aidan Krakowsky',
       image: require('assets/photos/aidan-krakowsky.png'),
-      title: 'Chief Risk Officer',
+      title: 'Chief Revenue Officer',
       linkedin: 'https://www.linkedin.com/in/aidan-krakowsky-49135a60/'
     }
   ],
