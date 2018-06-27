@@ -2,6 +2,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 process.traceDeprecation = true
 
@@ -26,6 +27,10 @@ module.exports = (env, argv = { mode: 'development' }) => {
           require('./base/base.config.js')
         )
       ),
+      new Dotenv({
+        safe: true,
+        systemvars: true
+      }),
       new webpack.EnvironmentPlugin({
         MODE: mode
       })
