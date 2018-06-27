@@ -41,7 +41,5 @@ jspm_packages/
 # built artifacts
 build
 
-# App Config Secrets
-web-app/app.config.js
-
 .DS_Store
+dist/

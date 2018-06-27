@@ -39,9 +39,17 @@ Comments: This site is relatively simple because there are no public user accoun
 * [NodeJS](htps://nodejs.org), version 9.7.1 or better (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
 * [Docker](https://www.docker.com) (Use [Docker for Mac](https://docs.docker.com/docker-for-mac/), not the homebrew version)
 * [Access to the C4Coin Jira](https://c4coin.atlassian.net)
+* [Environment Variables](https://c4coin.atlassian.net/wiki/spaces/DEV/pages/135331841/.env)
 * [requirements google doc](https://docs.google.com/document/d/1s8kTfWc2VzSOXft3Zky7qowFLgNo9YIWEHuVV09LWXs)
 
-### Initialisation
+### Getting Started
+
+  After cloning this repository, there are only two steps needed to run the the website locally.
+
+  1. Install dependencies with `npm install`
+  2. Setup the environment variables for the project by creating a `.env` file in the root folder, and setting it's contents to the [c4coin .env confluence file](https://c4coin.atlassian.net/wiki/spaces/DEV/pages/135331841/.env)  
+
+### Installation
 
     npm install
 
