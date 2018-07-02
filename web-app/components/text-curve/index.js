@@ -2,6 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import domUtils from 'utils/dom-utils'
 
+TextCurve.propTypes = {
+  text: PropTypes.string.isRequired,
+  styleSheet: PropTypes.object,
+  id: PropTypes.string
+}
+
 export default function TextCurve({ text, styleSheet = {}, id = '', ...rest }) {
   const connector = id ? '-' : ''
   const pathId = `${id}${connector}${domUtils.createElementId()}`

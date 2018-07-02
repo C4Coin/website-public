@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 import s from './index.scss'
 
-Capabilities.propTypes = {
-  className: PropTypes.string
-}
-
 import fightClimateChangeGraphic from 'assets/graphics/fighting-climate-change.complex.svg'
 import sustainableBlockchainGraphic from 'assets/graphics/providing-sustainable-blockchain.complex.svg'
 import improveCarbonTradingGraphic from 'assets/graphics/improving-carbon-trading.complex.svg'
+
+Capabilities.propTypes = {
+  className: PropTypes.string
+}
 
 export default function Capabilities({ className = '', ...rest }) {
   return (
@@ -38,6 +38,12 @@ export default function Capabilities({ className = '', ...rest }) {
       </div>
     </section>
   )
+}
+
+Feature.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 }
 
 function Feature({ title, description, image }) {
