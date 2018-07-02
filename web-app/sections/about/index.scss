@@ -4,6 +4,78 @@
  *
 **/
 
+@import '~style/_variables.scss';
+
 .container {
 
+}
+
+.above-the-fold {
+  background-image: url('assets/textures/yellowstone.png');
+  background-size: cover;
+  background-position: top right;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: $hs-mobile;
+  text-align: center;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  padding-top: 52px;
+}
+
+.feature-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 64px;
+  flex-grow: 1;
+}
+
+.feature-text {
+  font-size: 10vw;
+  font-family: $korolev;
+  line-height: 1.2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  color: $white;
+  text-shadow: 0 0 3px rgba($black, .7);
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .feature-text {
+    font-size: 45px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .title {
+    font-size: $hs;
+    padding-top: 0px;
+    line-height: .71em;
+  }
+
+  .feature-text {
+    max-width: 560px;
+    text-align: center;
+  }
+}
+
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .title {
+    font-size: $hs-max;
+  }
 }

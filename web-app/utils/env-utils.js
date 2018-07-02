@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie'
 const cookies = new Cookies()
 
 function inDevelopment() {
-  return console.log(process.env.MODE) === 'development'
+  return process.env.MODE === 'development'
 }
 
 function createUserId() {
