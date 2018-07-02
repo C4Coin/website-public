@@ -4,6 +4,11 @@ function createElementId() {
     .slice(2)
 }
 
+function isInternalUrl(url) {
+  return !url.startsWith('http') || !url.startsWith('https')
+}
+
 export default {
-  createElementId
+  createElementId,
+  isInternalUrl
 }
