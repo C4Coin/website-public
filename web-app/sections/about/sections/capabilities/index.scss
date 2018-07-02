@@ -1,0 +1,183 @@
+/**
+ *
+ * Capabilities Section Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+.container {
+  background-color: $black-tint;
+  padding-bottom: 12vw;
+}
+
+.title {
+  position: relative;
+  top: -.28em;
+  font-size: $hs-mobile;
+  text-align: center;
+  color: $silver;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1em;
+}
+// font size description
+$fs-description: 6vw;
+
+.description {
+  text-align: center;
+  color: $white;
+  font-family: $korolev;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  font-size: $fs-description;
+  margin-bottom: 2vw;
+}
+
+.feature {
+  margin-top: 8vw;
+}
+
+.feature-title {
+  color: $gold;
+  text-align: center;
+  margin-bottom: .3em;
+}
+
+.feature-description {
+  color: $white-shade;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  text-align: center;
+}
+
+.feature-graphic-container {
+  text-align: center;
+}
+
+.feature-graphic {
+  width: 30vw;
+  height: 30vw;
+  border-radius: 100vw;
+  border: 2px solid #A1A1A1;
+  margin-bottom: 2vw;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .description {
+    font-size: $fs-description / 100vw * $bp-mobile;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-graphic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .feature-description {
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and
+(min-width: $bp-mobile-large) {
+  .description {
+    max-width: 540px;
+  }
+
+  .features-container {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin-top: 40px;
+  }
+
+  .feature {
+    width: 30%;
+    margin-top: 0px;
+  }
+
+  .feature-graphic {
+    width: 18vw;
+    height: 18vw;
+    border-width: 0px;
+    margin-bottom: 1vw;
+  }
+
+  .feature-title {
+    font-size: 2.7vw;
+  }
+
+  .feature-title > strong {
+    display: block;
+    font-size: 1.75em;
+    margin-bottom: .2em;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+
+  }
+
+  .feature-description {
+    width: auto;
+    font-size: 1.9vw;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .title {
+    font-size: $hs;
+  }
+
+  .feature-title {
+    font-size: 2.4vw;
+  }
+
+  .feature-description {
+    font-size: 1.6vw;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .container {
+    padding-bottom: 120px
+  }
+
+  .features-container {
+    width: 840px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-graphic {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 10px;
+  }
+
+  .feature-title {
+    font-size: 24px;
+  }
+
+  .feature-description {
+    font-size: 16px;
+  }
+
+}
+
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .title {
+    font-size: $hs-max;
+  }
+}
