@@ -19,6 +19,8 @@ import Technology from 'sections/technology'
 import PressPackage from 'sections/press-package'
 import TermsOfServervice from 'sections/terms-of-service'
 
+import appConfig from './app.config'
+
 const App = () => (
   <User.Manager>
     <Cms.Manager>
@@ -35,7 +37,7 @@ const App = () => (
                   { anchor: 'team', url: '/team' }
                 ]}
                 footerLinks={[
-                  { anchor: 'press package', url: '/press-package' },
+                  { anchor: 'press package', url: appConfig.pressKit },
                   { anchor: 'terms of service', url: '/terms-of-service' }
                 ]}
               />

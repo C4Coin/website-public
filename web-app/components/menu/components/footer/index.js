@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'modules/link-out'
 import PropTypes from 'prop-types'
+import domUtils from 'utils/dom-utils'
 
 import WebsitePropTypes from 'utils/website-prop-types'
 import s from './index.scss'
@@ -26,7 +27,13 @@ export default function Footer({
     <div className={s['container']}>
       <div style={dollyStyle}>
         {links.map(({ anchor, url }, idx) => (
-          <Link to={url} className={s['link']} key={idx} onClick={linkOnClick}>
+          <Link
+            to={url}
+            className={s['link']}
+            key={idx}
+            onClick={linkOnClick}
+            target={domUtils.isInternalUrl(url) ? '' : '_blank'}
+          >
             {anchor}
           </Link>
         ))}
