@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import WebsitePropTypes from 'utils/website-prop-types'
-import TeamData from 'modules/team-data'
+import formatTeamData from './utils/format-team-data'
+import teamData from 'modules/cms/modules/team'
 import Page from 'components/page'
 import TopFoundersDisplay from './sections/top-founders-display'
 import GeneralFoundersDisplay from './sections/general-founders-display'
@@ -22,7 +23,12 @@ function Team({ founders, team, ...rest }) {
     <Page>
       <div className={s['container']}>
         <h2 className={s['founders-title']}>Founders</h2>
-        <TopFoundersDisplay founderOne={founders[0]} founderTwo={founders[1]} />
+        {founders.length > 2 && (
+          <TopFoundersDisplay
+            founderOne={founders[0]}
+            founderTwo={founders[1]}
+          />
+        )}
         <div className={s['quote-container']}>
           <img
             src={environmentQuote}
@@ -30,6 +36,7 @@ function Team({ founders, team, ...rest }) {
             className={s['environment-quote']}
           />
         </div>
+
         <GeneralFoundersDisplay founders={founders.slice(2)} />
         <h2 className={s['team-title']}>Team</h2>
         <TeamMemberDisplay members={team} />
@@ -37,5 +44,6 @@ function Team({ founders, team, ...rest }) {
     </Page>
   )
 }
+console.log(formatTeamData)
 
-export default TeamData.inject(Team)
+export default teamData.inject(Team, formatTeamData)

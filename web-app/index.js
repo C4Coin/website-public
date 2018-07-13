@@ -46,7 +46,7 @@ const App = () => (
                 <Route path="/about" render={About} />
                 <Route path="/articles" render={Articles} />
                 <Route path="/technology" render={Technology} />
-                <Route path="/team" render={Team} />
+                <Route path="/team" component={Team} />
                 <Route path="/press-package" render={PressPackage} />
                 <Route path="/terms-of-service" render={TermsOfServervice} />
                 <Route render={NotFound} />
