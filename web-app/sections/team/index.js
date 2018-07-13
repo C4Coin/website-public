@@ -44,6 +44,5 @@ function Team({ founders, team, ...rest }) {
     </Page>
   )
 }
-console.log(formatTeamData)
 
 export default teamData.inject(Team, formatTeamData)

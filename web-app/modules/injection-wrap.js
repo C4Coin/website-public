@@ -5,13 +5,14 @@ export default function injectionWrap(
   Component,
   translator = inData => inData
 ) {
-  console.log(translator)
-  return props => (
-    <Wrapper>
-      {data => {
-        const outData = translator(data)
-        return <Component {...outData} {...props} />
-      }}
-    </Wrapper>
-  )
+  return function InjectionWrappedComponent(props) {
+    return (
+      <Wrapper>
+        {data => {
+          const outData = translator(data)
+          return <Component {...outData} {...props} />
+        }}
+      </Wrapper>
+    )
+  }
 }

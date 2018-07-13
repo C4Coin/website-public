@@ -14,7 +14,6 @@ export default function({ members = [], fetchStatus }) {
     },
     { founders: [], team: [] }
   )
-  console.log(founders)
 
   return { founders, team }
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import TeamContext from './team-context'
 import sanity from 'utils/sanity'
 import STATUS from '../../status'
