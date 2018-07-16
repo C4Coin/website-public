@@ -27,5 +27,9 @@ export default {
       email: 'cm-skjjhl-skjjhl',
       userId: 'cm-f-jtnlyy'
     }
+  },
+  sanity: {
+    id: process.env.SANITY_ID,
+    dataset: 'public'
   }
 }
