@@ -1,13 +1,12 @@
-import ArticleListManager from './article-list-manager'
-import withArticleList from './with-article-list'
 import ArticleListContext from './article-list-context'
-import STATUS from './status'
+import ArticleListManager from './article-list-manager'
+import injectionWrap from 'modules/injection-wrap'
+
+const inject = injectionWrap.bind(null, ArticleListContext.Consumer)
 
 const ArticleList = {
   ArticleListManager,
-  withArticleList,
-  ArticleListContext,
-  STATUS
+  inject
 }
 
 export default ArticleList
