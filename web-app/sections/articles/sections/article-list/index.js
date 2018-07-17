@@ -5,9 +5,8 @@ import TopArticle from '../../components/top-article'
 import ListArticle from '../../components/list-article'
 import Page from 'components/page'
 import Cms from 'modules/cms'
+import formatArticleListData from './utils/format-article-list-data'
 import s from './index.scss'
-
-const { withArticleList, STATUS } = Cms.ArticleList
 
 const { SuccessMessage } = IntegratedMailingSignup
 const signupTitle = 'C4Coin News'
@@ -16,7 +15,7 @@ const signupDescription =
 
 ArticleList.propTypes = {
   articles: PropTypes.array.isRequired,
-  fetchStatus: PropTypes.oneOf(Object.values(STATUS))
+  fetchStatus: PropTypes.oneOf(Object.values(Cms.STATUS))
 }
 
 function ArticleList({ articles, fetchStatus, ...rest }) {
@@ -29,10 +28,10 @@ function ArticleList({ articles, fetchStatus, ...rest }) {
   return (
     <Page className={s['container']}>
       <h2 className={s['title']}>Articles</h2>
-      {articles.length > 1 && <TopArticle {...articles[0]} />}
+      {articles.length > 0 && <TopArticle {...articles[0]} />}
       <div className={s['list-article-container']}>
         <div className={s['list-article-display']}>
-          {articles.length > 2 &&
+          {articles.length > 1 &&
             articles
               .slice(1)
               .map((article, idx) => (
@@ -49,4 +48,4 @@ function ArticleList({ articles, fetchStatus, ...rest }) {
   )
 }
 
-export default withArticleList(ArticleList)
+export default Cms.injectArticleList(ArticleList, formatArticleListData)

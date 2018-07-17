@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import WebsitePropTypes from 'utils/website-prop-types'
 import formatTeamData from './utils/format-team-data'
-import teamData from 'modules/cms/modules/team'
+import Cms from 'modules/cms'
 import Page from 'components/page'
 import TopFoundersDisplay from './sections/top-founders-display'
 import GeneralFoundersDisplay from './sections/general-founders-display'
@@ -45,4 +45,4 @@ function Team({ founders, team, ...rest }) {
   )
 }
 
-export default teamData.inject(Team, formatTeamData)
+export default Cms.injectTeam(Team, formatTeamData)
