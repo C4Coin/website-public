@@ -1,19 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Oauth from 'modules/cms/modules/oauth'
-import squidexApi from 'utils/virtual-api'
+import sanity from 'utils/sanity'
 import ArticleListContext from './article-list-context'
-import STATUS from './status'
-
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  validationStatus: PropTypes.string.isRequired,
-  token: PropTypes.string
-}
-
-const defaultProps = {
-  token: ''
-}
+import STATUS from '../../status'
 
 class ArticleListManager extends React.Component {
   constructor() {
@@ -26,42 +15,45 @@ class ArticleListManager extends React.Component {
   }
 
   componentDidMount() {
-    const { validationStatus, token } = this.props
-
-    if (validationStatus === Oauth.STATUS.VALIDATED) {
-      this.setState({
-        fetchStatus: STATUS.INITIALIZING
+    this.setState({
+      fetchStatus: STATUS.INITIALIZING
+    })
+    const query = `*[_type in ["post", "article"]]|order(weight desc){
+      title,
+      url,
+      slug,
+      weight,
+      readTime,
+      publishDate,
+      author,
+      "image": mainImage.asset->url,
+      "logo": logo.asset->url
+    }`
+    sanity
+      .fetch(query)
+      .then(data => {
+        this.setState({
+          articles: data,
+          fetchStatus: STATUS.SUCCESS
+        })
       })
-      squidexApi
-        .getArticles(token)
-        .then(({ data }) => {
-          const { items } = data
-          this.setState({
-            articles: items,
-            fetchStatus: STATUS.SUCCESS
-          })
+      .catch(error => {
+        this.setState({
+          fetchStatus: STATUS.FAILED
         })
-        .catch(error => {
-          this.setState({
-            fetchStatus: STATUS.FAILED
-          })
-          console.error(error)
-        })
-    }
+        console.error(error)
+      })
   }
 
   render() {
-    const { children } = this.props
     const { articles, fetchStatus } = this.state
     return (
-      <ArticleListContext.Provider value={{ articles, fetchStatus }}>
-        {children}
-      </ArticleListContext.Provider>
+      <ArticleListContext.Provider
+        value={{ articles, fetchStatus }}
+        {...this.props}
+      />
     )
   }
 }
 
-ArticleListManager.propTypes = propTypes
-ArticleListManager.defaultProps = defaultProps
-
-export default Oauth.withOauth(ArticleListManager)
+export default ArticleListManager
