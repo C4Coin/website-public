@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import sanity from 'utils/sanity'
 import ArticleListContext from './article-list-context'
 import STATUS from '../../status'
