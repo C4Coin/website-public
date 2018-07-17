@@ -5,13 +5,19 @@
 **/
 
 @import "~style/_variables.scss";
+@import "./_variables.scss";
 
 .technology-section {
   background-image: url('assets/textures/mountains.png');
   background-size: cover;
   background-position: top center;
-  min-height: 90vh;
+  padding-bottom: $first-section-below-fold;
   color: #D8DEEF;
+}
+
+.above-the-fold {
+  min-height: 100vh;
+  padding-bottom: $second-section-above-fold;
 }
 
 .technology-title {
@@ -35,7 +41,11 @@
 @media screen and
 (min-width: $bp-tablet-small) {
   .technology-section {
-    padding-bottom: 10vw;
+    padding-bottom: $first-section-below-fold-tablet;
+  }
+
+  .above-the-fold {
+    padding-bottom: $second-section-above-fold-tablet;
   }
 }
 
