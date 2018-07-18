@@ -19,11 +19,11 @@ export default function Articles({ match, ...rest }) {
       <Route path={match.path} exact render={ArticleList} />
       <Route path={`${match.path}/:name`}>
         {({ match: { params } }) => (
-          <Cms.Post postId={params.name}>
-            {({ article, content, fetchStatus }) => {
-              if (fetchStatus === Cms.Post.STATUS.RETRIEVED) {
-                return <Post content={content} article={article} />
-              } else if (fetchStatus === Cms.Post.STATUS.FAILED) {
+          <Cms.Post postSlug={params.name}>
+            {({ post, fetchStatus }) => {
+              if (fetchStatus === Cms.STATUS.SUCCESS) {
+                return <Post post={post} />
+              } else if (fetchStatus === Cms.STATUS.FAILED) {
                 return <PostNotFound />
               }
               return <PostLoading />

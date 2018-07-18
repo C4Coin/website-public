@@ -1,23 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import appConfig from 'app.config'
 import Page from 'components/page'
 import formatArticle from 'sections/articles/utils/format-article'
 import Calendar from 'assets/icons/calendar.svg'
 import Timer from 'assets/icons/timer.svg'
+import BlockContent from '@sanity/block-content-to-react'
 
 import s from './index.scss'
 
+const { sanity: sanityConfig } = appConfig
+
 Post.propTypes = {
-  content: PropTypes.string.isRequired,
-  article: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired
 }
 
-export default function Post({ content, article, ...rest }) {
-  const innerHtml = { __html: content }
+export default function Post({ post, ...rest }) {
+  const { title, publishDate, readTime, image, body } = post
 
-  const { title, publicationDate, readTime, banner } = article
-
-  const dateDescription = formatArticle.formatDate(publicationDate)
+  const dateDescription = formatArticle.formatDate(publishDate)
   const readTimeDescription = formatArticle.formatReadTime(readTime)
 
   return (
@@ -34,8 +35,12 @@ export default function Post({ content, article, ...rest }) {
             <span className={s['info-text']}>{readTimeDescription}</span>
           </div>
         </div>
-        <img src={banner} alt={title} className={s['banner']} />
-        <div className={s['content']} dangerouslySetInnerHTML={innerHtml} />
+        <img src={image} alt={title} className={s['banner']} />
+        <BlockContent
+          blocks={body}
+          projectId={sanityConfig.id}
+          dataset={sanityConfig.dataset}
+        />
       </div>
     </Page>
   )

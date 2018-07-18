@@ -24,7 +24,6 @@ class ArticleListManager extends React.Component {
       weight,
       readTime,
       publishDate,
-      author,
       "image": mainImage.asset->url,
       "logo": logo.asset->url
     }`
