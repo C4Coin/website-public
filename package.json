@@ -128,6 +128,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^2.0.1",
     "@sanity/client": "^0.132.5",
     "axios": "^0.18.0",
     "camelcase-keys": "^4.2.0",
