@@ -5,11 +5,11 @@ const propTypes = {
   children: PropTypes.func.isRequired
 }
 
-class ScrollPublisher extends React.Component {
+class ScrollTracker extends React.Component {
   constructor() {
     super()
 
-    listeners = []
+    this.listeners = []
 
     this.subscribe = this.subscribe.bind(this)
     this.publishScroll = this.publishScroll.bind(this)
@@ -46,7 +46,13 @@ class ScrollPublisher extends React.Component {
     this.publishScroll('STAND IN')
   }
 
-  render() {}
+  render() {
+    const { children } = this.props
+
+    return children()
+  }
 }
 
-export default ScrollPublisher
+ScrollTracker.propTypes = propTypes
+
+export default ScrollTracker
