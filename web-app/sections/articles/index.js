@@ -6,8 +6,6 @@ import Cms from 'modules/cms'
 
 import ArticleList from './sections/article-list'
 import Post from './sections/post'
-import PostNotFound from './sections/post-not-found'
-import PostLoading from './sections/post-loading'
 
 Articles.propTypes = {
   match: ReactRouterPropTypes.match.isRequired
@@ -24,9 +22,9 @@ export default function Articles({ match, ...rest }) {
               if (fetchStatus === Cms.STATUS.SUCCESS) {
                 return <Post post={post} />
               } else if (fetchStatus === Cms.STATUS.FAILED) {
-                return <PostNotFound />
+                return <ArticleList />
               }
-              return <PostLoading />
+              return <ArticleList />
             }}
           </Cms.Post>
         )}
