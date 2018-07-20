@@ -1,0 +1,51 @@
+/*
+ *
+ * Base element styling and resets
+ *
+ */
+
+ html {
+ 	box-sizing: border-box;
+ }
+
+ body {
+ 	overflow-x: hidden;
+ 	margin: 0px;
+ 	padding: 0px;
+ 	border-style: none;
+ }
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+* {
+	fill: inherit;
+	stroke: inherit;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+ul {
+	padding: 0px;
+  margin: 0px;
+}
+
+li {
+  margin-left: 0px;
+  list-style: none;
+}
+
+cite {
+	display: inline-block;
+	font-style: normal;
+}

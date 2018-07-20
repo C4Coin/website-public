@@ -1,0 +1,64 @@
+/**
+ *
+ * Post Page Style
+ *
+**/
+
+@import "~style/_variables.scss";
+
+.container {
+  padding: 6vw;
+}
+
+.display {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.banner {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.display .title {
+  margin-bottom: .4em;
+  padding-bottom: .2em;
+  border-bottom: 2px solid $black;
+  text-align: center;
+}
+
+.info {
+  margin-bottom: 1em;
+}
+
+
+.info-icon {
+  vertical-align: middle;
+  margin-right: .5em;
+}
+
+.info-text {
+  vertical-align: text-top;
+}
+
+.display p {
+  margin-bottom: 1em;
+  line-height: 1.7em;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .display p {
+    font-size: 21px;
+  }
+
+  .display h1,
+  .display h2,
+  .display h3,
+  .display h4,
+  .display h5,
+  .display h6 {
+    margin-bottom: .75em;
+  }
+}

@@ -1,0 +1,86 @@
+/**
+ *
+ * Open Source Promise Style
+ *
+**/
+
+@import "~style/_variables.scss";
+
+.github-display {
+  text-align: center;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+}
+
+.github-icon {
+  fill: white;
+  height: 20vh;
+  max-height: 20vh;
+  max-width: 80%;
+  width: auto;
+}
+
+.open-source-promise {
+  color: $white;
+  text-shadow: 0px 0px 4px rgba($black, .2);
+  padding: 2vh 6vw 0px;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .github-display {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+  }
+
+  .open-source-promise {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .github-display {
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .container {
+    display: flex;
+    flex-direction: row-reverse;
+    min-height: 50vh;
+  }
+
+  .github-display {
+    width: 34%;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .github-icon {
+    height: 140px;
+  }
+
+  .promise-display {
+    width: 66%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10vw;
+  }
+
+  .open-source-promise {
+    padding: 0px;
+    margin: 0px;
+  }
+}

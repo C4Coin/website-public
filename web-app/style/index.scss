@@ -1,0 +1,30 @@
+/*
+ * App Style
+ *
+ * The base style for the application.
+ *
+ */
+@charset "utf-8/index";
+
+@import '_variables.scss';
+@import '_base.scss';
+@import '_typeography.scss';
+@import '_input.scss';
+
+@import '~components/menu/style/_variables.scss';
+
+.app {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .app {
+    padding-left: $latent-menu-width;
+  }
+}

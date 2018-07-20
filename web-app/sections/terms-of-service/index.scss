@@ -1,0 +1,55 @@
+/**
+ *
+ * Terms of Service Page Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+.container {
+
+}
+
+.display {
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-bottom: 4em;
+  padding-top: 20px;
+}
+
+.display h1,
+.display h2,
+.display h3,
+.display h4,
+.display h5,
+.display h6 {
+  margin-top: 1em
+}
+
+.display p + p,
+.display h1 + p,
+.display h2 + p,
+.display h3 + p,
+.display h4 + p,
+.display h5 + p,
+.display h6 + p {
+  margin-top: 1em;
+}
+
+.display li {
+  list-style: circle;
+  margin-left: 1.2em;
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .display {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 6em;
+  }
+}

@@ -1,0 +1,81 @@
+/*
+ * VARIABLES
+ *
+ * Global sizes and colors that can be used in every component
+ *
+ */
+
+@import url("https://use.typekit.net/ffd5qqs.css");
+
+$helvetica-neue: "helvetica-neue", helvetica, arial, sans-serif;
+$korolev: korolev, helvetica, arial, sans-serif;
+
+/* ============================================================ *\
+|* Colors
+\* ============================================================ */
+
+$white:             #FFF;
+$white-shade:       #FAFAF4;
+$dirty-white:       #F4F4EF;
+$light-gray:        #CCC;
+$gray:              #A1A1A1;
+$dark-gray:         #59595B  ;
+$black-tint:        #373744;
+$black:             #1D1B26;
+
+// Transparency
+$shadow:            rgba(0,0,0,.65);
+
+// Brand color values
+$gold:              #F4CB47;
+$gold-shade:        #CE9229;
+$gold-tint:         #F4DE78;
+$blue:              #65ACE5;
+$silver:            #C4CFE8;
+$silver-tint:       #DCE4F4;
+$copper-green:      #DCE4F4;
+$brass-yellow:      #C4C17C;
+
+
+
+/* ============================================================ *\
+|* Breakpoints (bp)
+\* ============================================================ */
+
+$bp-mobile:            450px;
+$bp-mobile-large:      640px;
+$bp-tablet-small:      720px;
+$bp-tablet:            1000px;
+$bp-monitor-small:     1200px;
+$bp-monitor-medium:    1400px;
+
+/* ============================================================ *\
+ * Lengths
+\* ============================================================ */
+
+// Insert App-wide coordinated length values
+$content-width:       722px;
+
+$hs-mobile:           17vw;
+$h1-mobile:           16vw;
+$h2-mobile:           12.4vw;
+$h3-mobile:           8.1vw;
+$h4-mobile:           7vw;
+$h5-mobile:           6vw;
+$h6-mobile:           5vw;
+$p-mobile:            4vw;
+
+$hs:                  15vw;
+$h1:                  70px;
+$h2:                  54px;
+$h3:                  34px;
+$h4:                  30px;
+$h5:                  25px;
+$h6:                  21px;
+$p:                   18px;
+
+$hs-max:              160px;
+
+@function natural-bp($vw, $maxw) {
+  @return $maxw * 100 / ($vw / 1vw);
+}

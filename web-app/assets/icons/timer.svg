@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <path d="M10,1a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-1A10,10,0,1,0,20,10,10,10,0,0,0,10,0Z"/>
+  <rect x="9.5" y="3" width="1" height="7"/>
+  <circle cx="10" cy="10" r="0.5"/>
+  <rect x="12" y="4.3" width="2" height="1" transform="translate(2.34 13.66) rotate(-60.01)"/>
+  <rect x="14.2" y="6.5" width="2" height="1" transform="translate(-1.46 8.54) rotate(-30.02)"/>
+</svg>

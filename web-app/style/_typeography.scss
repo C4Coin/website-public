@@ -1,0 +1,102 @@
+/*
+ * Typography
+ *
+ * Website-wide text styling
+ *
+ */
+
+@import 'variables.scss';
+
+
+* {
+	font-size: inherit;
+	font-weight: inherit;
+  color: inherit;
+  vertical-align: inherit;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $helvetica-neue;
+}
+
+svg {
+  height: 1em;
+  width: auto;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+ h1,  h2,  h3,  h4,  h5,  h6, blockquote,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	margin: 0px;
+	font-weight: bold;
+}
+
+p {
+	margin: 0px;
+}
+
+p + p {
+	margin-top: .75em;
+}
+
+li + li {
+  margin-top: .5em;
+}
+
+p + ul,
+ul + p {
+  margin-top: 1em;
+}
+
+h1, :global(.h1)    {font-size: $h1-mobile}
+h2, :global(.h2)    {font-size: $h2-mobile}
+h3, :global(.h3)    {font-size: $h3-mobile}
+h4, :global(.h4)    {font-size: $h4-mobile}
+h5, :global(.h5)    {font-size: $h5-mobile}
+h6, :global(.h6)    {font-size: $h6-mobile}
+p, :global(.p)      {font-size: $p-mobile}
+body                {font-size: $p-mobile}
+
+h1, :global(.h1)    {line-height: 1.2em}
+h2, :global(.h2)    {line-height: 1.2em}
+h3, :global(.h3)    {line-height: 1.2em}
+h4, :global(.h4)    {line-height: 1.2em}
+h5, :global(.h5)    {line-height: 1.3em}
+h6, :global(.h6)    {line-height: 1.3em}
+p, :global(.p)      {line-height: 1.3em}
+body                {line-height: 1.3em}
+
+body {
+  color: $black-tint;
+}
+
+h1, :global(.h1),
+h2, :global(.h2),
+h3, :global(.h3),
+h4, :global(.h4),
+h5, :global(.h5),
+h6, :global(.h6) {
+  font-family: $korolev;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+	h1, :global(.h1)   {font-size: $h1}
+	h2, :global(.h2)   {font-size: $h2}
+	h3, :global(.h3)   {font-size: $h3}
+  h4, :global(.h4)   {font-size: $h4}
+  h5, :global(.h5)   {font-size: $h5}
+  h6, :global(.h6)   {font-size: $h6}
+	p, :global(.p)     {font-size: $p}
+  body               {font-size: $p}
+}

@@ -1,0 +1,139 @@
+/**
+ *
+ * Team Member Display Style
+ *
+**/
+
+@import '~style/_variables.scss';
+
+.container {
+  background-image: url('assets/textures/topographic-gray.png');
+  background-position: center right;
+  background-size: cover;
+  padding-top: 24%;
+  padding-bottom: 16%;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+$gutter-width: 8%;
+
+.display {
+  width: (100% - (3 * $gutter-width)) / 2;
+  margin-left: $gutter-width;
+  margin-bottom: $gutter-width;
+}
+
+.image-wrapper {
+  width: 100%;
+}
+
+.image {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid $white;
+  padding-left: .8em;
+  font-size: $p-mobile;
+}
+
+.name {
+  font-size: 2em;
+  line-height: .98em;
+  margin-bottom: .4em;
+  margin-top: .5em;
+  flex-grow: 1;
+  color: $black;
+}
+
+.title {
+  color: $dark-gray;
+  font-weight: normal;
+  font-family: $helvetica-neue;
+  font-size: inherit;
+}
+
+@media screen and
+(min-width: $bp-mobile-large) {
+  .wrapper {
+    width: 500px;
+    margin-left: auto;
+    margin: auto;
+  }
+
+  $gutter-width: 8%;
+
+  .display {
+    margin-left: 0px;
+    width: (100% - $gutter-width) / 2;
+  }
+
+  .display:nth-child(even) {
+    margin-left: $gutter-width;
+  }
+
+  .info {
+    font-size: 18px;
+  }
+
+  .name {
+    font-size: 2em;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .container {
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 20%;
+    padding-bottom: 12%;
+  }
+
+  .wrapper {
+    width: auto;
+  }
+
+  $gutter-width: 4%;
+
+  .display,
+  .display:nth-child(even) {
+    width: (100% - (3 * $gutter-width)) / 4;
+    margin-left: $gutter-width;
+    margin-bottom: 0px;
+  }
+
+  .display:nth-child(4n + 1) {
+    margin-left: 0px;
+  }
+
+  .info {
+    font-size: 1.7vw;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .name {
+    font-size: $h4;
+  }
+
+  .info {
+    font-size: 16px;
+  }
+
+  .container {
+    padding-top: 200px;
+    padding-bottom: 80px;
+  }
+}

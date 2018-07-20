@@ -1,0 +1,29 @@
+/**
+ * Input
+ */
+
+form {
+  outline: none;
+}
+
+:global(.button),
+button {
+  outline: none;
+  border: 0px solid transparent;
+}
+
+:global(.button:hover),
+:global(.button:focus),
+button:hover,
+button:focus {
+
+}
+
+input[type=text] {
+  outline: none;
+  padding: .8em 1em;
+  line-height: 1em;
+  border-style: solid;
+  border-width: 0px;
+  color: $black-tint;
+}

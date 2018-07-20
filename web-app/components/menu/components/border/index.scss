@@ -1,0 +1,18 @@
+/**
+ *
+ * Menu Border style
+ *
+**/
+
+@import '~style/_variables.scss';
+@import '~components/menu/style/_variables.scss';
+
+.container {
+  position: absolute;
+  left: $latent-menu-width - 2px;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
