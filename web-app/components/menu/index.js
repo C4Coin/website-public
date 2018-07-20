@@ -30,6 +30,7 @@ const defaultRipple = { rippleWidth: 0, rippleY: 0 }
 const menuPropTypes = {
   coverUrl: PropTypes.string,
   navLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
+  mailingLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
   footerLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
   location: ReactRouterPropTypes.location
 }
@@ -125,6 +126,7 @@ class Menu extends React.Component {
     const {
       coverUrl,
       navLinks,
+      mailingLinks,
       footerLinks,
       location: { pathname }
     } = this.props
@@ -194,7 +196,11 @@ class Menu extends React.Component {
                     linkOnClick={this.closeMenu}
                   />
                   <Social open={open} />
-                  <Mailing open={open} />
+                  <Mailing
+                    open={open}
+                    links={mailingLinks}
+                    linkOnClick={this.closeMenu}
+                  />
                   <Footer
                     links={footerLinks}
                     linkOnClick={this.closeMenu}

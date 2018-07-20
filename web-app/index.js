@@ -12,14 +12,16 @@ import Menu from 'components/menu'
 
 import About from 'sections/about'
 import Articles from 'sections/articles'
-import Cover from 'sections/cover'
-import NotFound from 'sections/not-found'
 import Team from 'sections/team'
 import Technology from 'sections/technology'
 import PressPackage from 'sections/press-package'
 import TermsOfServervice from 'sections/terms-of-service'
+import SubscribePage from 'sections/subscribe-page'
 
 import appConfig from './app.config'
+const { email, pressKit } = appConfig
+
+const emailUrl = `mailto:${email.address}?subject=${email.subject}`
 
 const App = () => (
   <User.Manager>
@@ -32,24 +34,28 @@ const App = () => (
                 coverUrl="/"
                 navLinks={[
                   { anchor: 'about', url: '/about' },
-                  { anchor: 'articles', url: '/articles' },
                   { anchor: 'technology', url: '/technology' },
                   { anchor: 'team', url: '/team' }
                 ]}
+                mailingLinks={[
+                  { anchor: 'Contact us', url: emailUrl },
+                  { anchor: 'Subscribe', url: '/subscribe' }
+                ]}
                 footerLinks={[
-                  { anchor: 'press package', url: appConfig.pressKit },
+                  { anchor: 'press package', url: pressKit },
                   { anchor: 'terms of service', url: '/terms-of-service' }
                 ]}
               />
               <Switch>
-                <Route path="/" exact render={Cover} />
+                <Route path="/" exact render={About} />
                 <Route path="/about" render={About} />
                 <Route path="/articles" render={Articles} />
                 <Route path="/technology" render={Technology} />
                 <Route path="/team" component={Team} />
                 <Route path="/press-package" render={PressPackage} />
                 <Route path="/terms-of-service" render={TermsOfServervice} />
-                <Route render={NotFound} />
+                <Route path="/subscribe" render={SubscribePage} />
+                <Route render={About} />
               </Switch>
             </div>
           )}
