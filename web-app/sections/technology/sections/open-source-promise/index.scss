@@ -23,7 +23,7 @@
 .open-source-promise {
   color: $white;
   text-shadow: 0px 0px 4px rgba($black, .2);
-  padding: 2vh 6vw 8vh;
+  padding: 2vh 6vw 0px;
 }
 
 @media screen and
@@ -36,7 +36,6 @@
   .open-source-promise {
     padding-left: 0px;
     padding-right: 0px;
-    padding-bottom: 16vw;
     padding-top: 0px;
     max-width: 370px;
     margin-left: auto;

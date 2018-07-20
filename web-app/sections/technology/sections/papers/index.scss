@@ -5,17 +5,21 @@
 **/
 
 @import '~style/_variables.scss';
+@import '../../style/_variables.scss';
 
 .header {
   position: relative;
   overflow: hidden;
-  margin-top: -12vw;
+  margin-top: -$first-section-below-fold - $second-section-above-fold;
+  padding-top: $first-section-below-fold;
 }
 
+$circle-width: 400%;
+
 .header-background {
-  width: 400vw;
-  left: -150vw;
-  top: 4.2vw;
+  width: $circle-width;
+  left: -($circle-width - 100%) / 2;
+  top: 0;
   position: absolute;
   height: auto;
   fill: $white-shade;
@@ -27,9 +31,9 @@
   color: $gold;
   text-transform: uppercase;
   text-align: center;
-  padding-bottom: .75em;
   z-index: 2;
   letter-spacing: .02em;
+  line-height: 1em;
 }
 
 .content {
@@ -37,12 +41,13 @@
 }
 
 .about {
-  padding: 0px 10vw;
+  padding: 0px 5vw 0px;
   margin-bottom: 10vh;
 }
 
 .headline {
   color: $gold;
+  padding-top: 1em;
   margin-bottom: .75em;
   text-align: center;
 }
@@ -95,12 +100,9 @@
 
 @media screen and
 (min-width: $bp-mobile) {
-  .papers-title {
-    padding-bottom: 10vh;
-  }
 
   .about {
-    width: 360px;
+    width: 380px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0px;
@@ -109,8 +111,8 @@
   }
 
   .description {
-    padding-left: 26px;
-    padding-right: 26px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   .papers-graphic {
@@ -132,6 +134,11 @@
 (min-width: $bp-tablet-small) {
   .papers-title {
     font-size: $hs;
+  }
+
+  .header {
+    margin-top: -$first-section-below-fold-tablet - $second-section-above-fold-tablet;
+    padding-top: $first-section-below-fold-tablet;
   }
 }
 
