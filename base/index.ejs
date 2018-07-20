@@ -8,7 +8,7 @@
     </title>
     <meta
       name="description"
-      content=""
+      content="<%= htmlWebpackPlugin.options.description %>"
     />
     <link rel="icon" type="image/png" href="./static/favicon.png">
     <!-- Facebook -->
@@ -16,16 +16,15 @@
       property="og:title"
       content="<%= htmlWebpackPlugin.options.title || 'Web App'%>"
     />
-    <meta property="og:url" content=""/>
+    <meta property="og:url" content="<%= htmlWebpackPlugin.options.url %>"/>
     <meta
       property="og:description"
-      content=""
+      content="<%= htmlWebpackPlugin.options.description %>"
     />
     <meta
       property="og:image"
-      content=""
+      content="<%= require('./static/mountains-v0.1.png') %>"
     />
-
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <meta name="mobile-web-app-capable" content="yes">
   </head>
