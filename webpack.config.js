@@ -2,6 +2,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
 process.traceDeprecation = true
@@ -19,6 +20,7 @@ module.exports = (env, argv = { mode: 'development' }) => {
       ]
     },
     plugins: [
+      new FaviconsWebpackPlugin('../base/static/logo-black-v1.0.png'),
       new HtmlWebpackPlugin(
         Object.assign(
           {
