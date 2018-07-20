@@ -66,9 +66,9 @@ export default function TermsOfServervice({ ...rest }) {
         <h6>2. Use License</h6>
         <p>
           a. Permission is granted to temporarily download one copy of the
-          materials (information or software) on C4Coin's website for personal,
-          non-commercial transitory viewing only. This is the grant of a
-          license, not a transfer of title, and under this license you may not:
+          personal,non-commercial transitory viewing only. This is the grant of
+          a license, not a transfer of title, and under this license you may
+          not:
         </p>
         <p>i. modify or copy the materials;</p>
         <p>
@@ -77,15 +77,15 @@ export default function TermsOfServervice({ ...rest }) {
         </p>
         <p>
           iii. attempt to decompile or reverse engineer any software contained
-          on C4Coin's website;
+          on C4Coin{"'"}s website;
         </p>
         <p>
           iv. remove any copyright or other proprietary notations from the
           materials; or
         </p>
         <p>
-          v. transfer the materials to another person or "mirror" the materials
-          on any other server.
+          v. transfer the materials to another person or {'"'}mirror{'"'} the
+          materials on any other server.
         </p>
         <p>
           b. This license shall automatically terminate if you violate any of
@@ -96,12 +96,14 @@ export default function TermsOfServervice({ ...rest }) {
         </p>
         <h6>3. Disclaimer</h6>
         <p>
-          a. The materials on C4Coin's website are provided on an 'as is' basis.
-          C4Coin makes no warranties, expressed or implied, and hereby disclaims
-          and negates all other warranties including, without limitation,
-          implied warranties or conditions of merchantability, fitness for a
-          particular purpose, or non-infringement of intellectual property or
-          other violation of rights.
+          a. The materials on C4Coin{"'"}s website are provided on an {"'"}as is{
+            "'"
+          }{' '}
+          basis. C4Coin makes no warranties, expressed or implied, and hereby
+          disclaims and negates all other warranties including, without
+          limitation, implied warranties or conditions of merchantability,
+          fitness for a particular purpose, or non-infringement of intellectual
+          property or other violation of rights.
         </p>
         <p>
           b. Further, C4Coin does not warrant or make any representations
@@ -114,7 +116,7 @@ export default function TermsOfServervice({ ...rest }) {
           In no event shall C4Coin or its suppliers be liable for any damages
           (including, without limitation, damages for loss of data or profit, or
           due to business interruption) arising out of the use or inability to
-          use the materials on C4Coin's website, even if C4Coin or a C4Coin
+          use the materials on C4Coin{"'"}s website, even if C4Coin or a C4Coin
           authorized representative has been notified orally or in writing of
           the possibility of such damage. Because some jurisdictions do not
           allow limitations on implied warranties, or limitations of liability
@@ -123,19 +125,19 @@ export default function TermsOfServervice({ ...rest }) {
         </p>
         <h6>5. Accuracy of materials</h6>
         <p>
-          The materials appearing on C4Coin's website could include technical,
-          typographical, or photographic errors. C4Coin does not warrant that
-          any of the materials on its website are accurate, complete or current.
-          C4Coin may make changes to the materials contained on its website at
-          any time without notice. However C4Coin does not make any commitment
-          to update the materials.
+          The materials appearing on C4Coin{"'"}s website could include
+          technical, typographical, or photographic errors. C4Coin does not
+          warrant that any of the materials on its website are accurate,
+          complete or current. C4Coin may make changes to the materials
+          contained on its website at any time without notice. However C4Coin
+          does not make any commitment to update the materials.
         </p>
         <h6>6. Links</h6>
         <p>
           C4Coin has not reviewed all of the sites linked to its website and is
           not responsible for the contents of any such linked site. The
           inclusion of any link does not imply endorsement by C4Coin of the
-          site. Use of any such linked website is at the user's own risk.
+          site. Use of any such linked website is at the user{"'"}s own risk.
         </p>
         <h6>7. Modifications</h6>
         <p>
@@ -152,7 +154,7 @@ export default function TermsOfServervice({ ...rest }) {
         <h6>Privacy Policy</h6>
         <p>Your privacy is important to us.</p>
         <p>
-          It is C4Coin's policy to respect your privacy regarding any
+          It is C4Coin{"'"}s policy to respect your privacy regarding any
           information we may collect while operating our website. Accordingly,
           we have developed this privacy policy in order for you to understand
           how we collect, use, communicate, disclose and otherwise make use of
@@ -197,7 +199,7 @@ export default function TermsOfServervice({ ...rest }) {
             We are committed to conducting our business in accordance with these
             principles in order to ensure that the confidentiality of personal
             information is protected and maintained. C4Coin may change this
-            privacy policy from time to time at C4Coin's sole discretion.
+            privacy policy from time to time at C4Coin{"'"}s sole discretion.
           </li>
         </ul>
       </div>
