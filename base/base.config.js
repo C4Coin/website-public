@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   title: 'C4Coin',
   description:
