@@ -12,7 +12,8 @@ export default {
           date: 'May 31, 2018'
         },
         {
-          name: 'First Partnership Announcement'
+          name: 'First Partnership Announcement',
+          date: 'July 25, 2018'
         },
         {
           name: 'CO2KN Staging Network Genesis'

@@ -6,6 +6,7 @@ import ReactRouterPropTypes from 'react-router-prop-types'
 import camelcase from 'camelcase-keys'
 
 import websitePropTypes from 'utils/website-prop-types'
+import PointerTracker from 'modules/pointer-tracker'
 import Icon from './components/icon'
 import Logo from './components/logo'
 import Nav from './components/nav'
@@ -27,7 +28,7 @@ const mobileBreakpoint = parseInt($bpTabletSmall)
 const activationPoint = 70
 const defaultRipple = { rippleWidth: 0, rippleY: 0 }
 
-const menuPropTypes = {
+const propTypes = {
   coverUrl: PropTypes.string,
   navLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
   mailingLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
@@ -154,11 +155,7 @@ class Menu extends React.Component {
             ? `${open * 100}vw`
             : latentWidth + open * widthDifference - 2
           return (
-            <div
-              className={s['container']}
-              onMouseLeave={this.exitMenu}
-              ref={this.setupMeasuring}
-            >
+            <div className={s['container']} ref={this.setupMeasuring}>
               {this.isMobile && (
                 <div className={s['menu-icon-container']}>
                   <Icon className={s['menu-icon']} onClick={this.openMenu} />
@@ -181,9 +178,12 @@ class Menu extends React.Component {
               <div
                 className={s['window']}
                 style={{ width: width }}
-                onMouseOver={this.openMenu}
+                onMouseEnter={this.openMenu}
               >
-                <div className={s['display']}>
+                <PointerTracker.PointerBlock
+                  onLeave={this.exitMenu}
+                  className={s['display']}
+                >
                   <div className={s['logo-container']}>
                     <Link to={coverUrl} onClick={this.closeMenu}>
                       <Logo className={s['logo']} open={open} />
@@ -206,7 +206,7 @@ class Menu extends React.Component {
                     linkOnClick={this.closeMenu}
                     open={open}
                   />
-                </div>
+                </PointerTracker.PointerBlock>
               </div>
             </div>
           )
@@ -216,6 +216,6 @@ class Menu extends React.Component {
   }
 }
 
-Menu.propTypes = menuPropTypes
+Menu.propTypes = propTypes
 
 export default withRouter(Menu)
