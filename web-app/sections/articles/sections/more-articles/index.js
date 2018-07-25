@@ -11,7 +11,8 @@ MoreArticles.propTypes = {
   maxArticles: PropTypes.number,
   articles: PropTypes.array.isRequired,
   exclude: PropTypes.arrayOf(PropTypes.string).isRequired,
-  fetchStatus: PropTypes.string
+  fetchStatus: PropTypes.string.isRequired,
+  className: PropTypes.string
 }
 
 function MoreArticles({
@@ -19,7 +20,7 @@ function MoreArticles({
   articles,
   exclude,
   fetchStatus,
-  className,
+  className = '',
   ...rest
 }) {
   const selectedArticles = articles

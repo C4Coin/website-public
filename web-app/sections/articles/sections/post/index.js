@@ -36,7 +36,6 @@ function Post({
   const dateDescription = formatArticle.formatDate(publishDate)
   const readTimeDescription = formatArticle.formatReadTime(readTime)
 
-  const bannerStyle = { backgroundImage: image }
   return (
     <Page>
       <div className={s['banner']} style={{ backgroundImage: `url(${image})` }}>
