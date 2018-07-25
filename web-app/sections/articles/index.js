@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import ReactRouterPropTypes from 'react-router-prop-types'
+import formatPostData from './utils/format-post-data'
 
 import Cms from 'modules/cms'
 
@@ -16,12 +17,12 @@ export default function Articles({ match, ...rest }) {
     <Switch>
       <Route path={match.path} exact render={ArticleList} />
       <Route path={`${match.path}/:name`}>
-        {({ match: { params } }) => (
-          <Cms.Post postSlug={params.name}>
+        {({ match }) => (
+          <Cms.Post postSlug={match.params.name}>
             {({ post, fetchStatus }) => {
-              if (fetchStatus === Cms.STATUS.SUCCESS) {
-                return <Post post={post} />
-              } else if (fetchStatus === Cms.STATUS.FAILED) {
+              if (fetchStatus === Cms.STATUS.SUCCESS && post) {
+                return <Post {...formatPostData(post)} url={match.url} />
+              } else if (fetchStatus === Cms.STATUS.FAILED || !post) {
                 return <ArticleList />
               }
               return <ArticleList />

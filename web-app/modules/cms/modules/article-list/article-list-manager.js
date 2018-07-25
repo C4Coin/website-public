@@ -26,7 +26,7 @@ class ArticleListManager extends React.Component {
       publishDate,
       "image": mainImage.asset->url,
       "logo": logo.asset->url
-    }`
+    }[0..6]`
     sanity
       .fetch(query)
       .then(data => {

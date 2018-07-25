@@ -4,7 +4,7 @@ import TopArticle from '../../components/top-article'
 import ListArticle from '../../components/list-article'
 import Page from 'components/page'
 import Cms from 'modules/cms'
-import formatArticleListData from './utils/format-article-list-data'
+import formatArticleListData from '../../utils/format-article-list-data'
 import s from './index.scss'
 
 ArticleList.propTypes = {

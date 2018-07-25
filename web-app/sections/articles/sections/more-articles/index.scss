@@ -1,0 +1,64 @@
+/**
+ *
+ * More Articles Style
+ *
+**/
+
+@import '~style/_variables.scss';
+@import '~style/grid/_variables.scss';
+
+display {
+  padding-top: 4vw;
+}
+
+.item {
+  padding-bottom: 8vw;
+  padding-top: 8vw;
+  padding-left: $mobile-gutter-width;
+  padding-right: $mobile-gutter-width;
+}
+
+.item + .item {
+  border-top: 1px solid $dirty-white;
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .container {
+    padding-left: $tablet-gutter-width;
+    padding-right: $tablet-gutter-width;
+  }
+
+  .display {
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .item {
+    padding: 0px;
+  }
+
+  .item + .item {
+    margin-top: 2em;
+    border-top: 0;
+  }
+
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .display {
+    display: flex;
+  }
+
+  .item {
+    width: grid-width(1, 3);
+    margin-left: $spacer-width;
+  }
+
+  .item:nth-child(3n - 2) {
+    margin-left: 0;
+  }
+}
