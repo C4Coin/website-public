@@ -2,15 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import PointerContext from './pointer-context'
 
-const propTypes = {
-  subscribe: PropTypes.func.isRequired,
-  onPointerMove: PropTypes.func.isRequired,
-  children: PropTypes.func.isRequired
-}
-
 class PointerZone extends React.Component {
+  static propTypes = {
+    subscribe: PropTypes.func.isRequired,
+    children: PropTypes.func.isRequired,
+    onMove: PropTypes.func,
+    onEnter: PropTypes.func,
+    onLeave: PropTypes.func
+  }
+
   constructor(props) {
     super(props)
+
+    this.isHovering = false
 
     this.state = {}
     // Set to getBoundingClientRect for the element that setZone is attached to
@@ -34,8 +38,13 @@ class PointerZone extends React.Component {
   }
 
   watchPointer({ clientX, clientY }) {
+    // Ensure that the target areas client rect is available
     const clientRect = this.getRect()
     if (!clientRect) return
+
+    // Ensure that callbacks exist before doing calculations
+    const { onMove, onEnter, onLeave } = this.props
+    if (!onMove && !onEnter && !onLeave) return
 
     const {
       x: rectX,
@@ -45,14 +54,31 @@ class PointerZone extends React.Component {
     } = this.getRect()
 
     // Make sure the pointer is within the horizontal boundaries of the element
-    if (clientX < rectX || clientX > rectX + rectWidth) return
+    const inVerticalBounds = clientX > rectX && clientX < rectX + rectWidth
     // Make sure the pointer is within the vertical boundaries of the element
-    if (clientY < rectY || clientY > rectY + rectHeight) return
+    const inHorizontalBounds = clientY > rectY && clientY < rectY + rectHeight
+    // If out of bounds, exit without triggering on pointer move
+    if (!inVerticalBounds || !inHorizontalBounds) {
+      // Previously hovering, trigger onLeave
+      if (this.isHovering) {
+        this.isHovering = false
+        if (onLeave) onLeave()
+      }
+      return
+    }
+
+    // If not previously hovering, trigger onEnter
+    if (!this.hovering) {
+      this.isHovering = true
+      if (onEnter) onEnter()
+    }
 
     const offsetX = clientX - rectX
     const offsetY = clientY - rectY
 
-    this.props.onPointerMove({ offsetX, offsetY, rectWidth, rectHeight })
+    if (onMove) {
+      onMove({ offsetX, offsetY, rectWidth, rectHeight })
+    }
   }
 
   setZone(element) {
@@ -66,8 +92,6 @@ class PointerZone extends React.Component {
     return children({ setZone: this.setZone })
   }
 }
-
-PointerZone.propTypes = propTypes
 
 export default function PointerZoneWrapper(props) {
   return (
