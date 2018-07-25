@@ -28,7 +28,7 @@ const mobileBreakpoint = parseInt($bpTabletSmall)
 const activationPoint = 70
 const defaultRipple = { rippleWidth: 0, rippleY: 0 }
 
-const menuPropTypes = {
+const propTypes = {
   coverUrl: PropTypes.string,
   navLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
   mailingLinks: PropTypes.arrayOf(websitePropTypes.link).isRequired,
@@ -215,5 +215,7 @@ class Menu extends React.Component {
     )
   }
 }
+
+Menu.propTypes = propTypes
 
 export default withRouter(Menu)

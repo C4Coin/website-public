@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import PointerContext from './pointer-context'
 
-class PointerZone extends React.Component {
-  static propTypes = {
-    subscribe: PropTypes.func.isRequired,
-    children: PropTypes.func.isRequired,
-    onMove: PropTypes.func,
-    onEnter: PropTypes.func,
-    onLeave: PropTypes.func
-  }
+const propTypes = {
+  subscribe: PropTypes.func.isRequired,
+  children: PropTypes.func.isRequired,
+  onMove: PropTypes.func,
+  onEnter: PropTypes.func,
+  onLeave: PropTypes.func
+}
 
+class PointerZone extends React.Component {
   constructor(props) {
     super(props)
 
@@ -92,6 +92,8 @@ class PointerZone extends React.Component {
     return children({ setZone: this.setZone })
   }
 }
+
+PointerZone.propTypes = propTypes
 
 export default function PointerZoneWrapper(props) {
   return (
