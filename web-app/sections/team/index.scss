@@ -37,7 +37,7 @@
 
 .environment-quote {
   display: block;
-  margin: -4vw auto -1vw;
+  margin:  auto;
   max-width: 700px
 }
 
@@ -52,8 +52,8 @@
 @media screen and
 (min-width: $bp-tablet) {
   .environment-quote {
-    margin-top: -70px;
-    margin-bottom: -30px;
+    margin-top: 32px;
+    margin-bottom: 24px;
   }
 }
 

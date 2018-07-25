@@ -17,21 +17,84 @@
 }
 
 .banner {
+  position: relative;
   width: 100%;
-  margin-bottom: 2em;
+  padding-bottom: 66%;
+  max-height: 50vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
-.display .title {
-  margin-bottom: .4em;
-  padding-bottom: .2em;
-  border-bottom: 2px solid $black;
+.title {
+  position: absolute;
+  padding: 0px 2vw .2em;
   text-align: center;
+  color: $white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: $h3-mobile;
+
+}
+
+.title span {
+  position: relative;
+  z-index: 1;
+}
+
+.background-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  box-shadow: 0px 0px 10vw 7vw $shadow;
+  background-color: $shadow;
+}
+
+.author {
+  display: inline-flex;
+  align-items: center;
+  padding-bottom: .6em;
+  border-bottom: 1px solid $black;
+  margin-bottom: .4em;
+}
+
+.author-image {
+  max-width: 16vw;
+  max-height: 16vw;
+  width: 64px;
+  height: 64px;
+  background-position: top center;
+  background-size: cover;
+}
+
+.author-info {
+  margin-left: 4vw;
+}
+
+.author-name {
+  margin-bottom: .2em;
+  line-height: 1em;
+}
+
+.author-role {
+  margin: 0px;
+  line-height: 1em;
 }
 
 .info {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
+.info-item {
+  display: inline-block;
+}
+
+.info-item + .info-item {
+  margin-left: 1em;
+}
 
 .info-icon {
   vertical-align: middle;
@@ -42,23 +105,91 @@
   vertical-align: text-top;
 }
 
-.display p {
-  margin-bottom: 1em;
+.foot {
+  background-color: $white-shade;
+}
+
+.back {
+  padding-left: 4vw;
+  padding-top: 3vw;
+  padding-bottom: 3vw;
+  background-color: $gold;
+  color: $black;
+  vertical-align: middle;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.arrow {
+  transform: rotate(180deg);
+  height: .8em;
+  margin-right: .2em;
+  margin-bottom: .1em;
+}
+
+.content a {
+  text-decoration: underline;
+  color: $gold;
+}
+
+.content p {
+  // margin-bottom: 1em;
   line-height: 1.7em;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-bottom: .75em;
+}
+
+.content img {
+  max-width: 100%;
 }
 
 @media screen and
 (min-width: $bp-mobile) {
-  .display p {
+  .content p {
     font-size: 21px;
   }
 
-  .display h1,
-  .display h2,
-  .display h3,
-  .display h4,
-  .display h5,
-  .display h6 {
-    margin-bottom: .75em;
+  .author-info {
+    margin-left: 18px;
+  }
+
+  .back {
+    padding-left: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+@media screen and
+(min-width: $bp-mobile-large) {
+  .banner {
+    padding-bottom: 400px;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .title {
+    font-size: $h2;
+  }
+
+  .background-shadow {
+    box-shadow: 0px 0px 80px 60px $shadow;
+  }
+
+  .foot {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .back {
+    padding-left: 7%;
   }
 }

@@ -25,10 +25,10 @@ export default function Papers({ whitePaperUrl, litePaperUrl, ...rest }) {
           <h3 className={s['headline']}>C4Coin Blockchain Design</h3>
           <p className={s['description']}>
             Our White Paper and Lite Paper explain the C4Coin blockchain and how
-            it promotes carbon emissions. The Lite Paper provides a high-level
-            overview of the project and its benefits. The full White Paper
-            provides a more rigorous technical breakdown including the math
-            underlying the system.
+            it promotes carbon emissions reduction. The Lite Paper provides a
+            high-level overview of the project and its benefits. The full White
+            Paper provides a more rigorous technical breakdown including the
+            math underlying the system.
           </p>
         </div>
         <div className={s['papers-graphic']}>
