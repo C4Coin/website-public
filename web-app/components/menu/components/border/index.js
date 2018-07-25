@@ -81,14 +81,14 @@ export default function Border({
   rippleY = 0,
   open = 0,
   className = '',
-  onPointerMove = () => {},
+  onPointerMove,
   ...rest
 }) {
   const preserveAspectRatio = height === undefined ? 'none' : 'xMidYMid'
 
   const style = { width: `${width}px` }
   return (
-    <PointerTracker.PointerZone onPointerMove={onPointerMove}>
+    <PointerTracker.PointerZone onMove={onPointerMove}>
       {({ setZone }) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"

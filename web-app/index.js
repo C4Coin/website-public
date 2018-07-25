@@ -35,7 +35,8 @@ const App = () => (
                 navLinks={[
                   { anchor: 'about', url: '/about' },
                   { anchor: 'technology', url: '/technology' },
-                  { anchor: 'team', url: '/team' }
+                  { anchor: 'team', url: '/team' },
+                  { anchor: 'articles', url: '/articles' }
                 ]}
                 mailingLinks={[
                   { anchor: 'Contact us', url: emailUrl },

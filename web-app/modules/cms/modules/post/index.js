@@ -30,7 +30,11 @@ class Post extends React.Component {
         readTime,
         "image": mainImage.asset->url,
         publishDate,
-        author,
+        author->{
+          name,
+          role,
+          "image": image.asset->url
+        },
         body,
       }[0]
     `
