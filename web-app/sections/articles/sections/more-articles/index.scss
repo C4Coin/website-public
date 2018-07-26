@@ -61,4 +61,8 @@ display {
   .item:nth-child(3n - 2) {
     margin-left: 0;
   }
+
+  .item + .item {
+    margin-top: 0px;
+  }
 }
