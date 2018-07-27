@@ -1,7 +1,7 @@
 module.exports = ({ file, options, env }) => {
   return {
     plugins: {
-      autoprefixer: options.mode === 'production' ? {} : false,
+      autoprefixer: {},
       cssnano: options.mode === 'production' ? {} : false
     }
   }

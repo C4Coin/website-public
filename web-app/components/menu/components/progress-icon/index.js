@@ -1,6 +1,10 @@
 import React from 'react'
 import { Motion, spring } from 'react-motion'
 import PropTypes from 'prop-types'
+import autoprefixer from 'autoprefixer'
+import postcssJs from 'postcss-js'
+
+const prefixer = postcssJs.sync([autoprefixer])
 
 const positions = {
   before: 'before',
@@ -61,7 +65,10 @@ export default function ProgressIcon({
   return (
     <Motion defaultStyle={defaultPoints} style={points}>
       {({ top, bottom, scale }) => (
-        <span style={{ ...iconStyle, transform: transform(scale) }} {...rest}>
+        <span
+          style={prefixer({ ...iconStyle, transform: transform(scale) })}
+          {...rest}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 34.6">
             <defs>
               <clipPath id={clipId}>
