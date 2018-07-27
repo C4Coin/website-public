@@ -32,13 +32,13 @@
 }
 
 .quote-container {
-  padding: 0px 4vw;
+  padding: 4vw 4vw 3vw;
 }
 
 .environment-quote {
   display: block;
   margin:  auto;
-  max-width: 700px
+  max-width: 700px;
 }
 
 @media screen and
@@ -47,15 +47,13 @@
   .founders-title {
     font-size: $hs;
   }
-}
 
-@media screen and
-(min-width: $bp-tablet) {
-  .environment-quote {
-    margin-top: 32px;
+  .quote-container {
+    padding-top: 32px;
     margin-bottom: 24px;
   }
 }
+
 
 @media screen and
 (min-width: natural-bp($hs, $hs-max)) {
