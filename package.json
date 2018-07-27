@@ -9,12 +9,22 @@
     "start": "webpack-dev-server --mode development --devtool cheap-module-eval-source-map",
     "start:build": "http-server ./dist",
     "build": "webpack --mode production",
-    "build:dev": "webpack --config webpack.dev.config.js",
+    "build:dev": "webpack --mode development",
     "lint": "eslint .",
     "clean": "rm -rf dist",
     "test": "npm run test:unit",
     "test:unit": "mocha-webpack --mode development 'test/**/*_spec.js' --webpack-config webpack.config.test.js",
     "test:unit:cov": "cross-env NODE_ENV=coverage nyc --reporter=lcov --reporter=text npm run test:unit"
+  },
+  "browserslist": {
+    "production": [
+      "last 1 version",
+      "> 1%"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version"
+    ]
   },
   "nyc": {
     "check-coverage": true,
@@ -70,7 +80,6 @@
   "devDependencies": {
     "ajv": "^6.4.0",
     "ajv-keywords": "^3.1.0",
-    "autoprefixer": "^8.3.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -131,14 +140,16 @@
   "dependencies": {
     "@sanity/block-content-to-react": "^2.0.1",
     "@sanity/client": "^0.132.5",
+    "autoprefixer": "^8.6.5",
     "axios": "^0.18.0",
     "camelcase-keys": "^4.2.0",
+    "caniuse-lite": "^1.0.30000865",
+    "postcss-js": "^2.0.0",
     "prop-types": "^15.6.1",
     "qs": "^6.5.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-ga": "^2.5.0",
-    "react-mailchimp-subscribe": "^2.0.1",
     "react-motion": "^0.5.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",

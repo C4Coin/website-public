@@ -14,6 +14,7 @@
 
 @mixin display() {
   width: 50%;
+  position: relative;
 }
 
 .first-display {
@@ -45,34 +46,37 @@
   display: block;
 }
 
+$title-size-mobile: 11.8vw;
+
 @mixin info() {
+  display: inline-block;
   position: relative;
   z-index: 2;
-  margin-top: .5em;
+  background-color: $white;
+  min-height: $title-size-mobile * 1.8;
 }
 
 .first-info {
   @include info();
+  padding-left: $title-size-mobile;
 }
 
 .second-info {
   @include info();
   direction: rtl;
+  padding-right: $title-size-mobile;
 }
 
-$title-size-mobile: 11.8vw;
 
 @mixin title() {
-  position: relative;
+  position: absolute;
+  top: 0;
   line-height: 1em;
   color: $gold;
   writing-mode: vertical-lr;
   font-size: $title-size-mobile;
-  margin-top: -0.56em;
-  background-color: $white;
   padding-left: .03em;
   padding-right: .05em;
-  align-self: flex-start;
   display: inline-block;
 }
 
@@ -96,25 +100,44 @@ $title-size-mobile: 11.8vw;
   text-transform: uppercase;
   letter-spacing: .01em;
   display: inline-block;
+  padding-top: .14em;
+  vertical-align: top;
 }
 
 .first-name {
   @include name();
+  padding-right: .22em;
 }
 
 .second-name {
   @include name();
   text-align: right;
+  padding-left: .22em;
 }
 
 @media screen and
 (min-width: $bp-mobile) {
-  .first-info,
-  .second-info {
-    display: inline-block;
+
+  .first-display,
+  .second-display {
     font-size: $h4-mobile;
-    margin-top: -0.97em;
+    padding-bottom: 2em;
+  }
+
+  @mixin info() {
+    position: absolute;
+    font-size: inherit;
     background-color: white;
+    bottom: 0;
+  }
+
+  .first-info {
+    @include info();
+  }
+
+  .second-info {
+    @include info();
+    right: 0;
   }
 
   .first-title,
@@ -124,27 +147,30 @@ $title-size-mobile: 11.8vw;
     padding-left: 0px;
   }
 
-  @mixin name() {
-    padding-top: .14em;
-    vertical-align: top;
-  }
-
-  .first-name {
-    @include name();
-    padding-right: .22em;
-  }
-
-  .second-name {
-    @include name();
-    padding-left: .22em;
-  }
 }
 
 @media screen and
 (min-width: $bp-mobile-large) {
-  .first-info,
-  .second-info {
+  $title-size: $title-size-mobile / 100vw * $bp-mobile-large;
+
+
+  .first-display,
+  .second-display {
     font-size: $h4-mobile / 100vw * $bp-mobile-large;
+  }
+
+  @mixin info() {
+    min-height: $title-size * 1.8
+  }
+
+  .first-info {
+    @include info()
+    padding-left: $title-size;
+  }
+
+  .second-info {
+    @include info()
+    padding-right: $title-size;
   }
 
   .first-name,
@@ -152,9 +178,10 @@ $title-size-mobile: 11.8vw;
     font-size: inherit;
   }
 
+
   .first-title,
   .second-title {
-    font-size: $title-size-mobile / 100vw * $bp-mobile-large;
+    font-size: $title-size;
   }
 }
 
