@@ -48,14 +48,14 @@ const App = () => (
                 ]}
               />
               <Switch>
-                <Route path="/" exact render={About} />
-                <Route path="/about" render={About} />
-                <Route path="/articles" render={Articles} />
-                <Route path="/technology" render={Technology} />
+                <Route path="/" exact component={About} />
+                <Route path="/about" component={About} />
+                <Route path="/articles" component={Articles} />
+                <Route path="/technology" component={Technology} />
                 <Route path="/team" component={Team} />
-                <Route path="/press-package" render={PressPackage} />
-                <Route path="/terms-of-service" render={TermsOfServervice} />
-                <Route path="/subscribe" render={SubscribePage} />
+                <Route path="/press-package" component={PressPackage} />
+                <Route path="/terms-of-service" component={TermsOfServervice} />
+                <Route path="/subscribe" component={SubscribePage} />
                 <Route render={About} />
               </Switch>
             </div>

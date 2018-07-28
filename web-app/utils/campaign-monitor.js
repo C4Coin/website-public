@@ -25,10 +25,6 @@ function sendData(token, fields = {}) {
   }
   const data = qs.stringify(fields)
 
-  console.log('sending data:')
-  console.log(token)
-  console.log(data)
-  console.log(config)
   return axios.post(token, data, config)
 }
 
