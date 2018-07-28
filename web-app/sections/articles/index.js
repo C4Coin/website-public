@@ -15,13 +15,19 @@ Articles.propTypes = {
 export default function Articles({ match, ...rest }) {
   return (
     <Switch>
-      <Route path={match.path} exact render={ArticleList} />
+      <Route path={match.path} exact component={ArticleList} />
       <Route path={`${match.path}/:name`}>
         {({ match }) => (
-          <Cms.Post postSlug={match.params.name}>
+          <Cms.Post key={match.url} postSlug={match.params.name}>
             {({ post, fetchStatus }) => {
               if (fetchStatus === Cms.STATUS.SUCCESS && post) {
-                return <Post {...formatPostData(post)} url={match.url} />
+                return (
+                  <Post
+                    {...formatPostData(post)}
+                    url={match.url}
+                    key={match.url}
+                  />
+                )
               } else if (fetchStatus === Cms.STATUS.FAILED || !post) {
                 return <ArticleList />
               }
