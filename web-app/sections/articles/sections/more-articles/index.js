@@ -25,12 +25,9 @@ function MoreArticles({
 }) {
   const selectedArticles = articles
     .filter(article => {
-      console.log(article.url)
-      console.log(!exclude.some(url => url === article.url))
       return !exclude.some(url => url === article.url)
     })
     .slice(0, maxArticles)
-  console.log(selectedArticles)
   return (
     <div className={`${s['container']} ${className}`} {...rest}>
       <div className={s['display']}>

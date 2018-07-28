@@ -39,9 +39,6 @@ class CampaignMonitorFormManager extends React.Component {
     })
     campaignMonitorSubsribe(id, emailId, fields)
       .then(response => {
-        console.log('success')
-        console.log(response)
-
         this.setState({
           status: STATUS.SUCCESS
         })

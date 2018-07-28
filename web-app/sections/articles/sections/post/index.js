@@ -37,7 +37,7 @@ function Post({
   const readTimeDescription = formatArticle.formatReadTime(readTime)
 
   return (
-    <Page>
+    <Page {...rest} key={url}>
       <div className={s['banner']} style={{ backgroundImage: `url(${image})` }}>
         <h2 className={s['title']}>
           <div className={s['background-shadow']} />
