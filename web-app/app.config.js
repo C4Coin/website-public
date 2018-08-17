@@ -8,7 +8,7 @@ export default {
     instagram: 'https://www.instagram.com/c4coin/',
     twitter: 'https://twitter.com/c4coin_official',
     github: 'https://github.com/C4Coin',
-    discord: ''
+    discord: 'https://discord.gg/eaEgTK'
   },
   campaignMonitor: {
     id: process.env.CAMPAIGN_MONITOR_ID,
