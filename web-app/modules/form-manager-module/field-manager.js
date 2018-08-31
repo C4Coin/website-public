@@ -3,9 +3,17 @@ import PropTypes from 'prop-types'
 
 const propTypes = {
   children: PropTypes.func.isRequired,
-  fields: PropTypes.objectOf(PropTypes.string)
+  fields: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+  )
 }
 
+/**
+ * Manages fields' values using state.
+ * Recieves lists of fields to manage through state
+ *
+ * @extends React
+ */
 class FieldManager extends React.Component {
   constructor(props) {
     super(props)
@@ -14,6 +22,7 @@ class FieldManager extends React.Component {
       ...props.fields
     }
 
+    // Connect this
     this.updateField = this.updateField.bind(this)
     this.getFields = this.getFields.bind(this)
   }

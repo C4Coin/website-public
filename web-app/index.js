@@ -17,6 +17,7 @@ import Technology from 'sections/technology'
 import PressPackage from 'sections/press-package'
 import TermsOfServervice from 'sections/terms-of-service'
 import SubscribePage from 'sections/subscribe-page'
+import ClaimTokens from 'sections/claim-tokens'
 
 import appConfig from './app.config'
 const { email, pressKit } = appConfig
@@ -56,6 +57,7 @@ const App = () => (
                 <Route path="/press-package" component={PressPackage} />
                 <Route path="/terms-of-service" component={TermsOfServervice} />
                 <Route path="/subscribe" component={SubscribePage} />
+                <Route path="/claim-co2kn" component={ClaimTokens} />
                 <Route render={About} />
               </Switch>
             </div>

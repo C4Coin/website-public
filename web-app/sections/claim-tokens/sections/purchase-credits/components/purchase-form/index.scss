@@ -1,0 +1,84 @@
+/**
+ *
+ * Claim Tokens Purchase Form
+ *
+**/
+
+@import "~style/_variables.scss";
+@import "../../../../style/_variables.scss";
+
+
+.form {
+  margin-top: 2vw;
+  font-size: 4vw;
+  color: $dusk-purple;
+  line-height: 1.4em;
+}
+
+.row {
+  font-size: $h6-mobile;
+}
+
+.form input[type=text],
+.form input[type=email] {
+  width: 100%;
+  color: $silver-shade;
+  border-bottom-color: $silver-shade;
+}
+
+.form input[type=text]::placeholder,
+.form input[type=email]::placeholder {
+  color: $silver;
+}
+
+.form input,
+.form .row {
+  margin-top: .4em;
+}
+
+.form input:first-child,
+.form .row:first-child {
+  margin-top: 0px;
+}
+
+.form .row input {
+  margin-top: 0px;
+}
+
+.company-section {
+  margin-top: 2em;
+}
+
+label {
+  font-weight: bold;
+  display: inline-flex;
+}
+
+.checkbox {
+  margin-right: .4em;
+  margin-top: .05em;
+  vertical-align: middle;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .row {
+    font-size: $h6;
+  }
+
+  .form {
+    font-size: 21px;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .row input + input {
+    margin-left: 16px;
+  }
+}

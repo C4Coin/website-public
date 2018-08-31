@@ -1,0 +1,84 @@
+/**
+ *
+ * Claim Tokens Info Style
+ *
+**/
+
+@import "~style/_variables.scss";
+@import "../../style/_variables.scss";
+
+.container {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  padding-top: 20%;
+  padding-bottom: 12%;
+}
+
+.description {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+.description p {
+  font-size: 4vw;
+}
+
+.row {
+  font-size: $h6-mobile;
+}
+
+.form input[type=text],
+.form input[type=email] {
+  width: 100%;
+  color: $silver-shade;
+  border-bottom-color: $silver-shade;
+}
+
+.form input[type=text]::placeholder,
+.form input[type=email]::placeholder {
+  color: $silver;
+}
+
+.form input,
+.form .row {
+  margin-top: .4em;
+}
+
+.form input:first-child,
+.form .row:first-child {
+  margin-top: 0px;
+}
+
+.form .row input {
+  margin-top: 0px;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .description p {
+    font-size: 21px;
+  }
+
+  .row {
+    font-size: $h6;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .content {
+    padding-bottom: 120px;
+  }
+}

@@ -1,0 +1,33 @@
+/**
+ *
+ * New Purchase
+ *
+**/
+
+@import "~style/_variables.scss";
+@import "../../style/_variables.scss";
+
+.container {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  padding-top: 16%;
+  padding-bottom: 12%;
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .content {
+    padding-bottom: 120px;
+  }
+}
