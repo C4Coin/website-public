@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import Discord from '../discord'
 import Facebook from 'assets/icons/facebook.svg'
 import Instagram from 'assets/icons/instagram.svg'
 import Reddit from 'assets/icons/reddit.svg'
 import Twitter from 'assets/icons/twitter.svg'
-import telegraphGraphic from 'assets/graphics/telegram.complex.svg'
 
 import appConfig from 'app.config'
 
@@ -16,7 +15,7 @@ const {
   instagram: instagramUrl,
   twitter: twitterUrl,
   reddit: redditUrl,
-  telegram: telegramUrl
+  discord: discordUrl
 } = appConfig.social
 
 SocialIcon.propTypes = {
@@ -71,12 +70,12 @@ export default function Social({ open = 0, ...rest }) {
           </SocialIcon>
         </div>
       </div>
-      <div className={s['telegram-display']} style={telegramStyle}>
-        <img src={telegraphGraphic} className={s['telegraph-graphic']} />
-        <a href={telegramUrl} target="_blank">
-          <div className={s['telegram-title-container']}>
+      <div className={s['community-display']} style={telegramStyle}>
+        <a href={discordUrl} target="_blank">
+          <Discord className={s['community-graphic']} />
+          <div className={s['title-container']}>
             <div>Join us on</div>
-            <strong>Telegram</strong>
+            <strong>Discord</strong>
           </div>
         </a>
       </div>
