@@ -25,17 +25,22 @@ export default function CountdownClock({
 }) {
   return (
     <div className={`${s['container']} ${className}`}>
-      <div className={s['values-display']}>
-        <Value>{days}</Value>
-        <Value>{hours}</Value>
-        <Value>{minutes}</Value>
-        <Value>{seconds}</Value>
+      <div className={s['title']}>
+        <span className={s['line']} /> Starts In <span className={s['line']} />
       </div>
-      <div className={s['labels-display']}>
-        <Label>Days</Label>
-        <Label>Hours</Label>
-        <Label>Minutes</Label>
-        <Label>Seconds</Label>
+      <div className={s['display']}>
+        <div className={s['values-display']}>
+          <Value>{days}</Value>
+          <Value>{hours}</Value>
+          <Value>{minutes}</Value>
+          <Value>{seconds}</Value>
+        </div>
+        <div className={s['labels-display']}>
+          <Label>Days</Label>
+          <Label>Hours</Label>
+          <Label>Minutes</Label>
+          <Label>Seconds</Label>
+        </div>
       </div>
     </div>
   )
