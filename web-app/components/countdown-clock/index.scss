@@ -1,0 +1,60 @@
+/**
+ *
+ * Count Down Clock Style
+ *
+ */
+
+@import '~style/_variables.scss';
+
+.container {
+  color: $white;
+  max-width: 800px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.values-display,
+.labels-display {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.values-display {
+  font-size: $h1-mobile;
+  font-family: $korolev;
+}
+
+.value {
+  padding: 0px;
+  font-weight: 900;
+  line-height: 1em;
+  width: 1.2em;
+  text-align: center;
+}
+
+.labels-display {
+  font-size: 4vw;
+}
+
+.label {
+  width: $h1-mobile * 1.2;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+
+@media screen and
+(min-width: $bp-mobile) {
+  .values-display {
+    font-size: $h1;
+  }
+
+  .label {
+    width: $h1 * 1.2;
+    font-size: $h1 / 5;
+  }
+}
