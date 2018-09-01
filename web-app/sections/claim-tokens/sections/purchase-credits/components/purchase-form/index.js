@@ -1,6 +1,7 @@
 import React from 'react'
 import FormManager from 'modules/form-manager-module'
 import s from './index.scss'
+import queryString from 'query-string'
 
 const FieldCheckbox = FormManager.FieldCheckbox
 const Field = FormManager.Field
@@ -24,7 +25,9 @@ const fields = {
 
 function submitPurchase(fieldValues) {
   if (canSubmit(fieldValues)) {
-    console.log(fieldValues)
+    console.log(queryString.stringify(fieldValues))
+
+    // window.location.href = cccEndpoint(fieldValues)
     return true
   } else {
     console.log('Cant submit')
@@ -34,7 +37,15 @@ function submitPurchase(fieldValues) {
 }
 
 function canSubmit(fields) {
-  return false
+  return true
+}
+
+function cccEndpoint(fieldValues) {
+  const { fname: first } = fieldValues
+
+  const cccWebsite = 'https://dev.carboncreditcapital.com'
+  const item = '5307'
+  return `${cccWebsite}/checkout/?add-to-cart=${item}&quantity=1&first=${first}`
 }
 
 export default function PurchaseForm() {
