@@ -8,10 +8,45 @@
 
 .container {
   color: $white;
-  max-width: 800px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding: 0px 2vw;
+}
+
+.title {
+  font-size: 4vw;
+  vertical-align: middle;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.line {
+  display: inline-block;
+  width: 4vw;
+  border-top: 1px solid $white;
+  padding-top: .75em;
+  flex-grow: 1;
+}
+
+.line:first-child {
+  border-left: 1px solid $white;
+  margin-right: .5em;
+}
+
+.line:last-child {
+  border-right: 1px solid $white;
+  margin-left: .5em;
+}
+
+.display{
+  border-style: solid;
+  border-color: $white;
+  border-width: 0px 1px 1px;
+  padding-bottom: 4vw;
 }
 
 .values-display,
@@ -49,8 +84,23 @@
 
 @media screen and
 (min-width: $bp-mobile) {
+  .title {
+    font-size: $h1 / 4;
+  }
+
+  .display {
+    padding-bottom: 24px;
+  }
+
   .values-display {
     font-size: $h1;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .labels-display {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .label {
