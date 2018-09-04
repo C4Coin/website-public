@@ -16,8 +16,8 @@ export default function Capabilities({ className = '', ...rest }) {
     <section className={`${s['container']} ${className}`}>
       <h3 className={s['title']}>capabilities</h3>
       <p className={s['description']}>
-        C4Coin uses blockchain to create a transparent and acountable carbon
-        credit ecosytem.
+        C4Coin uses blockchain to create a transparent and accountable carbon
+        credit ecosystem.
       </p>
       <div className={s['features-container']}>
         <Feature
