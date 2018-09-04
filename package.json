@@ -1,6 +1,6 @@
 {
   "name": "@c4coin/website-public",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "The forward-facing website for C4 & EXO coin",
   "main": "index.js",
   "scripts": {
