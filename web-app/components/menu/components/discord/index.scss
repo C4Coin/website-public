@@ -1,0 +1,68 @@
+/**
+ *
+ * Discord Animated Graphic
+ *
+**/
+
+.background,
+.middleground,
+.foreground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.background {
+  z-index: 0;
+  animation-duration: 70s;
+}
+
+.middleground {
+  z-index: 1;
+  animation-duration: 50s;
+}
+
+.foreground {
+  z-index: 2;
+  animation-duration: 36s;
+}
+
+.bot {
+  position: relative;
+  z-index: 3;
+  margin: auto;
+  display: block;
+  height: 32px;
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-6px);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(-6px);
+  }
+}
