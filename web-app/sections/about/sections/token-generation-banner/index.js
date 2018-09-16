@@ -1,10 +1,9 @@
 import React from 'react'
-
+import TokenGenerationSignup from 'components/token-generation-signup'
+import mountainGraphic from 'assets/graphics/token-generation-mountain.png'
 import s from './index.scss'
 
-const mountainGraphic = require('assets/graphics/token-generation-mountain.png')
-
-export default function TokenGenerationBanner(props) {
+export default function TokenGenerationBanner({ history, ...rest }) {
   return (
     <section className={s['container']}>
       <h2 className={s['title']}>C4Coin</h2>
@@ -36,28 +35,7 @@ export default function TokenGenerationBanner(props) {
                 our partnership with Carbon Credit Capital.&nbsp;
                 <a>Read More</a>
               </p>
-              <div className={s['signup-form']}>
-                <div className={s['form-row']}>
-                  <input
-                    type="text"
-                    className={s['first-name']}
-                    placeholder="First Name"
-                  />
-                  <input
-                    type="text"
-                    className={s['last-name']}
-                    placeholder="Last Name"
-                  />
-                </div>
-                <input
-                  type="email"
-                  className={s['email']}
-                  placeholder="Email"
-                />
-
-                <a className={s['purchase']}>Purchase New Credits</a>
-                <a className={s['redeem']}>Redeem Receipts</a>
-              </div>
+              <TokenGenerationSignup history={history} styleSheet={s} />
             </div>
           </div>
         </div>

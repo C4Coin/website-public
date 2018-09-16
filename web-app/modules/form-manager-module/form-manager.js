@@ -26,15 +26,7 @@ class FormManager extends React.Component {
     return (
       <FieldManager fields={fields}>
         {({ managedFields }) => {
-          // Get an object with { fieldName, fieldValue } key-value pairs
-          const fieldValues = Object.keys(managedFields).reduce(
-            (fields, key) => ({
-              ...fields,
-              [key]: managedFields[key]['value']
-            }),
-            {}
-          )
-          const managedSubmit = this.managedSubmit.bind(this, fieldValues)
+          const managedSubmit = this.managedSubmit.bind(this, managedFields)
           return children({ managedFields, managedSubmit, ...otherProps })
         }}
       </FieldManager>

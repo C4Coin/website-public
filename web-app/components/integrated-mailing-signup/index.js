@@ -5,6 +5,7 @@ import appConfig from 'app.config.js'
 import WebsitePropTypes from 'utils/website-prop-types'
 import User from 'modules/user'
 import MailingFormManager from 'modules/mailing-form-manager'
+import FormManager from 'modules/form-manager-module'
 
 import SuccessMessage from './components/success-message'
 import s from './index.scss'
@@ -13,6 +14,7 @@ import moon from 'assets/graphics/moon_1.0.png'
 const { STATUS } = MailingFormManager
 
 const { communityForm } = appConfig.campaignMonitor
+const { Field } = FormManager
 
 IntegratedMailingSignup.propTypes = {
   user: WebsitePropTypes.user.isRequired,
@@ -33,19 +35,19 @@ function IntegratedMailingSignup({
   ...rest
 }) {
   const fields = {
-    [communityForm.email]: '',
-    [communityForm.userId]: user.id
+    email: {
+      value: '',
+      cmId: communityForm.email
+    },
+    userId: {
+      value: user.id,
+      cmId: communityForm.userId
+    }
   }
 
   return (
-    <MailingFormManager
-      fields={fields}
-      id={appConfig.campaignMonitor.id}
-      emailId={communityForm.email}
-    >
+    <MailingFormManager fields={fields} id={communityForm.id}>
       {({ managedFields, managedSubmit, status, message }) => {
-        const { [communityForm.email]: email } = managedFields
-
         let emailErrorMessage = status === STATUS.ERROR ? message : ''
 
         return (
@@ -61,13 +63,10 @@ function IntegratedMailingSignup({
                 <p className={s['description']}>{description}</p>
                 <form className={s['form']} onSubmit={managedSubmit}>
                   <div className={s['email-wrapper']}>
-                    <input
-                      type="text"
-                      id={communityForm.email}
-                      name={communityForm.email}
-                      value={email.value}
-                      onChange={({ target }) => email.onChange(target.value)}
-                      className={`${s['email-input']} ${communityForm.email}`}
+                    <Field
+                      fieldId={'email'}
+                      fields={managedFields}
+                      className={`${s['email-input']}`}
                       placeholder="Your Favorite Email"
                     />
                     {emailErrorMessage.length > 0 && (

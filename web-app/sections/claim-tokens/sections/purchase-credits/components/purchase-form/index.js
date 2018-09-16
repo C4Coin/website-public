@@ -2,13 +2,15 @@ import React from 'react'
 import FormManager from 'modules/form-manager-module'
 import s from './index.scss'
 import queryString from 'query-string'
+import ReactMotion from 'react-motion'
+import Drawer from 'components/drawer'
 
 const FieldCheckbox = FormManager.FieldCheckbox
 const Field = FormManager.Field
 
-const fields = {
-  fname: '',
-  lname: '',
+const defaultFields = {
+  first: '',
+  last: '',
   email: '',
   isForCompany: false,
   company: '',
@@ -41,26 +43,28 @@ function canSubmit(fields) {
 }
 
 function cccEndpoint(fieldValues) {
-  const { fname: first } = fieldValues
+  const { first } = fieldValues
 
   const cccWebsite = 'https://dev.carboncreditcapital.com'
   const item = '5307'
   return `${cccWebsite}/checkout/?add-to-cart=${item}&quantity=1&first=${first}`
 }
 
-export default function PurchaseForm() {
+export default function PurchaseForm({ fields }) {
+  const fullFields = Object.assign({}, defaultFields, fields)
+
   return (
-    <FormManager submit={submitPurchase} fields={fields}>
+    <FormManager submit={submitPurchase} fields={fullFields}>
       {({ managedFields, managedSubmit }) => (
         <form className={s['form']} onSubmit={managedSubmit}>
           <div className={s['row']}>
             <Field
-              fieldId="fname"
+              fieldId="first"
               fields={managedFields}
               placeholder="First Name"
             />
             <Field
-              fieldId="lname"
+              fieldId="last"
               fields={managedFields}
               placeholder="Last Name"
             />
@@ -80,11 +84,13 @@ export default function PurchaseForm() {
               />
               Are you redeeming on behalf of a corporation?
             </label>
-            <Field
-              fieldId="company"
-              fields={managedFields}
-              placeholder="Company / Organization"
-            />
+            <Drawer isOpen={managedFields.isForCompany.value}>
+              <Field
+                fieldId="company"
+                fields={managedFields}
+                placeholder="Company / Organization"
+              />
+            </Drawer>
           </div>
           <Field
             fieldId={'phone'}

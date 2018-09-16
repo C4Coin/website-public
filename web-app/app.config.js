@@ -11,10 +11,26 @@ export default {
     telegram: 'https://t.me/c4coin'
   },
   campaignMonitor: {
-    id: process.env.CAMPAIGN_MONITOR_ID,
     communityForm: {
+      id: process.env.CAMPAIGN_MONITOR_COMMUNITY_ID,
+      name: 'cm-name',
       email: 'cm-skjjhl-skjjhl',
       userId: 'cm-f-jtnlyy'
+    },
+    // Only used for Carbon Credit Capital integration
+    cccIntegrationForm: {
+      id: process.env.CAMPAIGN_MONITOR_CCC_ID,
+      name: 'cm-name',
+      email: 'cm-wkkkhd-wkkkhd',
+      userId: 'cm-f-jdtyttt',
+      campany: 'cm-f-jdtytti',
+      phone: 'cm-f-jdtjuth',
+      country: 'cm-f-jdtjutk',
+      state: 'cm-f-jdtjutu',
+      city: 'cm-f-jdtjuil',
+      zip: 'cm-f-jdtjuir',
+      linkedin: 'cm-f-jdtjuiy',
+      github: 'cm-f-jdtjuij'
     }
   },
   sanity: {

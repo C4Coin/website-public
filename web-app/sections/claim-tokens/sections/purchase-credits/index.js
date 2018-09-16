@@ -1,5 +1,5 @@
 import React from 'react'
-
+import queryString from 'query-string'
 import MountainPage from '../../components/mountain-page'
 import Card from '../../components/card'
 
@@ -7,7 +7,10 @@ import s from './index.scss'
 import FormManager from 'modules/form-manager-module'
 import PurchaseForm from './components/purchase-form'
 
-export default function NewPurchase() {
+export default function NewPurchase({ location, ...rest }) {
+  const { search } = location
+  const { first, last, email } = queryString.parse(search)
+  const fields = { first, last, email }
   return (
     <MountainPage>
       <h1 className={s['title']}>Purchase New Credits</h1>
@@ -22,7 +25,7 @@ export default function NewPurchase() {
             automatically handle your CO2KN claim.
           </p>
         </div>
-        <PurchaseForm />
+        <PurchaseForm fields={fields} />
       </Card>
     </MountainPage>
   )
