@@ -1,21 +1,65 @@
 import React from 'react'
 import FormManager from 'modules/form-manager-module'
-import queryString from 'query-string'
+import Format from 'utils/format'
+import qs from 'qs'
+import User from 'modules/user'
+import appConfig from 'app.config'
+import campaignMonitor from 'utils/campaign-monitor'
 
 const Field = FormManager.Field
+const { withUser } = User
+const { communityForm: cmCommunity } = appConfig.campaignMonitor
 
-const fields = {
-  email: '',
-  first: '',
-  last: ''
-}
-
-function signupForwardTo(history, page, fieldValues) {
-  const queryParams = queryString.stringify(fieldValues)
+function signupForwardTo(history, page, { email, first, last, userId }) {
+  if (email.value) {
+    // Manually combine the name fields for Campaign Monitor
+    const communityFields = {
+      email,
+      userId,
+      name: {
+        value: `${first.value} ${last.value}`,
+        cmId: cmCommunity.name
+      }
+    }
+    campaignMonitor
+      .subscribe(cmCommunity.id, communityFields)
+      .then(response => {
+        console.log(
+          "Thank you for joining our community.  If you're reading this, drop us a line.  We're working on a bunch of projects and doing our best to foster a technical community in New York"
+        )
+      })
+      .catch(err => {
+        console.log('error')
+        console.log(err.stack)
+        console.log(err.message)
+        this.setState({
+          status: STATUS.ERROR,
+          errorMessage: err.message
+        })
+      })
+  }
+  const queryParams = Format.queryString({
+    email: email.value,
+    first: first.value,
+    last: last.value
+  })
   history.push(`/claim-co2kn/${page}?${queryParams}`)
 }
 
-export default function TokenGenerationSignup({ history, styleSheet: s }) {
+function TokenGenerationSignup({ history, user, styleSheet: s }) {
+  const fields = {
+    email: {
+      value: '',
+      cmId: cmCommunity.email
+    },
+    first: '',
+    last: '',
+    userId: {
+      value: user.id,
+      cmId: cmCommunity.userId
+    }
+  }
+
   // Forward to purchase page function
   const forwardToPurchase = signupForwardTo.bind(
     this,
@@ -73,3 +117,5 @@ export default function TokenGenerationSignup({ history, styleSheet: s }) {
     </FormManager>
   )
 }
+
+export default withUser(TokenGenerationSignup)

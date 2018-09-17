@@ -33,7 +33,7 @@ class Drawer extends React.Component {
     const { maxHeight } = this.state
     //spring creates the motion
     const openStyle = {
-      open: spring(isOpen * 1, { stiffness: 240, damping: 22 })
+      open: spring(isOpen * 1, { stiffness: 210, damping: 22 })
     }
     return (
       <Motion defaultStyle={this.defaultOpenStyle} style={openStyle}>

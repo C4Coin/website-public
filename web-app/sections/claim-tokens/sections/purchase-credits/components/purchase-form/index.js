@@ -1,60 +1,31 @@
 import React from 'react'
 import FormManager from 'modules/form-manager-module'
 import s from './index.scss'
-import queryString from 'query-string'
+import qs from 'qs'
 import ReactMotion from 'react-motion'
 import Drawer from 'components/drawer'
+import appConfig from 'app.config'
+import defaultFields from './default-fields'
+import { Link } from 'react-router-dom'
+import Format from 'utils/format'
 
 const FieldCheckbox = FormManager.FieldCheckbox
 const Field = FormManager.Field
+const { cccIntegrationForm: cmCcc } = appConfig.campaignMonitor
 
-const defaultFields = {
-  first: '',
-  last: '',
-  email: '',
-  isForCompany: false,
-  company: '',
-  phone: '',
-  addressLineOne: '',
-  addressLineTwo: '',
-  country: '',
-  state: '',
-  city: '',
-  zip: '',
-  linkedin: '',
-  github: ''
-}
+export default function PurchaseForm({ fieldValues, submit }) {
+  const fullFields = Format.objectMap(defaultFields, (name, field) => {
+    if (fieldValues[name]) {
+      console.log()
+      return { [name]: { ...field, value: fieldValues[name] } }
+    }
+    return { [name]: field }
+  })
 
-function submitPurchase(fieldValues) {
-  if (canSubmit(fieldValues)) {
-    console.log(queryString.stringify(fieldValues))
-
-    // window.location.href = cccEndpoint(fieldValues)
-    return true
-  } else {
-    console.log('Cant submit')
-    console.log(fieldValues)
-    return false
-  }
-}
-
-function canSubmit(fields) {
-  return true
-}
-
-function cccEndpoint(fieldValues) {
-  const { first } = fieldValues
-
-  const cccWebsite = 'https://dev.carboncreditcapital.com'
-  const item = '5307'
-  return `${cccWebsite}/checkout/?add-to-cart=${item}&quantity=1&first=${first}`
-}
-
-export default function PurchaseForm({ fields }) {
-  const fullFields = Object.assign({}, defaultFields, fields)
+  console.log(fullFields)
 
   return (
-    <FormManager submit={submitPurchase} fields={fullFields}>
+    <FormManager submit={submit} fields={fullFields}>
       {({ managedFields, managedSubmit }) => (
         <form className={s['form']} onSubmit={managedSubmit}>
           <div className={s['row']}>
@@ -133,6 +104,17 @@ export default function PurchaseForm({ fields }) {
             fields={managedFields}
             placeholder="Github"
           />
+          <label htmlFor="hasAgreed">
+            <FieldCheckbox
+              fieldId="hasAgreed"
+              fields={managedFields}
+              className={s['checkbox']}
+            />
+            I have read and agree to the terms of service&nbsp;
+            <Link to="/terms-of-service" target="_blank">
+              terms of service
+            </Link>
+          </label>
           <div className={s['checkout']}>
             <button type="submit">Checkout with CCC</button>
           </div>

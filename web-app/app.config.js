@@ -23,8 +23,10 @@ export default {
       name: 'cm-name',
       email: 'cm-wkkkhd-wkkkhd',
       userId: 'cm-f-jdtyttt',
-      campany: 'cm-f-jdtytti',
+      company: 'cm-f-jdtytti',
       phone: 'cm-f-jdtjuth',
+      address1: 'cm-f-jdttuki',
+      address2: 'cm-f-jdttukd',
       country: 'cm-f-jdtjutk',
       state: 'cm-f-jdtjutu',
       city: 'cm-f-jdtjuil',
@@ -40,5 +42,9 @@ export default {
   email: {
     address: 'info@c4coin.org',
     subject: `C4Coin + Me`
+  },
+  ccc: {
+    url: 'https://dev.carboncreditcapital.com',
+    productId: '5307'
   }
 }
