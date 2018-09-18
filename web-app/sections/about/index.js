@@ -20,7 +20,7 @@ export default function About({ ...rest }) {
             <span>Event</span>
           </p>
           <CountdownNow
-            date={Date.parse('september 18, 2018')}
+            date={Date.parse('september 18, 2018 17:00:00 EST')}
             renderer={props => (
               <CountdownClock className={s['clock']} {...props} />
             )}
