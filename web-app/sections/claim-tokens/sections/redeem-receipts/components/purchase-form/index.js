@@ -49,11 +49,13 @@ export default function PurchaseForm({ fieldValues, submit }) {
                 fieldId="first"
                 fields={managedFields}
                 placeholder="First Name"
+                required
               />
               <CField
                 fieldId="last"
                 fields={managedFields}
                 placeholder="Last Name"
+                required
               />
             </div>
             <CField
@@ -61,6 +63,7 @@ export default function PurchaseForm({ fieldValues, submit }) {
               fields={managedFields}
               type="email"
               placeholder="Email"
+              required
             />
             <div className={s['company-section']}>
               <label htmlFor="isForCompany">
@@ -76,11 +79,13 @@ export default function PurchaseForm({ fieldValues, submit }) {
                   fieldId="company"
                   fields={managedFields}
                   placeholder="Company / Organization"
+                  required={managedFields.isForCompany.value}
                 />
                 <CField
                   fieldId="companyRole"
                   fields={managedFields}
                   placeholder="Role at Company"
+                  required={managedFields.isForCompany.value}
                 />
               </Drawer>
             </div>
@@ -88,6 +93,7 @@ export default function PurchaseForm({ fieldValues, submit }) {
               fieldId={'phone'}
               fields={managedFields}
               placeholder="Phone Number"
+              required
             />
             <CField
               fieldId={'addressLineOne'}
@@ -131,11 +137,13 @@ export default function PurchaseForm({ fieldValues, submit }) {
                 fieldId={'retirementDate'}
                 fields={managedFields}
                 placeholder="Date of Retirement"
+                required
               />
               <CField
                 fieldId={'receiptCerial'}
                 fields={managedFields}
                 placeholder="Cerial Number of Receipt"
+                required
               />
             </div>
             <div className={s['network-access']}>
@@ -161,10 +169,12 @@ export default function PurchaseForm({ fieldValues, submit }) {
                   fields={managedFields}
                   className={s['checkbox']}
                 />
-                I have read and agree to the terms of service&nbsp;
-                <Link to="/tos/co2kn-terms-and-conditions" target="_blank">
-                  terms of service
-                </Link>
+                <span>
+                  I have read and agree to the terms of service&nbsp;
+                  <Link to="/tos/co2kn-terms-and-conditions" target="_blank">
+                    terms of service
+                  </Link>
+                </span>
               </label>
               <div className={s['submit-display']}>
                 <button type="submit" style={submitStyle}>

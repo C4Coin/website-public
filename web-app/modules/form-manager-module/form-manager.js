@@ -17,8 +17,8 @@ class FormManager extends React.Component {
 
   managedSubmit(fieldValues, event) {
     const { submit } = this.props
-    submit(fieldValues, event)
     event.preventDefault()
+    submit(fieldValues, event)
   }
 
   render() {

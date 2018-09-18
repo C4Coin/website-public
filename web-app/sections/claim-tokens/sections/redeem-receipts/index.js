@@ -1,26 +1,30 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ReactRouterPropTypes from 'react-router-prop-types'
 import User from 'modules/user'
 import MountainPage from '../../components/mountain-page'
 import PurchaseForm from './components/purchase-form'
 import Card from '../../components/card'
 import env from 'utils/env-utils'
+import campaignMonitor from 'utils/campaign-monitor'
+import appConfig from 'app.config.js'
+import Format from 'utils/format'
 import qs from 'qs'
 
 import s from './index.scss'
 
-console.log(env)
-
-if (env.inDevelopment()) {
-  console.log('IN DEV')
-}
+const { redeemForm: cmR } = appConfig.campaignMonitor
 
 RedeemReceipts.propTypes = {
   user: User.PropTypes.user,
-  location: ReactRouterPropTypes.location.isRequired
+  location: ReactRouterPropTypes.location.isRequired,
+  history: PropTypes.any
 }
 
-function RedeemReceipts({ user, location, ...rest }) {
+function RedeemReceipts({ user, history, location, ...rest }) {
+  console.log(history)
+
+  const submitPurchaseLocal = submitPurchase.bind(null, history)
   const { search } = location
   // Parse the query string, set undefined values to ''
   const { first = '', last = '', email = '' } = qs.parse(search)
@@ -41,21 +45,18 @@ function RedeemReceipts({ user, location, ...rest }) {
             receipt from Markit. Fill out the form below to claim your CO2KNs!
           </p>
         </div>
-        <PurchaseForm fieldValues={fieldValues} submit={submitPurchase} />
+        <PurchaseForm fieldValues={fieldValues} submit={submitPurchaseLocal} />
       </Card>
     </MountainPage>
   )
 }
 
-function submitPurchase({ hasAgreed, ...fields }) {
+function submitPurchase(history, { hasAgreed, ...fields }) {
   if (hasAgreed.value) {
-    console.log('CM Formatted Fields')
-    console.log(cmFormat(fields))
     campaignMonitor
-      .subscribe(cmCcc.id, cmFormat(fields))
+      .subscribe(cmR.id, cmFormat(fields))
       .then(response => {
-        console.log(cccEndpoint(fields))
-        window.location.href = cccEndpoint(fields)
+        history.push('/claim-co2kn/thanks')
       })
       .catch(err => {
         if (env.inDevelopment()) {
@@ -72,12 +73,13 @@ function cmFormat({ first, last, isForCompany, ...fields }) {
   // Also remove company field, if isForCompany isn't checked
   const cmFields = Format.objectMap(fields, (name, field) => {
     if (name === 'company' && !isForCompany.value) return {}
+    if (name === 'companyRole' && !isForCompany.value) return {}
     else if (!field.cmId) return {}
     return { [name]: field }
   })
   const name = {
     value: `${first.value} ${last.value}`,
-    cmId: cmCcc.name
+    cmId: cmR.name
   }
 
   return {

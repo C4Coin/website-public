@@ -7,10 +7,20 @@
 @import "~style/_variables.scss";
 @import "../../style/_variables.scss";
 
+.full {
+  min-height: 100vh;
+}
+
+.title {
+  margin-bottom: .4em;
+  text-align: center;
+}
+
 .featured.featured {
-  font-size: $h3-mobile;
+  font-size: $h4-mobile;
   font-weight: bold;
   font-family: $korolev;
+  text-align: center;
 }
 
 .container {
@@ -96,7 +106,7 @@
   }
 
   .featured.featured {
-    font-size: $h3;
+    font-size: $h4;
   }
 }
 

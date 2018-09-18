@@ -77,13 +77,18 @@ $sunset-red: #CE9C8C;
   position: relative;
   z-index: 2;
   margin-top: -4em;
+  padding-top: 12em;
   pointer-events: none;
+  padding-bottom: 4em;
+  overflow: hidden;
 }
 
 .mountains {
-  position: relative;
+  top: 0;
+  position: absolute;
   width: 100%;
   display: block;
+  z-index: -1;
 }
 
 @media screen and
@@ -132,6 +137,7 @@ $sunset-red: #CE9C8C;
 
   .timeline-container {
     margin-top: -6.6em;
+    padding-top: 20em;
   }
 }
 

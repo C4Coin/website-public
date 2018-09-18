@@ -1,12 +1,14 @@
 import React from 'react'
 import s from './index.scss'
 import MountainPage from '../../components/mountain-page'
-import Card from '../../components/card'
 import TokenGenerationSignup from 'components/token-generation-signup'
+import ProgressBar from 'components/progress-bar'
+import Card from '../../components/card'
 
 export default function Info({ history, ...rest }) {
   return (
     <MountainPage>
+      <ProgressBar />
       <Card>
         <div className={s['description']}>
           <p className={s['featured']}>

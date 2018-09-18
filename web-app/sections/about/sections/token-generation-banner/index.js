@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactRouterPropTypes from 'react-router-prop-types'
 import { Link } from 'react-router-dom'
+import PorogressBar from 'components/progress-bar'
 import TokenGenerationSignup from 'components/token-generation-signup'
 import mountainGraphic from 'assets/graphics/token-generation-mountain.png'
 import s from './index.scss'
@@ -48,6 +49,7 @@ export default function TokenGenerationBanner({ history, ...rest }) {
           </div>
         </div>
         <div className={s['timeline-container']}>
+          <PorogressBar />
           <img src={mountainGraphic} className={s['mountains']} />
         </div>
       </div>
