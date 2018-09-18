@@ -95,6 +95,38 @@
   margin-top: .8em;
 }
 
+
+.community-display {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.community-graphic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.title-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1em;
+  font-size: 16px;
+  color: $blue;
+}
+
 @media screen and
 (min-width: $bp-mobile) {
   .description p {

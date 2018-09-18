@@ -1,0 +1,80 @@
+/**
+ *
+ * Claim Tokens pages banner
+ *
+**/
+
+@import "~style/_variables.scss";
+@import "../../style/_variables.scss";
+
+.container {
+  background-color: $dusk-purple;
+}
+
+.sky {
+  position: relative;
+  background-image: linear-gradient($evening-blue, $sunset-red 39%);
+  padding-top: 76%;
+  overflow: hidden;
+}
+
+.text {
+  position: absolute;
+  height: .9em;
+  overflow: hidden;
+  color: $gold;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: $hs-mobile;
+  letter-spacing: .02em;
+  margin-top: -.17em;
+  line-height: 1em;
+  font-weight: bold;
+  font-family: $korolev;
+  text-align: center;
+  width: 100%;
+  top: 0;
+}
+
+.mountains {
+  position: absolute;
+  top: -5vw;
+  width: 100%;
+  display: block;
+  user-drag: none;
+  user-select: none;
+}
+
+.transition {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 30%;
+  background-image: linear-gradient(rgba($dusk-purple, 0), $dusk-purple 98%);
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .title {
+    font-size: $hs;
+  }
+
+  // .sky {
+  //   height:
+  // }
+}
+
+@media screen and
+(min-width: $bp-monitor-small) {
+  .title {
+    font-size: 10vw;
+  }
+}
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .text {
+    font-size: $hs-max;
+  }
+}

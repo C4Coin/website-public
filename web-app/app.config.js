@@ -8,7 +8,7 @@ export default {
     instagram: 'https://www.instagram.com/c4coin/',
     twitter: 'https://twitter.com/c4coin_official',
     github: 'https://github.com/C4Coin',
-    telegram: 'https://t.me/c4coin'
+    discord: 'https://discord.gg/RnXEtBG'
   },
   campaignMonitor: {
     communityForm: {
