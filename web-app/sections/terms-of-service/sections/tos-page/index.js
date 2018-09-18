@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import BlockContent from '@sanity/block-content-to-react'
 import appConfig from 'app.config'
 
-const { sanity: sanityConfig } = appConfig
-
 import s from './index.scss'
 import Page from 'components/page'
+
+const { sanity: sanityConfig } = appConfig
 
 TosPage.propTypes = {
   body: PropTypes.array

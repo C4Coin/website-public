@@ -1,9 +1,14 @@
 import React from 'react'
 import s from './index.scss'
+import PropTypes from 'prop-types'
 import MountainPage from '../../components/mountain-page'
 import TokenGenerationSignup from 'components/token-generation-signup'
 import ProgressBar from 'components/progress-bar'
 import Card from '../../components/card'
+
+Info.propTypes = {
+  history: PropTypes.object.isRequired
+}
 
 export default function Info({ history, ...rest }) {
   return (

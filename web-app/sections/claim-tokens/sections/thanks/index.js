@@ -8,7 +8,7 @@ import appConfig from 'app.config'
 
 const { discordUrl } = appConfig.social
 
-export default function Info({ history, ...rest }) {
+export default function Info({ ...rest }) {
   return (
     <MountainPage className={s['full']}>
       <Card>
