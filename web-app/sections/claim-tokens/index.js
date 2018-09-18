@@ -3,7 +3,7 @@ import ReactRouterPropTypes from 'react-router-prop-types'
 import { Route, Switch } from 'react-router-dom'
 
 import Info from './sections/info'
-import PurchaseCredits from './sections/purchase-credits'
+// import PurchaseCredits from './sections/purchase-credits'
 import RedeemReceipts from './sections/redeem-receipts'
 
 ClaimTokens.propTypes = {
@@ -13,10 +13,10 @@ ClaimTokens.propTypes = {
 export default function ClaimTokens({ match, ...rest }) {
   return (
     <Switch>
-      <Route
+      {/* <Route
         path={`${match.url}/purchase-new-credits`}
         render={PurchaseCredits}
-      />
+      /> */}
       <Route path={`${match.url}/redeem-receipts`} render={RedeemReceipts} />
       <Route render={Info} />
     </Switch>

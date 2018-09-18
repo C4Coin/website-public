@@ -20,13 +20,14 @@ button {
   color: $white-shade;
   font-size: $h6-mobile;
   background-color: $gold;
+  transition: background-color .3s;
 }
 
 :global(.button:hover),
 :global(.button:focus),
 button:hover,
 button:focus {
-
+  background-color: $gold-tint;
 }
 
 input[type=text],

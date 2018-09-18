@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
 
 const propTypes = {
-  isOpen: PropTypes.boolean
+  isOpen: PropTypes.bool
 }
 
 const defaultProps = {

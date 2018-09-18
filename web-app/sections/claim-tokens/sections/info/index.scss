@@ -35,34 +35,48 @@
   font-size: 4vw;
 }
 
-.row {
+.signup-form {
   font-size: $h6-mobile;
+  margin-top: 1em;
 }
 
-.form input[type=text],
-.form input[type=email] {
+.signup-form input[type=text],
+.signup-form input[type=email] {
   width: 100%;
   color: $silver-shade;
   border-bottom-color: $silver-shade;
 }
 
-.form input[type=text]::placeholder,
-.form input[type=email]::placeholder {
+.signup-form input[type=text]::placeholder,
+.signup-form input[type=email]::placeholder {
   color: $silver;
 }
 
-.form input,
-.form .row {
-  margin-top: .4em;
+.signup-form input {
+  margin-top: .2em;
+  width: 100%;
 }
 
-.form input:first-child,
-.form .row:first-child {
+.redeem,
+.purchase {
+  width: 100%;
+  margin-top: .8em;
+}
+
+
+.signup-form input:first-child,
+.signup-form .signup-form-row:first-child {
   margin-top: 0px;
 }
 
-.form .row input {
+.signup-form .signup-form-row input {
   margin-top: 0px;
+}
+
+.redeem,
+.purchase {
+  width: 100%;
+  margin-top: .8em;
 }
 
 @media screen and
@@ -71,7 +85,7 @@
     font-size: 21px;
   }
 
-  .row {
+  .signup-form-row {
     font-size: $h6;
   }
 }
@@ -80,5 +94,29 @@
 (min-width: $bp-tablet) {
   .content {
     padding-bottom: 120px;
+  }
+}
+
+@media screen and
+(min-width: $bp-monitor-small) {
+  .signup-form {
+    margin-top: 32px;
+  }
+
+  .redeem {
+    width: auto;
+    margin-top: 1.2em;
+  }
+
+  .submit-container {
+    text-align: right;
+  }
+
+  .form-row {
+    display: flex;
+  }
+
+  .form-row > input + input {
+    margin-left: 16px;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactRouterPropTypes from 'react-router-prop-types'
+import { Link } from 'react-router-dom'
 import TokenGenerationSignup from 'components/token-generation-signup'
 import mountainGraphic from 'assets/graphics/token-generation-mountain.png'
 import s from './index.scss'
@@ -24,7 +25,9 @@ export default function TokenGenerationBanner({ history, ...rest }) {
                 C4Coin invites everyone to participate in our initial token
                 generation event!
                 <span className={s['mobile-bsp']}>&nbsp;</span>
-                <a className={s['mobile-read-more']}>Read More</a>
+                <Link to="/claim-co2kn" className={s['mobile-read-more']}>
+                  Read More
+                </Link>
               </p>
             </div>
             <div className={s['event-column']}>
@@ -38,7 +41,7 @@ export default function TokenGenerationBanner({ history, ...rest }) {
                 retirement recipts! If you’re new to the carbon market, you can
                 purchase carbon credits and automatically earn CO2KNs, through
                 our partnership with Carbon Credit Capital.&nbsp;
-                <a>Read More</a>
+                <Link to="/claim-co2kn">Read More</Link>
               </p>
               <TokenGenerationSignup history={history} styleSheet={s} />
             </div>

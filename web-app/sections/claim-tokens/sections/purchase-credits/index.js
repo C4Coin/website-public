@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactRouterPropTypes from 'react-router-prop-types'
-import queryString from 'query-string'
+import qs from 'qs'
 import MountainPage from '../../components/mountain-page'
 import Card from '../../components/card'
 import PurchaseForm from './components/purchase-form'
@@ -20,7 +20,7 @@ PurchaseCredits.propTypes = {
 function PurchaseCredits({ user, location, ...rest }) {
   const { search } = location
   // Parse the query string, set undefined values to ''
-  const { first = '', last = '', email = '' } = queryString.parse(search)
+  const { first = '', last = '', email = '' } = qs.parse(search)
   const fieldValues = {
     first,
     last,
@@ -58,13 +58,11 @@ function submitPurchase({ hasAgreed, ...fields }) {
         window.location.href = cccEndpoint(fields)
       })
       .catch(err => {
-        console.log('error')
-        console.log(err.stack)
-        console.log(err.message)
-        // this.setState({
-        //   status: STATUS.ERROR,
-        //   errorMessage: err.message
-        // })
+        if (env.inDevelopment()) {
+          console.log('error')
+          console.log(err.stack)
+          console.log(err.message)
+        }
       })
   }
 }

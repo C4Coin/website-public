@@ -67,21 +67,18 @@ function TokenGenerationSignup({ history, user, styleSheet: s }) {
   }
 
   // Forward to purchase page function
-  const forwardToPurchase = signupForwardTo.bind(
-    this,
-    history,
-    'purchase-new-credits'
-  )
+  // const forwardToPurchase = signupForwardTo.bind(
+  //   this,
+  //   history,
+  //   'purchase-new-credits'
+  // )
+
+  const forwardToRedeem = signupForwardTo.bind(this, history, 'redeem-receipts')
+
   return (
-    <FormManager fields={fields} submit={forwardToPurchase}>
+    <FormManager fields={fields} submit={forwardToRedeem}>
       {({ managedFields, managedSubmit }) => {
         // Forward to Redeem page, managed fields manually added
-        const forwardToRedeem = signupForwardTo.bind(
-          this,
-          history,
-          'redeem-receipts',
-          managedFields
-        )
 
         return (
           <form className={s['signup-form']} onSubmit={managedSubmit}>
@@ -105,13 +102,14 @@ function TokenGenerationSignup({ history, user, styleSheet: s }) {
               type="email"
               placeholder="Email"
             />
-
-            <button className={s['purchase']} type="submit">
+            <div className={s['submit-container']}>
+              {/* <button className={s['purchase']}>
               Purchase New Credits
-            </button>
-            <button className={s['redeem']} onClick={forwardToRedeem}>
-              Redeem Receipts
-            </button>
+              </button> */}
+              <button className={s['redeem']} type="submit">
+                Redeem Receipts
+              </button>
+            </div>
           </form>
         )
       }}

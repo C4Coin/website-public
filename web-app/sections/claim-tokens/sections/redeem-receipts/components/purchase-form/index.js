@@ -77,6 +77,11 @@ export default function PurchaseForm({ fieldValues, submit }) {
                   fields={managedFields}
                   placeholder="Company / Organization"
                 />
+                <CField
+                  fieldId="companyRole"
+                  fields={managedFields}
+                  placeholder="Role at Company"
+                />
               </Drawer>
             </div>
             <CField
@@ -118,16 +123,37 @@ export default function PurchaseForm({ fieldValues, submit }) {
                 placeholder="zip"
               />
             </div>
-            <CField
-              fieldId={'linkedin'}
-              fields={managedFields}
-              placeholder="Linkedin - optional"
-            />
-            <CField
-              fieldId={'github'}
-              fields={managedFields}
-              placeholder="Github - optional"
-            />
+            <div className={s['credit-info']}>
+              <p>
+                <strong>Carbon Credit Information:</strong>
+              </p>
+              <CField
+                fieldId={'retirementDate'}
+                fields={managedFields}
+                placeholder="Date of Retirement"
+              />
+              <CField
+                fieldId={'receiptCerial'}
+                fields={managedFields}
+                placeholder="Cerial Number of Receipt"
+              />
+            </div>
+            <div className={s['network-access']}>
+              <p>
+                <strong> Interested in early network access?</strong> Please
+                provide what you can below for higher priority.
+              </p>
+              <CField
+                fieldId={'linkedin'}
+                fields={managedFields}
+                placeholder="Linkedin - optional"
+              />
+              <CField
+                fieldId={'github'}
+                fields={managedFields}
+                placeholder="Github - optional"
+              />
+            </div>
             <div className={s['checkout-section']}>
               <label htmlFor="hasAgreed">
                 <FieldCheckbox
@@ -142,7 +168,7 @@ export default function PurchaseForm({ fieldValues, submit }) {
               </label>
               <div className={s['submit-display']}>
                 <button type="submit" style={submitStyle}>
-                  Checkout with CCC
+                  Redeem Receipts
                 </button>
               </div>
             </div>

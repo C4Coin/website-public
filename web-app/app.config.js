@@ -33,6 +33,25 @@ export default {
       zip: 'cm-f-jdtjuir',
       linkedin: 'cm-f-jdtjuiy',
       github: 'cm-f-jdtjuij'
+    },
+    redeemForm: {
+      id: process.env.CAMPAIGN_MONITOR_REDEEM_ID,
+      name: 'cm-name',
+      email: 'cm-wujjtl-wujjtl',
+      phone: 'cm-f-jdilxr',
+      address1: 'cm-f-jdilxy',
+      address2: 'cm-f-jdilxj',
+      country: 'cm-f-jdilxt',
+      state: 'cm-f-jdilxi',
+      city: 'cm-f-jdilxd',
+      zip: 'cm-f-jdilxh',
+      linkedin: 'cm-f-jdilxk',
+      github: 'cm-f-jdilxu',
+      userId: 'cm-f-jdilml',
+      companyRole: 'cm-f-jdilmr',
+      retirementDate: 'cm-f-jdilmy',
+      receiptCerial: 'cm-f-jdilmj',
+      company: 'cm-f-jdilmt'
     }
   },
   sanity: {

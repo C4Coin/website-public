@@ -2,8 +2,9 @@ import React from 'react'
 import s from './index.scss'
 import MountainPage from '../../components/mountain-page'
 import Card from '../../components/card'
+import TokenGenerationSignup from 'components/token-generation-signup'
 
-export default function Info() {
+export default function Info({ history, ...rest }) {
   return (
     <MountainPage>
       <Card>
@@ -56,23 +57,7 @@ export default function Info() {
             Recepits{'"'} form.
           </p>
         </div>
-        <form className={s['signup-form']}>
-          <div className={s['form-row']}>
-            <input
-              type="text"
-              className={s['first-name']}
-              placeholder="First Name"
-            />
-            <input
-              type="text"
-              className={s['last-name']}
-              placeholder="Last Name"
-            />
-          </div>
-          <input type="email" className={s['email']} placeholder="Email" />
-          <button className={s['purchase']}>Purchase New Credits</button>
-          <button className={s['redeem']}>Redeem Receipts</button>
-        </form>
+        <TokenGenerationSignup history={history} styleSheet={s} />
       </Card>
     </MountainPage>
   )
