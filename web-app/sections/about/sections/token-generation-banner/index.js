@@ -1,7 +1,12 @@
 import React from 'react'
+import ReactRouterPropTypes from 'react-router-prop-types'
 import TokenGenerationSignup from 'components/token-generation-signup'
 import mountainGraphic from 'assets/graphics/token-generation-mountain.png'
 import s from './index.scss'
+
+TokenGenerationBanner.propTypes = {
+  history: ReactRouterPropTypes.history.isRequired
+}
 
 export default function TokenGenerationBanner({ history, ...rest }) {
   return (

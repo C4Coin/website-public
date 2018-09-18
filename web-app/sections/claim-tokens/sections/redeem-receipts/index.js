@@ -13,7 +13,7 @@ export default function RedeemReceipts() {
       <Card>
         <div className={s['description']}>
           <p>
-            If you've retired carbon offsets in the past, you should have a
+            If you{"'"}ve retired carbon offsets in the past, you should have a
             receipt from Markit. Fill out the form below to claim your CO2KNs!
           </p>
         </div>

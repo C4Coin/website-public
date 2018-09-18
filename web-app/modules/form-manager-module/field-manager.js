@@ -1,15 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FormPropTypes from './form-prop-types'
+import FormManagerPropTypes from './prop-types'
 
 const propTypes = {
   children: PropTypes.func.isRequired,
   fields: PropTypes.objectOf(
     PropTypes.oneOfType([
-      FormPropTypes.fieldValue,
-      PropTypes.shape({
-        value: FormPropTypes.fieldValue.isRequired
-      })
+      FormManagerPropTypes.fieldValue,
+      FormManagerPropTypes.field
     ])
   )
 }
@@ -31,8 +29,6 @@ function isBoolean(value) {
 class FieldManager extends React.Component {
   constructor(props) {
     super(props)
-
-    const { fields } = props
 
     this.state = {
       ...this.formatFields(props.fields)

@@ -1,5 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
+
+const propTypes = {
+  isOpen: PropTypes.boolean
+}
+
+const defaultProps = {
+  isOpen: false
+}
 
 class Drawer extends React.Component {
   constructor(props) {
@@ -31,7 +40,7 @@ class Drawer extends React.Component {
   render() {
     const { isOpen, ...rest } = this.props
     const { maxHeight } = this.state
-    //spring creates the motion
+    // spring creates the motion
     const openStyle = {
       open: spring(isOpen * 1, { stiffness: 210, damping: 22 })
     }
@@ -59,5 +68,8 @@ class Drawer extends React.Component {
     )
   }
 }
+
+Drawer.propTypes = propTypes
+Drawer.defaultProps = defaultProps
 
 export default Drawer

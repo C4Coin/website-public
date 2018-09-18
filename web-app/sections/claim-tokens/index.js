@@ -1,9 +1,14 @@
 import React from 'react'
+import ReactRouterPropTypes from 'react-router-prop-types'
 import { Route, Switch } from 'react-router-dom'
 
 import Info from './sections/info'
 import PurchaseCredits from './sections/purchase-credits'
 import RedeemReceipts from './sections/redeem-receipts'
+
+ClaimTokens.propTypes = {
+  match: ReactRouterPropTypes.match.isRequired
+}
 
 export default function ClaimTokens({ match, ...rest }) {
   return (

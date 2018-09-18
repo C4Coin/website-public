@@ -1,14 +1,23 @@
 import React from 'react'
-import FormManager from 'modules/form-manager-module'
+import PropTypes from 'prop-types'
+import FormManagerPropTypes from '../prop-types'
 
 import s from './index.scss'
+
+FieldCheckbox.propTypes = {
+  fieldId: PropTypes.string.isRequired,
+  fields: PropTypes.objectOf(FormManagerPropTypes.field),
+  name: PropTypes.string,
+  id: PropTypes.string,
+  className: PropTypes.string
+}
 
 export default function FieldCheckbox({
   fieldId,
   fields,
   className = '',
-  name = null,
-  id = null,
+  name = fieldId,
+  id = fieldId,
   ...rest
 }) {
   const { value: isChecked, onChange } = fields[fieldId]
@@ -19,8 +28,8 @@ export default function FieldCheckbox({
     >
       <input
         className={s['input']}
-        id={id || fieldId}
-        name={name || fieldId}
+        id={id}
+        name={name}
         checked={isChecked}
         onChange={({ target }) => onChange(target.checked)}
         {...rest}

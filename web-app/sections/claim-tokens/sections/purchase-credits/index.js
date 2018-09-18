@@ -1,8 +1,8 @@
 import React from 'react'
+import ReactRouterPropTypes from 'react-router-prop-types'
 import queryString from 'query-string'
 import MountainPage from '../../components/mountain-page'
 import Card from '../../components/card'
-import FormManager from 'modules/form-manager-module'
 import PurchaseForm from './components/purchase-form'
 import User from 'modules/user'
 import appConfig from 'app.config.js'
@@ -12,6 +12,40 @@ import campaignMonitor from 'utils/campaign-monitor'
 import s from './index.scss'
 
 const { cccIntegrationForm: cmCcc } = appConfig.campaignMonitor
+
+PurchaseCredits.propTypes = {
+  user: User.PropTypes.user,
+  location: ReactRouterPropTypes.location.isRequired
+}
+function PurchaseCredits({ user, location, ...rest }) {
+  const { search } = location
+  // Parse the query string, set undefined values to ''
+  const { first = '', last = '', email = '' } = queryString.parse(search)
+  const fieldValues = {
+    first,
+    last,
+    email,
+    userId: user.id
+  }
+  return (
+    <MountainPage>
+      <h1 className={s['title']}>Purchase New Credits</h1>
+      <p className={`${s['subtitle']} h3`}>With Carbon Credit Capital</p>
+      <Card>
+        <div className={s['description']}>
+          <p>
+            Fill out this form so that we know how to send you instructions for
+            accessing your CO2KNs once the network has launched. Submitting this
+            form will take you to our partner, Carbon Credit Capital (CCC),
+            where you can finish the checkout process. Then, CCC will
+            automatically handle your CO2KN claim.
+          </p>
+        </div>
+        <PurchaseForm fieldValues={fieldValues} submit={submitPurchase} />
+      </Card>
+    </MountainPage>
+  )
+}
 
 function submitPurchase({ hasAgreed, ...fields }) {
   if (hasAgreed.value) {
@@ -46,7 +80,6 @@ function cccEndpoint({ isForCompany, ...fields }) {
   console.log('Formatted CCC Endpoint')
   console.log(formattedFields)
   const queryString = Format.queryString(formattedFields)
-  const cccWebsite = appConfig.ccc.url
   return `${appConfig.ccc.url}/checkout/?${queryString}`
 }
 
@@ -67,36 +100,6 @@ function cmFormat({ first, last, isForCompany, ...fields }) {
     ...cmFields,
     name
   }
-}
-
-function PurchaseCredits({ user, location, ...rest }) {
-  const { search } = location
-  // Parse the query string, set undefined values to ''
-  const { first = '', last = '', email = '' } = queryString.parse(search)
-  const fieldValues = {
-    first,
-    last,
-    email,
-    userId: user.id
-  }
-  return (
-    <MountainPage>
-      <h1 className={s['title']}>Purchase New Credits</h1>
-      <p className={`${s['subtitle']} h3`}>With Carbon Credit Capital</p>
-      <Card>
-        <div className={s['description']}>
-          <p>
-            Fill out this form so that we know how to send you instructions for
-            accessing your CO2KNs once the network has launched. Submitting this
-            form will take you to our partner, Carbon Credit Capital (CCC),
-            where you can finish the checkout process. Then, CCC will
-            automatically handle your CO2KN claim.
-          </p>
-        </div>
-        <PurchaseForm fieldValues={fieldValues} submit={submitPurchase} />
-      </Card>
-    </MountainPage>
-  )
 }
 
 export default User.withUser(PurchaseCredits)

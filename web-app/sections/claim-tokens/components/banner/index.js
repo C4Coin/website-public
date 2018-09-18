@@ -1,6 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import mountains from 'assets/graphics/token-generation-mountain.png'
 import s from './index.scss'
+
+Banner.propTypes = {
+  text: PropTypes.string,
+  className: PropTypes.string
+}
 
 export default function Banner({ text = 'CO2KN', className = '', ...rest }) {
   return (

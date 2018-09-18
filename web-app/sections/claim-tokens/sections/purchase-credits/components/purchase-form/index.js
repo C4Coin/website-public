@@ -1,22 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import FormManager from 'modules/form-manager-module'
 import s from './index.scss'
-import qs from 'qs'
-import ReactMotion from 'react-motion'
 import Drawer from 'components/drawer'
-import appConfig from 'app.config'
 import defaultFields from './default-fields'
 import { Link } from 'react-router-dom'
 import Format from 'utils/format'
 
 const FieldCheckbox = FormManager.FieldCheckbox
 const Field = FormManager.Field
-const { cccIntegrationForm: cmCcc } = appConfig.campaignMonitor
+
+PurchaseForm.propTypes = {
+  fieldValues: PropTypes.objectOf(PropTypes.string),
+  submit: PropTypes.func.isRequired
+}
 
 export default function PurchaseForm({ fieldValues, submit }) {
   const fullFields = Format.objectMap(defaultFields, (name, field) => {
     if (fieldValues[name]) {
-      console.log()
       return { [name]: { ...field, value: fieldValues[name] } }
     }
     return { [name]: field }
