@@ -1,0 +1,255 @@
+/**
+ *
+ * Token Generation Banner
+ *
+**/
+
+@import '~style/_variables.scss';
+
+$sky-blue: #94A6CC;
+$sunset-red: #CE9C8C;
+
+.container {
+  background-image: linear-gradient(0deg, $sunset-red 8%, $sky-blue);
+}
+
+.title {
+  font-size: $hs-mobile;
+  text-align: center;
+  color: $gold;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  padding-top: 52px;
+}
+
+.event-info-container {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: .6em;
+}
+
+.event-info-display {
+  position: relative;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  color: $white;
+}
+
+.divider {
+  display: none;
+}
+
+.event-title {
+  text-align: right;
+  color: $gold-tint;
+  line-height: 1em;
+  margin-bottom: .75em;
+  font-size: 8.9vw;
+  text-align: center;
+}
+
+.event-call-to-action {
+  font-family: $korolev;
+  font-weight: bold;
+}
+
+.mobile-read-more {
+  text-decoration: underline;
+}
+
+.event-details {
+  display: none;
+}
+
+.signup-form input {
+  margin-top: .2em;
+  width: 100%;
+}
+
+.redeem,
+.purchase {
+  width: 100%;
+  margin-top: .8em;
+}
+
+.timeline-container {
+  position: relative;
+  z-index: 2;
+  margin-top: -4em;
+  padding-top: 12em;
+  pointer-events: none;
+  padding-bottom: 4em;
+  overflow: hidden;
+}
+
+.mountains {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  display: block;
+  z-index: -1;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .event-title {
+    font-size: 38px;
+    width: auto;
+    margin-bottom: 0px;
+  }
+
+  .event-call-to-action {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+  }
+
+  .signup-form {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and
+(min-width: $bp-mobile-large) {
+
+  .event-call-to-action {
+    text-align: center;
+    width: 600px;
+  }
+
+}
+
+@media screen and
+(min-width: $bp-tablet-small) {
+  .title {
+    padding-top: 0px;
+    line-height: .71em;
+    font-size: $hs;
+  }
+
+  .event-info-container {
+    padding-top: 2.4em;
+  }
+
+  .timeline-container {
+    margin-top: -6.6em;
+    padding-top: 20em;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+
+  .event-info-container {
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 48px;
+  }
+
+  .event-info-display {
+    display: flex;
+    padding-bottom: 16em;
+  }
+
+  .event-column {
+    position: relative;
+    width: 50%;
+    padding-right: 2em;
+    z-index: 2;
+  }
+
+  .event-column + .event-column {
+    padding-left: 2em;
+    padding-right: 0em;
+  }
+
+  .event-title {
+    margin-bottom: .2em;
+    text-align: right;
+    margin-right: 0;
+    max-width: 12em;
+  }
+
+  .signup-form {
+    width: auto;
+  }
+
+  .purchase {
+    margin-top: 1.2em;
+  }
+
+  .event-call-to-action {
+    text-align: right;
+    width: auto;
+  }
+
+  .timeline-container {
+    margin-top: -20.6em;
+  }
+
+  .divider {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .line {
+    width: 4px;
+    background-color: rgba($white, .4);;
+    height: 100%;
+  }
+}
+
+@media screen and
+(min-width: $bp-monitor-small) {
+  .event-title {
+    font-size: 56px;
+  }
+
+  .event-details {
+    display: block;
+  }
+
+  .event-details:first-child {
+    padding-top: .8em;
+  }
+
+  .event-details a {
+    text-decoration: underline;
+  }
+
+  .mobile-read-more,
+  .mobile-bsp {
+    display: none;
+  }
+
+  .signup-form {
+    margin-top: 8px;
+  }
+
+  .form-row {
+    display: flex;
+  }
+
+  .form-row > input + input {
+    margin-left: 16px;
+  }
+
+  .timeline-container {
+    margin-top: -26em;
+  }
+}
+
+@media screen and
+(min-width: natural-bp($hs, $hs-max)) {
+  .title {
+    font-size: $hs-max;
+  }
+}

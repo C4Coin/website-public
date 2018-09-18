@@ -1,0 +1,174 @@
+/**
+ *
+ * Claim Tokens Info Style
+ *
+**/
+
+@import "~style/_variables.scss";
+@import "../../style/_variables.scss";
+
+.full {
+  min-height: 100vh;
+}
+
+.title {
+  margin-bottom: .4em;
+  text-align: center;
+}
+
+.featured.featured {
+  font-size: $h4-mobile;
+  font-weight: bold;
+  font-family: $korolev;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  padding-top: 20%;
+  padding-bottom: 12%;
+}
+
+.description {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+.description p {
+  font-size: 4vw;
+}
+
+.signup-form {
+  font-size: $h6-mobile;
+  margin-top: 1em;
+}
+
+.signup-form input[type=text],
+.signup-form input[type=email] {
+  width: 100%;
+  color: $silver-shade;
+  border-bottom-color: $silver-shade;
+}
+
+.signup-form input[type=text]::placeholder,
+.signup-form input[type=email]::placeholder {
+  color: $silver;
+}
+
+.signup-form input {
+  margin-top: .2em;
+  width: 100%;
+}
+
+.redeem,
+.purchase {
+  width: 100%;
+  margin-top: .8em;
+}
+
+
+.signup-form input:first-child,
+.signup-form .signup-form-row:first-child {
+  margin-top: 0px;
+}
+
+.signup-form .signup-form-row input {
+  margin-top: 0px;
+}
+
+.redeem,
+.purchase {
+  width: 100%;
+  margin-top: .8em;
+}
+
+
+.community-display {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.community-graphic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.title-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1em;
+  font-size: 16px;
+  color: $blue;
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  .description p {
+    font-size: 21px;
+  }
+
+  .signup-form-row {
+    font-size: $h6;
+  }
+
+  .featured.featured {
+    font-size: $h4;
+  }
+}
+
+@media screen and
+(min-width: $bp-tablet) {
+  .content {
+    padding-bottom: 120px;
+  }
+}
+
+@media screen and
+(min-width: $bp-monitor-small) {
+  .signup-form {
+    margin-top: 32px;
+  }
+
+  .redeem {
+    width: auto;
+    margin-top: 1.2em;
+  }
+
+  .submit-container {
+    text-align: right;
+  }
+
+  .form-row {
+    display: flex;
+  }
+
+  .form-row > input + input {
+    margin-left: 16px;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Discord from '../discord'
+import Discord from 'components/discord'
 import Facebook from 'assets/icons/facebook.svg'
 import Instagram from 'assets/icons/instagram.svg'
 import Reddit from 'assets/icons/reddit.svg'
