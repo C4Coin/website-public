@@ -1,0 +1,39 @@
+/**
+ *
+ * Form Manager Checkbox Field
+ *
+**/
+
+@import '~style/_variables.scss';
+@import '~sections/claim-tokens/style/_variables.scss';
+
+.box {
+  display: inline-block;
+  width: 1.3em;
+  height: 1.3em;
+  flex-shrink: 0;
+  border: 2px solid $silver-shade;
+  padding: .2em;
+  transition: border-color .3s;
+}
+
+.box.active {
+  border-color: $dusk-purple;
+}
+
+.box::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color .3s;
+}
+
+.box.active::after {
+  background-color: $dusk-purple;
+}
+
+.input {
+  display: none;
+}

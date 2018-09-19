@@ -2,13 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import campaignMonitorUtils from 'utils/campaign-monitor'
 import FormManagerModule from 'modules/form-manager-module'
+import WebsitePropTypes from 'utils/website-prop-types'
 import STATUS from './status'
 
 const { subscribe: campaignMonitorSubsribe } = campaignMonitorUtils
 
 const propTypes = {
   id: PropTypes.string.isRequired,
-  emailId: PropTypes.string.isRequired
+  fields: PropTypes.shape({
+    email: WebsitePropTypes.cmField.isRequired
+  })
 }
 
 class CampaignMonitorFormManager extends React.Component {
@@ -23,21 +26,12 @@ class CampaignMonitorFormManager extends React.Component {
     this.subscribe = this.subscribe.bind(this)
   }
 
-  localizeMessage(message) {
-    return "This message is a default because I don't know yet how the server will respond"
-  }
-
   subscribe(fields, event) {
-    const { id, emailId } = this.props
-    if (!fields[emailId]) {
-      throw new Error(
-        `Campaign Monitor Managed forms require an email field with the ID you've set:${emailId}`
-      )
-    }
+    const { id } = this.props
     this.setState({
       status: STATUS.SENDING
     })
-    campaignMonitorSubsribe(id, emailId, fields)
+    campaignMonitorSubsribe(id, fields)
       .then(response => {
         this.setState({
           status: STATUS.SUCCESS

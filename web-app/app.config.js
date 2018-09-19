@@ -11,10 +11,47 @@ export default {
     discord: 'https://discord.gg/RnXEtBG'
   },
   campaignMonitor: {
-    id: process.env.CAMPAIGN_MONITOR_ID,
     communityForm: {
+      id: process.env.CAMPAIGN_MONITOR_COMMUNITY_ID,
+      name: 'cm-name',
       email: 'cm-skjjhl-skjjhl',
       userId: 'cm-f-jtnlyy'
+    },
+    // Only used for Carbon Credit Capital integration
+    cccIntegrationForm: {
+      id: process.env.CAMPAIGN_MONITOR_CCC_ID,
+      name: 'cm-name',
+      email: 'cm-wkkkhd-wkkkhd',
+      userId: 'cm-f-jdtyttt',
+      company: 'cm-f-jdtytti',
+      phone: 'cm-f-jdtjuth',
+      address1: 'cm-f-jdttuki',
+      address2: 'cm-f-jdttukd',
+      country: 'cm-f-jdtjutk',
+      state: 'cm-f-jdtjutu',
+      city: 'cm-f-jdtjuil',
+      zip: 'cm-f-jdtjuir',
+      linkedin: 'cm-f-jdtjuiy',
+      github: 'cm-f-jdtjuij'
+    },
+    redeemForm: {
+      id: process.env.CAMPAIGN_MONITOR_REDEEM_ID,
+      name: 'cm-name',
+      email: 'cm-wujjtl-wujjtl',
+      phone: 'cm-f-jdilxr',
+      address1: 'cm-f-jdilxy',
+      address2: 'cm-f-jdilxj',
+      country: 'cm-f-jdilxt',
+      state: 'cm-f-jdilxi',
+      city: 'cm-f-jdilxd',
+      zip: 'cm-f-jdilxh',
+      linkedin: 'cm-f-jdilxk',
+      github: 'cm-f-jdilxu',
+      userId: 'cm-f-jdilml',
+      companyRole: 'cm-f-jdilmr',
+      retirementDate: 'cm-f-jdilmy',
+      receiptCerial: 'cm-f-jdilmj',
+      company: 'cm-f-jdilmt'
     }
   },
   sanity: {
@@ -24,5 +61,9 @@ export default {
   email: {
     address: 'info@c4coin.org',
     subject: `C4Coin + Me`
+  },
+  ccc: {
+    url: 'https://dev.carboncreditcapital.com',
+    productId: '5307'
   }
 }

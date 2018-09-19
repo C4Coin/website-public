@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import s from 'style/index.scss'
 
@@ -15,8 +15,9 @@ import Articles from 'sections/articles'
 import Team from 'sections/team'
 import Technology from 'sections/technology'
 import PressPackage from 'sections/press-package'
-import TermsOfServervice from 'sections/terms-of-service'
+import TermsOfService from 'sections/terms-of-service'
 import SubscribePage from 'sections/subscribe-page'
+import ClaimTokens from 'sections/claim-tokens'
 
 import appConfig from './app.config'
 const { email, pressKit } = appConfig
@@ -54,8 +55,22 @@ const App = () => (
                 <Route path="/technology" component={Technology} />
                 <Route path="/team" component={Team} />
                 <Route path="/press-package" component={PressPackage} />
-                <Route path="/terms-of-service" component={TermsOfServervice} />
+                {/* Redirect base tos to terms-of-serive  */}
+                <Route path="/tos" exact>
+                  <Redirect to="/terms-of-service" />
+                </Route>
+                <Route path="/tos/:name" component={TermsOfService} />
+                <Route
+                  path="/terms-of-service"
+                  exact
+                  component={TermsOfService}
+                />
+                {/* Redirect terms-of-serive/{name} to tos/{name}  */}
+                <Route path="/terms-of-service/:name">
+                  {({ match }) => <Redirect to={`/tos/${match.params.name}`} />}
+                </Route>
                 <Route path="/subscribe" component={SubscribePage} />
+                <Route path="/claim-co2kn" component={ClaimTokens} />
                 <Route render={About} />
               </Switch>
             </div>
