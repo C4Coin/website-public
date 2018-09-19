@@ -3,7 +3,7 @@ import ReactRouterPropTypes from 'react-router-prop-types'
 import { Link } from 'react-router-dom'
 import PorogressBar from 'components/progress-bar'
 import TokenGenerationSignup from 'components/token-generation-signup'
-import mountainGraphic from 'assets/graphics/token-generation-mountain.png'
+import mountainGraphic from 'assets/graphics/token-genesis-mountain.png'
 import s from './index.scss'
 
 TokenGenerationBanner.propTypes = {
