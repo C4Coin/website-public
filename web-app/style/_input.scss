@@ -10,20 +10,65 @@ form {
 button {
   outline: none;
   border: 0px solid transparent;
+  padding: .8em 1.6em;
+  text-align: center;
+  background-color: transparent;
+  font-family: $korolev;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: $white-shade;
+  font-size: $h6-mobile;
+  background-color: $gold;
+  transition: background-color .3s;
 }
 
 :global(.button:hover),
 :global(.button:focus),
 button:hover,
 button:focus {
-
+  background-color: $gold-tint;
 }
 
-input[type=text] {
+input[type=text],
+input[type=email] {
   outline: none;
-  padding: .8em 1em;
   line-height: 1em;
   border-style: solid;
   border-width: 0px;
-  color: $black-tint;
+  border-bottom: 2px solid $white-shade;
+  background-color: transparent;
+  font-family: $korolev;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: $white-shade;
+  padding: .6em 2px .4em;
+  font-size: $h6-mobile;
+  transition: border-color .4s,
+              color        .4s;
+}
+
+input[type=text]:focus,
+input[type=email]:focus {
+  border-color: $white;
+  color: $white;
+}
+
+input[type=text]::placeholder,
+input[type=email]::placeholder {
+  color: rgba($white, .4);
+}
+
+@media screen and
+(min-width: $bp-mobile) {
+  input[type=text],
+  input[type=email] {
+    font-size: $h6;
+  }
+
+  :global(.button),
+  button {
+    font-size: $h6;
+  }
 }

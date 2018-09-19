@@ -1,0 +1,23 @@
+/**
+ *
+ * Progress Bar Style
+ *
+**/
+
+@import "~style/_variables.scss";
+
+.container {
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.display {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image {
+  width: 100%;
+
+}
