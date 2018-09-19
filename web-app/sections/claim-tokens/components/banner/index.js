@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import mountains from 'assets/graphics/token-generation-mountain.png'
+import mountains from 'assets/graphics/token-genesis-mountain.png'
 import s from './index.scss'
 
 Banner.propTypes = {
