@@ -39,9 +39,10 @@ export default function TokenGenerationBanner({ history, ...rest }) {
               </p>
               <p className={s['event-details']}>
                 If you own or have retired carbon credits, redeem your
-                retirement recipts! If you’re new to the carbon market, you can
-                purchase carbon credits and automatically earn CO2KNs, through
-                our partnership with Carbon Credit Capital.&nbsp;
+                retirement recipts! If you’re new to the carbon market, you will
+                soon be able to purchase carbon credits and automatically earn
+                CO2KNs, through our partnership with Carbon Credit
+                Capital.&nbsp;
                 <Link to="/claim-co2kn">Read More</Link>
               </p>
               <TokenGenerationSignup history={history} styleSheet={s} />
