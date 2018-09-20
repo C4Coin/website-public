@@ -63,7 +63,7 @@ export default {
     subject: `C4Coin + Me`
   },
   ccc: {
-    url: 'https://dev.carboncreditcapital.com',
+    url: 'https://www.carboncreditcapital.com',
     productId: '5307'
   }
 }

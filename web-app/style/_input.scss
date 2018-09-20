@@ -31,7 +31,8 @@ button:focus {
 }
 
 input[type=text],
-input[type=email] {
+input[type=email],
+input[type=number] {
   outline: none;
   line-height: 1em;
   border-style: solid;
