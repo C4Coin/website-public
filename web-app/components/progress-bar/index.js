@@ -19,9 +19,6 @@ export default function ProgressBar({
   const endDate = Date.parse(endsOn)
   const today = Date.now()
 
-  const timeTotal = endDate - startDate
-  const timeRemaining = endDate - today
-
   const duration = differenceInCalendarDays(endDate, startDate)
   const passed = duration - differenceInCalendarDays(endDate, today)
 
