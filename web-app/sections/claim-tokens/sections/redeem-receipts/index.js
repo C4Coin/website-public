@@ -52,11 +52,14 @@ function RedeemReceipts({ user, history, location, ...rest }) {
 }
 
 function submitPurchase(history, { hasAgreed, ...fields }) {
+  console.log('FIELDS')
+  console.log(cmFormat(fields))
   if (hasAgreed.value) {
     campaignMonitor
       .subscribe(cmR.id, cmFormat(fields))
       .then(response => {
-        history.push('/claim-co2kn/thanks')
+        console.log(response)
+        // history.push('/claim-co2kn/thanks')
       })
       .catch(err => {
         if (env.inDevelopment()) {

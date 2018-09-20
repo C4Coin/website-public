@@ -13,12 +13,16 @@ Info.propTypes = {
 export default function Info({ history, ...rest }) {
   return (
     <MountainPage>
-      <ProgressBar />
+      <ProgressBar
+        startsOn="September 18, 2018"
+        endsOn="October 2, 2018"
+        className={s['progress-bar']}
+      />
       <Card>
         <div className={s['description']}>
           <p className={s['featured']}>
-            C4Coin invites everyone to participate in our initial token
-            generation event!
+            C4Coin invites everyone to participate in our initial token genesis
+            event!
           </p>
           <p>
             CO2KNs are equivalent to one carbon credit. Unlike traditional
@@ -27,9 +31,9 @@ export default function Info({ history, ...rest }) {
           </p>
           <p>
             If you own or have retired carbon credits, redeem your retirement
-            recipts! If you’re new to the carbon market, you will soon be able
-            to purchase carbon credits and automatically earn CO2KNs, through
-            our partnership with Carbon Credit Capital (CCC)
+            recipts! If you’re new to the carbon market, you can purchase carbon
+            credits and automatically earn CO2KNs, through our partnership with
+            Carbon Credit Capital (CCC)
           </p>
           <p>
             The traditional Initial Coin Offering (ICO) process is not a viable
@@ -46,6 +50,22 @@ export default function Info({ history, ...rest }) {
             work. Existing receipts documented in Markit can be redeemed for
             CO2KNs. Click
             {'"'}Redeem Receipts{'"'} below to get started.
+          </p>
+          <p>
+            <strong>If you{"'"}re unfamiliar with carbon markets</strong>, we{
+              "'"
+            }re making it easy to get involved. Our partner, Carbon Credit
+            Capital, is a company with over 10 years of experience helping
+            clients conduct retirement transactions. CCC is leveraging their
+            knowledge to allow you to seamlessly purchase existing carbon
+            credits and automatically claim them as CO2KNs. Click {'“'}purchase
+            new credits{'"'} below to get started.
+          </p>
+          <p>
+            While CCC is making its retirement transaction services available
+            through this partnership, Markit receipts from any carbon brokerage
+            will be accepted. For Non-CCC credits, fill out the {'"'}Redeem
+            Recepits{'"'} form.
           </p>
         </div>
         <TokenGenerationSignup history={history} styleSheet={s} />

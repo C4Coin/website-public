@@ -21,10 +21,10 @@ export default function TokenGenerationBanner({ history, ...rest }) {
               <div className={s['line']} />
             </div>
             <div className={s['event-column']}>
-              <h3 className={s['event-title']}>CO2KN Generation Event</h3>
+              <h3 className={s['event-title']}>CO2KN Genesis Event</h3>
               <p className={`${s['event-call-to-action']} h4`}>
-                C4Coin invites everyone to participate in our initial token
-                generation event!
+                C4Coin invites everyone to participate in our token genesis
+                event!
                 <span className={s['mobile-bsp']}>&nbsp;</span>
                 <Link to="/claim-co2kn" className={s['mobile-read-more']}>
                   Read More
@@ -39,10 +39,9 @@ export default function TokenGenerationBanner({ history, ...rest }) {
               </p>
               <p className={s['event-details']}>
                 If you own or have retired carbon credits, redeem your
-                retirement recipts! If you’re new to the carbon market, you will
-                soon be able to purchase carbon credits and automatically earn
-                CO2KNs, through our partnership with Carbon Credit
-                Capital.&nbsp;
+                retirement recipts! If you’re new to the carbon market, you can
+                purchase carbon credits and automatically earn CO2KNs, through
+                our partnership with Carbon Credit Capital.&nbsp;
                 <Link to="/claim-co2kn">Read More</Link>
               </p>
               <TokenGenerationSignup history={history} styleSheet={s} />
@@ -50,7 +49,10 @@ export default function TokenGenerationBanner({ history, ...rest }) {
           </div>
         </div>
         <div className={s['timeline-container']}>
-          <PorogressBar />
+          <PorogressBar
+            startsOn="September 18, 2018"
+            endsOn="October 2, 2018"
+          />
           <img src={mountainGraphic} className={s['mountains']} />
         </div>
       </div>
