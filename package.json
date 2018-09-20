@@ -144,6 +144,7 @@
     "axios": "^0.18.0",
     "camelcase-keys": "^4.2.0",
     "caniuse-lite": "^1.0.30000865",
+    "date-fns": "^1.29.0",
     "postcss-js": "^2.0.0",
     "prop-types": "^15.6.1",
     "qs": "^6.5.1",

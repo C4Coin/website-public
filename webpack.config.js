@@ -115,8 +115,7 @@ module.exports = (env, argv = { mode: 'development' }) => {
               options: {
                 importLoaders: 2,
                 modules: true,
-                localIdentName:
-                  mode === 'production' ? '[hash:base64:5]' : '[path][local]'
+                localIdentName: '[path][local]'
               }
             },
             {
