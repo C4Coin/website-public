@@ -168,6 +168,7 @@ export default function PurchaseForm({ fieldValues, submit }) {
                   fieldId="hasAgreed"
                   fields={managedFields}
                   className={s['checkbox']}
+                  required
                 />
                 <span>
                   I have read and agree to the terms of service&nbsp;
