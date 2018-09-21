@@ -67,7 +67,7 @@ export default function PurchaseForm({ fieldValues, submit }) {
             />
             <div className={s['purchases']}>
               <p>
-                <strong>Carbon Credits cost $4.00 each.</strong> How many would
+                <strong>Carbon Credits cost $5.00 each.</strong> How many would
                 you like to purchase?
               </p>
               <div className={s['purchase-display']}>
