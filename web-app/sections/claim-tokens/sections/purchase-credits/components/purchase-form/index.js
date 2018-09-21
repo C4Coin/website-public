@@ -83,6 +83,7 @@ export default function PurchaseForm({ fieldValues, submit }) {
                     fields={managedFields}
                     className={s['quantity']}
                     required
+                    min="1"
                   />
                   <div className={s['price']}>$5.00</div>
                   <div className={s['total']}>
@@ -177,6 +178,7 @@ export default function PurchaseForm({ fieldValues, submit }) {
                   fieldId="hasAgreed"
                   fields={managedFields}
                   className={s['checkbox']}
+                  required
                 />
                 <span>
                   I have read and agree to the terms of service&nbsp;
