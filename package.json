@@ -1,6 +1,6 @@
 {
   "name": "@c4coin/website-public",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "The forward-facing website for the C4COIN Blockchain and CO2KNs",
   "main": "index.js",
   "scripts": {
@@ -93,7 +93,6 @@
     "chai-as-promised": "^7.1.1",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
-    "cssnano": "^3.10.0",
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
     "ejs-loader": "^0.3.1",
