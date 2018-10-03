@@ -51,7 +51,7 @@ export default function TokenGenerationBanner({ history, ...rest }) {
         <div className={s['timeline-container']}>
           <PorogressBar
             startsOn="September 18, 2018"
-            endsOn="October 2, 2018"
+            endsOn="November 6, 2018"
           />
           <img src={mountainGraphic} className={s['mountains']} />
         </div>
