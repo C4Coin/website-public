@@ -2,6 +2,7 @@ export default {
   pressKit:
     'https://drive.google.com/drive/folders/1S30kbNoFy6CJV-647Q3iR4R_DHrsddv8?usp=sharing',
   trackingId: process.env.GA_TRACKING_ID,
+  facebookPixel: process.env.FACEBOOK_PIXEL,
   social: {
     reddit: 'https://www.reddit.com/user/C4Coin/submitted/',
     facebook: 'https://www.facebook.com/c4coinofficial/',
