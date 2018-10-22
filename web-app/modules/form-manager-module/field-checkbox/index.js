@@ -7,6 +7,7 @@ import s from './index.scss'
 FieldCheckbox.propTypes = {
   fieldId: PropTypes.string.isRequired,
   fields: PropTypes.objectOf(FormManagerPropTypes.field),
+  onChange: PropTypes.func,
   name: PropTypes.string,
   id: PropTypes.string,
   className: PropTypes.string
@@ -15,12 +16,18 @@ FieldCheckbox.propTypes = {
 export default function FieldCheckbox({
   fieldId,
   fields,
+  onChange = () => {},
   className = '',
   name = fieldId,
   id = fieldId,
   ...rest
 }) {
-  const { value: isChecked, onChange } = fields[fieldId]
+  const { value: isChecked, onChange: managedOnChange } = fields[fieldId]
+
+  const composedOnChange = ({ target }) => {
+    onChange(target.checked)
+    managedOnChange(target.checked)
+  }
 
   return (
     <span
@@ -31,7 +38,7 @@ export default function FieldCheckbox({
         id={id}
         name={name}
         checked={isChecked}
-        onChange={({ target }) => onChange(target.checked)}
+        onChange={composedOnChange}
         {...rest}
         type="checkbox"
       />
