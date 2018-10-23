@@ -13,12 +13,16 @@ Info.propTypes = {
 export default function Info({ history, ...rest }) {
   return (
     <MountainPage>
-      <ProgressBar />
+      <ProgressBar
+        startsOn="September 18, 2018"
+        endsOn="October 2, 2018"
+        className={s['progress-bar']}
+      />
       <Card>
         <div className={s['description']}>
           <p className={s['featured']}>
-            C4Coin invites everyone to participate in our initial token
-            generation event!
+            C4Coin invites everyone to participate in our initial token genesis
+            event!
           </p>
           <p>
             CO2KNs are equivalent to one carbon credit. Unlike traditional
@@ -69,3 +73,22 @@ export default function Info({ history, ...rest }) {
     </MountainPage>
   )
 }
+
+/*
+<p>
+  <strong>If you{"'"}re unfamiliar with carbon markets</strong>, we{
+    "'"
+  }re making it easy to get involved. Our partner, Carbon Credit
+  Capital, is a company with over 10 years of experience helping
+  clients conduct retirement transactions. CCC is leveraging their
+  knowledge to allow you to seamlessly purchase existing carbon
+  credits and automatically claim them as CO2KNs. Click {'“'}purchase
+  new credits{'"'} below to get started.
+</p>
+<p>
+  While CCC is making its retirement transaction services available
+  through this partnership, Markit receipts from any carbon brokerage
+  will be accepted. For Non-CCC credits, fill out the {'"'}Redeem
+  Recepits{'"'} form.
+</p>
+ */

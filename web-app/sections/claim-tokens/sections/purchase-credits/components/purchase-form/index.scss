@@ -78,6 +78,58 @@ label {
   margin-top: 1.4em;
 }
 
+.network-access,
+.purchases {
+  margin-top: 2em;
+}
+
+.purchase-display {
+  font-family: $korolev;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: $silver-shade;
+  padding: .6em 2px .4em;
+  font-size: $h6-mobile;
+}
+
+.purchase-row {
+  display: flex;
+
+  padding-top: .2em;
+  padding-bottom: .2em;
+}
+
+.quantity-header,
+input.quantity {
+  flex-basis: 25%;
+  border-bottom: 0px;
+  display: block;
+  width: 10px;
+  margin-right: 1em;
+  padding: 0px;
+  color: $silver-shade;
+  font-size: inherit;
+  border-bottom: 2px solid $silver-shade;
+  padding-bottom: .2em;
+}
+
+.price-header,
+.price {
+  flex-basis: 25%;
+  flex-shrink: 1;
+  border-bottom: 2px solid $silver-shade;
+  padding-bottom: .2em;
+}
+
+.total-header,
+.total {
+  flex-grow: 1;
+  text-align: right;
+  border-bottom: 2px solid $silver-shade;
+  padding-bottom: .2em;
+}
+
 @media screen and
 (min-width: $bp-mobile) {
   .row {
@@ -88,8 +140,8 @@ label {
     font-size: 21px;
   }
 
-  .submit-display {
-
+  .purchase-display {
+    font-size: $h6;
   }
 }
 

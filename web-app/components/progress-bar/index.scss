@@ -6,6 +6,16 @@
 
 @import "~style/_variables.scss";
 
+/*
+ * SVG Styling
+ */
+
+ .cls-1{fill:none;}
+ .cls-2{fill:#f9f9f3;}
+ .cls-3{fill:#fff;}
+ .cls-4{clip-path:url(#clip-path);}
+ .cls-5{fill:#f4cb47;}
+
 .container {
   padding-left: 4vw;
   padding-right: 4vw;
@@ -19,5 +29,17 @@
 
 .image {
   width: 100%;
+  height: auto;
+}
 
+.tite-container {
+  position: relative;
+}
+
+@media screen and
+(min-width: $bp-mobile-large) {
+  .container {
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
 }

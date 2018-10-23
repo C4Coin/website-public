@@ -3,7 +3,7 @@ import ReactRouterPropTypes from 'react-router-prop-types'
 import { Link } from 'react-router-dom'
 import PorogressBar from 'components/progress-bar'
 import TokenGenerationSignup from 'components/token-generation-signup'
-import mountainGraphic from 'assets/graphics/token-generation-mountain.png'
+import mountainGraphic from 'assets/graphics/token-genesis-mountain.png'
 import s from './index.scss'
 
 TokenGenerationBanner.propTypes = {
@@ -21,10 +21,10 @@ export default function TokenGenerationBanner({ history, ...rest }) {
               <div className={s['line']} />
             </div>
             <div className={s['event-column']}>
-              <h3 className={s['event-title']}>CO2KN Generation Event</h3>
+              <h3 className={s['event-title']}>CO2KN Genesis Event</h3>
               <p className={`${s['event-call-to-action']} h4`}>
-                C4Coin invites everyone to participate in our initial token
-                generation event!
+                C4Coin invites everyone to participate in our token genesis
+                event!
                 <span className={s['mobile-bsp']}>&nbsp;</span>
                 <Link to="/claim-co2kn" className={s['mobile-read-more']}>
                   Read More
@@ -49,7 +49,10 @@ export default function TokenGenerationBanner({ history, ...rest }) {
           </div>
         </div>
         <div className={s['timeline-container']}>
-          <PorogressBar />
+          <PorogressBar
+            startsOn="September 18, 2018"
+            endsOn="November 6, 2018"
+          />
           <img src={mountainGraphic} className={s['mountains']} />
         </div>
       </div>

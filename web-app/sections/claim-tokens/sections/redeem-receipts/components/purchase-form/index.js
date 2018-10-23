@@ -8,11 +8,15 @@ import defaultFields from './default-fields'
 import { Link } from 'react-router-dom'
 import Format from 'utils/format'
 import StyleVariables from 'style/style.variables.scss'
+import ReactGA from 'react-ga'
+import Analytics from 'modules/analytics'
 
 const FieldCheckbox = FormManager.FieldCheckbox
 const Field = FormManager.Field
 
 const { $lightGray } = camelcase(StyleVariables.global)
+
+window.reactGa = ReactGA
 
 PurchaseForm.propTypes = {
   fieldValues: PropTypes.objectOf(PropTypes.string),
@@ -168,6 +172,10 @@ export default function PurchaseForm({ fieldValues, submit }) {
                   fieldId="hasAgreed"
                   fields={managedFields}
                   className={s['checkbox']}
+                  onChange={() => {
+                    ReactGA.event(Analytics.EVENTS.ACCEPT_REDEEM_TOS)
+                  }}
+                  required
                 />
                 <span>
                   I have read and agree to the terms of service&nbsp;

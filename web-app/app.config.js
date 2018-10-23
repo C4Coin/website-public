@@ -2,6 +2,7 @@ export default {
   pressKit:
     'https://drive.google.com/drive/folders/1S30kbNoFy6CJV-647Q3iR4R_DHrsddv8?usp=sharing',
   trackingId: process.env.GA_TRACKING_ID,
+  facebookPixel: process.env.FACEBOOK_PIXEL,
   social: {
     reddit: 'https://www.reddit.com/user/C4Coin/submitted/',
     facebook: 'https://www.facebook.com/c4coinofficial/',
@@ -63,7 +64,7 @@ export default {
     subject: `C4Coin + Me`
   },
   ccc: {
-    url: 'https://dev.carboncreditcapital.com',
+    url: 'https://www.carboncreditcapital.com',
     productId: '5307'
   }
 }
