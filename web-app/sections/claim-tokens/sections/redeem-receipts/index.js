@@ -10,6 +10,9 @@ import campaignMonitor from 'utils/campaign-monitor'
 import appConfig from 'app.config.js'
 import Format from 'utils/format'
 import qs from 'qs'
+import ReactGA from 'react-ga'
+
+import Analytics from 'modules/analytics'
 
 import s from './index.scss'
 
@@ -52,12 +55,12 @@ function RedeemReceipts({ user, history, location, ...rest }) {
 }
 
 function submitPurchase(history, { hasAgreed, ...fields }) {
-  console.log('FIELDS')
-  console.log(cmFormat(fields))
   if (hasAgreed.value) {
+    ReactGA.event(Analytics.EVENTS.REDEEM_RECEIPTS)
     campaignMonitor
       .subscribe(cmR.id, cmFormat(fields))
       .then(response => {
+        ReactGA.event(Analytics.EVENTS.EMAIL_SIGNUP)
         console.log(response)
         // history.push('/claim-co2kn/thanks')
       })

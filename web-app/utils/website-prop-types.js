@@ -15,6 +15,12 @@ const user = PropTypes.shape({
   id: PropTypes.string
 })
 
+const event = PropTypes.shape({
+  category: PropTypes.string,
+  action: PropTypes.string,
+  label: PropTypes.string
+})
+
 // Campaign Monitor Fields
 const cmField = PropTypes.shape({
   cmId: PropTypes.string,
@@ -25,5 +31,6 @@ export default {
   link,
   member,
   user,
-  cmField
+  cmField,
+  event
 }
