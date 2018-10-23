@@ -9,6 +9,8 @@ import appConfig from 'app.config.js'
 import Format from 'utils/format'
 import campaignMonitor from 'utils/campaign-monitor'
 import env from 'utils/env-utils'
+import ReactGA from 'react-ga'
+import Analytics from 'modules/analytics'
 
 import s from './index.scss'
 
@@ -50,12 +52,11 @@ function PurchaseCredits({ user, location, ...rest }) {
 
 function submitPurchase({ hasAgreed, ...fields }) {
   if (hasAgreed.value) {
-    console.log('CM Formatted Fields')
-    console.log(cmFormat(fields))
+    ReactGA.event(Analytics.EVENTS.CHECKOUT_WITH_CCC)
     campaignMonitor
       .subscribe(cmCcc.id, cmFormat(fields))
       .then(response => {
-        console.log(cccEndpoint(fields))
+        ReactGA.event(Analytics.EVENTS.EMAIL_SIGNUP)
         window.location.href = cccEndpoint(fields)
       })
       .catch(err => {
@@ -76,8 +77,6 @@ function cccEndpoint({ isForCompany, ...fields }) {
     else if (!field.cccId) return {}
     return { [field.cccId]: field.value }
   })
-  console.log('Formatted CCC Endpoint')
-  console.log(formattedFields)
   const queryString = Format.queryString(formattedFields)
   return `${appConfig.ccc.url}/checkout/?${queryString}`
 }

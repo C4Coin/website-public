@@ -8,6 +8,9 @@ import defaultFields from './default-fields'
 import { Link } from 'react-router-dom'
 import Format from 'utils/format'
 import StyleVariables from 'style/style.variables.scss'
+import ReactGA from 'react-ga'
+
+import Analytics from 'modules/analytics'
 
 const FieldCheckbox = FormManager.FieldCheckbox
 const Field = FormManager.Field
@@ -178,6 +181,9 @@ export default function PurchaseForm({ fieldValues, submit }) {
                   fieldId="hasAgreed"
                   fields={managedFields}
                   className={s['checkbox']}
+                  onChange={() => {
+                    ReactGA.event(Analytics.EVENTS.ACCEPT_PURCHASE_TOS)
+                  }}
                   required
                 />
                 <span>
