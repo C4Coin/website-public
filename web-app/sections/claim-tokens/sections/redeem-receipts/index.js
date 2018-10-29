@@ -62,7 +62,7 @@ function submitPurchase(history, { hasAgreed, ...fields }) {
       .then(response => {
         ReactGA.event(Analytics.EVENTS.EMAIL_SIGNUP)
         console.log(response)
-        // history.push('/claim-co2kn/thanks')
+        history.push('/claim-co2kn/thanks')
       })
       .catch(err => {
         if (env.inDevelopment()) {
