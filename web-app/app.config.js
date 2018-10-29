@@ -51,7 +51,7 @@ export default {
       userId: 'cm-f-jdilml',
       companyRole: 'cm-f-jdilmr',
       retirementDate: 'cm-f-jdilmy',
-      receiptCerial: 'cm-f-jdilmj',
+      receiptSerial: 'cm-f-jdilmj',
       company: 'cm-f-jdilmt'
     }
   },
