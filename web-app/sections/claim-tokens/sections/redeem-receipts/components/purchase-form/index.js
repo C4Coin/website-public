@@ -144,9 +144,9 @@ export default function PurchaseForm({ fieldValues, submit }) {
                 required
               />
               <CField
-                fieldId={'receiptCerial'}
+                fieldId={'receiptSerial'}
                 fields={managedFields}
-                placeholder="Cerial Number of Receipt"
+                placeholder="Serial Number of Receipt"
                 required
               />
             </div>
@@ -178,7 +178,7 @@ export default function PurchaseForm({ fieldValues, submit }) {
                   required
                 />
                 <span>
-                  I have read and agree to the terms of service&nbsp;
+                  I have read and agree to the&nbsp;
                   <Link to="/tos/co2kn-terms-and-conditions" target="_blank">
                     terms of service
                   </Link>

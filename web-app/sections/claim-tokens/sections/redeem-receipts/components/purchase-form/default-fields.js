@@ -62,9 +62,9 @@ export default {
     value: '',
     cmId: cmR.retirementDate
   },
-  receiptCerial: {
+  receiptSerial: {
     value: '',
-    cmId: cmR.receiptCerial
+    cmId: cmR.receiptSerial
   },
   companyRole: {
     value: '',
