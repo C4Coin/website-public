@@ -129,7 +129,6 @@ export default function PurchaseForm({ fieldValues, submit }) {
               fieldId={'addressLineTwo'}
               fields={managedFields}
               placeholder="Address Line 2"
-              required
             />
             <div className={s['row']}>
               <CField
