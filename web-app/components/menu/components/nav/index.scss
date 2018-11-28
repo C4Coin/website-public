@@ -41,6 +41,7 @@ $icon-width: 30px;
   display: inline-block;
   width: $icon-width;
   background-image: url('assets/textures/nav-texture-left.png');
+  background-color: $gold;
   line-height: 0px;
   opacity: 1;
   transition: .3s;
@@ -58,8 +59,10 @@ $icon-width: 30px;
 
 .name {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: bottom;
   letter-spacing: 0.01em;
+  line-height: 1em;
+  color: $gold;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-image: url('assets/textures/nav-texture-right.png');

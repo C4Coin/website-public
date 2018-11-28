@@ -65,3 +65,16 @@ and (min-width: $bp-tablet-small) {
     width: $active-menu-width - $border-width;
   }
 }
+
+@media screen and
+(max-height: $bp-tall) {
+  .logo {
+    margin-top: 4vh;
+    fill: $gold;
+    height: auto;
+  }
+
+  .logo-container {
+    flex-basis: 0;
+  }
+}
