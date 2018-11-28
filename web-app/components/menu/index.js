@@ -19,10 +19,13 @@ import s from './style/index.scss'
 import sVariables from './style/style.variables.scss'
 import appStyleVariables from 'style/style.variables.scss'
 
-const { $latentMenuWidth, $activeMenuWidth } = camelcase(sVariables.global)
+const { $latentMenuWidth, $activeMenuWidth, $bpTall } = camelcase(
+  sVariables.global
+)
 const { $bpTabletSmall } = camelcase(appStyleVariables.global)
 const latentWidth = parseInt($latentMenuWidth)
 const activeWidth = parseInt($activeMenuWidth)
+const bpTall = parseInt($bpTall)
 const mobileBreakpoint = parseInt($bpTabletSmall)
 
 const activationPoint = 70
@@ -42,6 +45,7 @@ class Menu extends React.Component {
 
     this.state = {
       active: false,
+      glued: false,
       refreshed: true,
       height: undefined,
       width: undefined,
@@ -53,9 +57,13 @@ class Menu extends React.Component {
     this.exitMenu = this.exitMenu.bind(this)
     this.closeMenu = this.closeMenu.bind(this)
     this.openMenu = this.openMenu.bind(this)
+    this.toggleGlued = this.toggleGlued.bind(this)
+
+    window.menu = this
   }
 
   exitMenu() {
+    if (this.state.glued) return
     this.setState({
       active: false,
       refreshed: true
@@ -63,13 +71,17 @@ class Menu extends React.Component {
   }
 
   closeMenu() {
-    this.setState({
-      active: false
-    })
+    if (this.state.glued) return
+    this.setState({ active: false })
   }
 
   openMenu() {
+    if (this.state.glued) return
     this.setState({ active: true })
+  }
+
+  toggleGlued() {
+    this.setState({ glued: !this.state.glued })
   }
 
   menuPullActivity({ offsetX: x, offsetY: y }) {
@@ -186,7 +198,10 @@ class Menu extends React.Component {
                 >
                   <div className={s['logo-container']}>
                     <Link to={coverUrl} onClick={this.closeMenu}>
-                      <Logo className={s['logo']} open={open} />
+                      <Logo
+                        className={s['logo']}
+                        open={open * height <= bpTall ? 0 : 1}
+                      />
                     </Link>
                   </div>
                   <Nav
