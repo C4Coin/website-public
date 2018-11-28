@@ -59,6 +59,7 @@ export default function ProgressIcon({
   const clipId = `progress-icon-${positionIndex}`
   const iconStyle = {
     ...style,
+    WebkitClipPath: `url(#${clipId})`,
     clipPath: `url(#${clipId})`
   }
 
